@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="450" viewBox="0 0 920 450" role="img">
+<title>Quality benchmark pass rates</title>
+<desc>Share of 100 final outputs with no remaining issue in each quality dimension</desc>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.title{font-size:22px;font-weight:700;fill:#111827}.sub{font-size:13px;fill:#6b7280}.axis{font-size:12px;fill:#6b7280}.label{font-size:13px;font-weight:600;fill:#111827}.value{font-size:14px;font-weight:700;fill:#1d4ed8}.grid{stroke:#e5e7eb;stroke-width:1}.track{fill:#eff6ff}.bar{fill:#2563eb}@media(prefers-color-scheme:dark){.title,.label{fill:#f3f4f6}.sub,.axis{fill:#9ca3af}.grid{stroke:#374151}.track{fill:#1f2937}.bar{fill:#60a5fa}.value{fill:#93c5fd}}</style>
+<text x="24" y="32" class="title">Quality benchmark pass rates</text>
+<text x="24" y="55" class="sub">Final outputs with no remaining issue in each quality dimension</text>
+<line x1="210.0" y1="82" x2="210.0" y2="362" class="grid"/>
+<text x="210.0" y="384" text-anchor="middle" class="axis">0%</text>
+<line x1="343.6" y1="82" x2="343.6" y2="362" class="grid"/>
+<text x="343.6" y="384" text-anchor="middle" class="axis">20%</text>
+<line x1="477.2" y1="82" x2="477.2" y2="362" class="grid"/>
+<text x="477.2" y="384" text-anchor="middle" class="axis">40%</text>
+<line x1="610.8" y1="82" x2="610.8" y2="362" class="grid"/>
+<text x="610.8" y="384" text-anchor="middle" class="axis">60%</text>
+<line x1="744.4" y1="82" x2="744.4" y2="362" class="grid"/>
+<text x="744.4" y="384" text-anchor="middle" class="axis">80%</text>
+<line x1="878.0" y1="82" x2="878.0" y2="362" class="grid"/>
+<text x="878.0" y="384" text-anchor="middle" class="axis">100%</text>
+<text x="196" y="111" text-anchor="end" class="label">Factual consistency</text>
+<rect x="210" y="92" width="668" height="28" rx="4" class="track"/>
+<rect x="210" y="92" width="547.8" height="28" rx="4" class="bar"/>
+<text x="747.8" y="111" text-anchor="end" class="value">82%</text>
+<text x="196" y="169" text-anchor="end" class="label">Completeness</text>
+<rect x="210" y="150" width="668" height="28" rx="4" class="track"/>
+<rect x="210" y="150" width="627.9" height="28" rx="4" class="bar"/>
+<text x="827.9" y="169" text-anchor="end" class="value">94%</text>
+<text x="196" y="227" text-anchor="end" class="label">Naturalness</text>
+<rect x="210" y="208" width="668" height="28" rx="4" class="track"/>
+<rect x="210" y="208" width="627.9" height="28" rx="4" class="bar"/>
+<text x="827.9" y="227" text-anchor="end" class="value">94%</text>
+<text x="196" y="285" text-anchor="end" class="label">Syntax integrity</text>
+<rect x="210" y="266" width="668" height="28" rx="4" class="track"/>
+<rect x="210" y="266" width="648.0" height="28" rx="4" class="bar"/>
+<text x="848.0" y="285" text-anchor="end" class="value">97%</text>
+<text x="196" y="343" text-anchor="end" class="label">Stance preservation</text>
+<rect x="210" y="324" width="668" height="28" rx="4" class="track"/>
+<rect x="210" y="324" width="654.6" height="28" rx="4" class="bar"/>
+<text x="854.6" y="343" text-anchor="end" class="value">98%</text>
+<text x="544.0" y="436" text-anchor="middle" class="axis">Pass rate</text>
+</svg>

@@ -1,0 +1,14 @@
+# Private benchmark material
+/private/
+*.numbers
+*.responses.jsonl
+*detector-input*.csv
+*raw*.csv
+
+# Credentials and local environments
+.env
+.env.*
+.venv/
+__pycache__/
+*.py[cod]
+.DS_Store

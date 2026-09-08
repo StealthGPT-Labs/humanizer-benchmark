@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.2",
+  "report_id": "2026-09-07-stealthgpt-super",
+  "benchmark_date": "2026-09-07",
+  "timezone": "America/New_York",
+  "sample": {
+    "size": 100,
+    "language": "English",
+    "selection": "Random production sample",
+    "humanizer": "StealthGPT Super",
+    "humanizer_version": "Latest available on the benchmark date",
+    "text_disclosure": "Source and final text are not published"
+  },
+  "human_score_scale": "0 to 1; 0 is AI and 1 is human",
+  "strict_bypass_definition": "Detector returned an overall human verdict; Mixed does not count",
+  "quality_benchmarks": {
+    "pass_definition": "No issue remained in the dimension after automated inspection, correction, and re-inspection",
+    "results": [
+      {
+        "benchmark": "Factual consistency",
+        "definition": "Key claims, numbers, citations, and named entities remain accurate and correctly attributed",
+        "pass_rate_percent": 82.0
+      },
+      {
+        "benchmark": "Completeness",
+        "definition": "Important ideas and data from the source are retained",
+        "pass_rate_percent": 94.0
+      },
+      {
+        "benchmark": "Naturalness",
+        "definition": "Wording is fluent and free of awkward or clunky phrasing",
+        "pass_rate_percent": 94.0
+      },
+      {
+        "benchmark": "Syntax integrity",
+        "definition": "Sentences are grammatically complete and free of disruptive run-ons or punctuation errors",
+        "pass_rate_percent": 97.0
+      },
+      {
+        "benchmark": "Stance preservation",
+        "definition": "The source's position, tone, and intent are not reversed or distorted",
+        "pass_rate_percent": 98.0
+      }
+    ]
+  },
+  "results": [
+    {
+      "detector": "Pangram",
+      "model_used": "v4",
+      "evaluated_outputs": 100,
+      "mean_human_score": 0.90382,
+      "mean_human_score_percent": 90.382,
+      "median_human_score": 1.0,
+      "median_human_score_percent": 100.0,
+      "strict_bypass_count": 89,
+      "strict_bypass_rate_percent": 89.0
+    },
+    {
+      "detector": "GPTZero",
+      "model_used": "latest",
+      "resolved_version": "2026-08-09-base",
+      "evaluated_outputs": 100,
+      "mean_human_score": 0.9685032326,
+      "mean_human_score_percent": 96.8503233,
+      "median_human_score": 0.999997615,
+      "median_human_score_percent": 99.9997615,
+      "strict_bypass_count": 97,
+      "strict_bypass_rate_percent": 97.0
+    },
+    {
+      "detector": "Winston AI",
+      "model_used": "latest",
+      "resolved_version": "4.18",
+      "evaluated_outputs": 100,
+      "mean_human_score": 0.918816,
+      "mean_human_score_percent": 91.8816,
+      "median_human_score": 1.0,
+      "median_human_score_percent": 100.0,
+      "strict_bypass_count": 92,
+      "strict_bypass_rate_percent": 92.0
+    },
+    {
+      "detector": "Originality.ai",
+      "model_used": "turbo",
+      "evaluated_outputs": 100,
+      "mean_human_score": 0.937142,
+      "mean_human_score_percent": 93.7142,
+      "median_human_score": 1.0,
+      "median_human_score_percent": 100.0,
+      "strict_bypass_count": 94,
+      "strict_bypass_rate_percent": 94.0
+    }
+  ]
+}
