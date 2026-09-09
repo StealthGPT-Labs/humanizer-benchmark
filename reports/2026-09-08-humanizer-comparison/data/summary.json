@@ -1,0 +1,311 @@
+{
+  "schema_version": "1.2",
+  "report_id": "2026-09-08-humanizer-comparison",
+  "benchmark_date": "2026-09-08",
+  "timezone": "America/New_York",
+  "sample": {
+    "size": 100,
+    "language": "English",
+    "selection": "Same source texts for every humanizer",
+    "humanizers": [
+      {
+        "id": "stealth",
+        "name": "StealthGPT Super",
+        "humanizer_version": "Super, qualityMode quality"
+      },
+      {
+        "id": "undetectableai",
+        "name": "Undetectable.ai",
+        "humanizer_version": "University / General Writing / More Human"
+      },
+      {
+        "id": "aihumanize",
+        "name": "AIHumanize",
+        "humanizer_version": "Latest available on the benchmark date"
+      },
+      {
+        "id": "ryne",
+        "name": "Ryne",
+        "humanizer_version": "Latest available on the benchmark date"
+      }
+    ],
+    "text_disclosure": "Source and final text are not published"
+  },
+  "human_score_scale": "0 to 1; 0 is AI and 1 is human",
+  "strict_bypass_definition": "Human score above 50 percent",
+  "quality_benchmarks": {
+    "pass_definition": "No issue found in the dimension on delivered output",
+    "results": [
+      {
+        "humanizer": "StealthGPT Super",
+        "benchmarks": [
+          {
+            "benchmark": "Factual consistency",
+            "definition": "Key claims, numbers, citations, and named entities remain accurate and correctly attributed",
+            "pass_rate_percent": 87.0
+          },
+          {
+            "benchmark": "Completeness",
+            "definition": "Important ideas and data from the source are retained",
+            "pass_rate_percent": 89.0
+          },
+          {
+            "benchmark": "Naturalness",
+            "definition": "Wording is fluent and free of awkward or clunky phrasing",
+            "pass_rate_percent": 94.0
+          },
+          {
+            "benchmark": "Syntax integrity",
+            "definition": "Sentences are grammatically complete and free of disruptive run-ons or punctuation errors",
+            "pass_rate_percent": 100.0
+          },
+          {
+            "benchmark": "Stance preservation",
+            "definition": "The source's position, tone, and intent are not reversed or distorted",
+            "pass_rate_percent": 98.0
+          }
+        ]
+      },
+      {
+        "humanizer": "Undetectable.ai",
+        "benchmarks": [
+          {
+            "benchmark": "Factual consistency",
+            "definition": "Key claims, numbers, citations, and named entities remain accurate and correctly attributed",
+            "pass_rate_percent": 65.0
+          },
+          {
+            "benchmark": "Completeness",
+            "definition": "Important ideas and data from the source are retained",
+            "pass_rate_percent": 79.0
+          },
+          {
+            "benchmark": "Naturalness",
+            "definition": "Wording is fluent and free of awkward or clunky phrasing",
+            "pass_rate_percent": 57.0
+          },
+          {
+            "benchmark": "Syntax integrity",
+            "definition": "Sentences are grammatically complete and free of disruptive run-ons or punctuation errors",
+            "pass_rate_percent": 96.0
+          },
+          {
+            "benchmark": "Stance preservation",
+            "definition": "The source's position, tone, and intent are not reversed or distorted",
+            "pass_rate_percent": 95.0
+          }
+        ]
+      },
+      {
+        "humanizer": "AIHumanize",
+        "benchmarks": [
+          {
+            "benchmark": "Factual consistency",
+            "definition": "Key claims, numbers, citations, and named entities remain accurate and correctly attributed",
+            "pass_rate_percent": 74.0
+          },
+          {
+            "benchmark": "Completeness",
+            "definition": "Important ideas and data from the source are retained",
+            "pass_rate_percent": 64.0
+          },
+          {
+            "benchmark": "Naturalness",
+            "definition": "Wording is fluent and free of awkward or clunky phrasing",
+            "pass_rate_percent": 56.0
+          },
+          {
+            "benchmark": "Syntax integrity",
+            "definition": "Sentences are grammatically complete and free of disruptive run-ons or punctuation errors",
+            "pass_rate_percent": 99.0
+          },
+          {
+            "benchmark": "Stance preservation",
+            "definition": "The source's position, tone, and intent are not reversed or distorted",
+            "pass_rate_percent": 94.0
+          }
+        ]
+      },
+      {
+        "humanizer": "Ryne",
+        "benchmarks": [
+          {
+            "benchmark": "Factual consistency",
+            "definition": "Key claims, numbers, citations, and named entities remain accurate and correctly attributed",
+            "pass_rate_percent": 50.0
+          },
+          {
+            "benchmark": "Completeness",
+            "definition": "Important ideas and data from the source are retained",
+            "pass_rate_percent": 95.0
+          },
+          {
+            "benchmark": "Naturalness",
+            "definition": "Wording is fluent and free of awkward or clunky phrasing",
+            "pass_rate_percent": 28.0
+          },
+          {
+            "benchmark": "Syntax integrity",
+            "definition": "Sentences are grammatically complete and free of disruptive run-ons or punctuation errors",
+            "pass_rate_percent": 99.0
+          },
+          {
+            "benchmark": "Stance preservation",
+            "definition": "The source's position, tone, and intent are not reversed or distorted",
+            "pass_rate_percent": 92.0
+          }
+        ]
+      }
+    ]
+  },
+  "results": [
+    {
+      "humanizer": "StealthGPT Super",
+      "detector": "Pangram",
+      "model_used": "v4",
+      "evaluated_outputs": 100,
+      "mean_human_score": 0.815618,
+      "mean_human_score_percent": 81.5618,
+      "median_human_score": 1.0,
+      "median_human_score_percent": 100.0,
+      "strict_bypass_count": 82,
+      "strict_bypass_rate_percent": 82.0
+    },
+    {
+      "humanizer": "StealthGPT Super",
+      "detector": "GPTZero",
+      "model_used": "latest",
+      "resolved_version": "2026-08-09-base",
+      "evaluated_outputs": 100,
+      "mean_human_score": 0.979898,
+      "mean_human_score_percent": 97.9898,
+      "median_human_score": 1.0,
+      "median_human_score_percent": 100.0,
+      "strict_bypass_count": 99,
+      "strict_bypass_rate_percent": 99.0
+    },
+    {
+      "humanizer": "StealthGPT Super",
+      "detector": "Originality.ai",
+      "model_used": "turbo",
+      "evaluated_outputs": 100,
+      "mean_human_score": 0.923199,
+      "mean_human_score_percent": 92.3199,
+      "median_human_score": 0.9999,
+      "median_human_score_percent": 99.99,
+      "strict_bypass_count": 93,
+      "strict_bypass_rate_percent": 93.0
+    },
+    {
+      "humanizer": "Undetectable.ai",
+      "detector": "Pangram",
+      "model_used": "v4",
+      "evaluated_outputs": 100,
+      "mean_human_score": 0.330051,
+      "mean_human_score_percent": 33.0051,
+      "median_human_score": 0.0,
+      "median_human_score_percent": 0.0,
+      "strict_bypass_count": 32,
+      "strict_bypass_rate_percent": 32.0
+    },
+    {
+      "humanizer": "Undetectable.ai",
+      "detector": "GPTZero",
+      "model_used": "latest",
+      "resolved_version": "2026-08-09-base",
+      "evaluated_outputs": 100,
+      "mean_human_score": 0.921962,
+      "mean_human_score_percent": 92.1962,
+      "median_human_score": 1.0,
+      "median_human_score_percent": 100.0,
+      "strict_bypass_count": 94,
+      "strict_bypass_rate_percent": 94.0
+    },
+    {
+      "humanizer": "Undetectable.ai",
+      "detector": "Originality.ai",
+      "model_used": "turbo",
+      "evaluated_outputs": 100,
+      "mean_human_score": 0.928045,
+      "mean_human_score_percent": 92.8045,
+      "median_human_score": 1.0,
+      "median_human_score_percent": 100.0,
+      "strict_bypass_count": 93,
+      "strict_bypass_rate_percent": 93.0
+    },
+    {
+      "humanizer": "AIHumanize",
+      "detector": "Pangram",
+      "model_used": "v4",
+      "evaluated_outputs": 100,
+      "mean_human_score": 0.08297,
+      "mean_human_score_percent": 8.297,
+      "median_human_score": 0.0,
+      "median_human_score_percent": 0.0,
+      "strict_bypass_count": 9,
+      "strict_bypass_rate_percent": 9.0
+    },
+    {
+      "humanizer": "AIHumanize",
+      "detector": "GPTZero",
+      "model_used": "latest",
+      "resolved_version": "2026-08-09-base",
+      "evaluated_outputs": 100,
+      "mean_human_score": 0.892193,
+      "mean_human_score_percent": 89.2193,
+      "median_human_score": 1.0,
+      "median_human_score_percent": 100.0,
+      "strict_bypass_count": 89,
+      "strict_bypass_rate_percent": 89.0
+    },
+    {
+      "humanizer": "AIHumanize",
+      "detector": "Originality.ai",
+      "model_used": "turbo",
+      "evaluated_outputs": 100,
+      "mean_human_score": 0.840182,
+      "mean_human_score_percent": 84.0182,
+      "median_human_score": 0.9972,
+      "median_human_score_percent": 99.72,
+      "strict_bypass_count": 82,
+      "strict_bypass_rate_percent": 82.0
+    },
+    {
+      "humanizer": "Ryne",
+      "detector": "Pangram",
+      "model_used": "v4",
+      "evaluated_outputs": 100,
+      "mean_human_score": 0.045855,
+      "mean_human_score_percent": 4.5855,
+      "median_human_score": 0.0,
+      "median_human_score_percent": 0.0,
+      "strict_bypass_count": 4,
+      "strict_bypass_rate_percent": 4.0
+    },
+    {
+      "humanizer": "Ryne",
+      "detector": "GPTZero",
+      "model_used": "latest",
+      "resolved_version": "2026-08-09-base",
+      "evaluated_outputs": 100,
+      "mean_human_score": 0.611321,
+      "mean_human_score_percent": 61.1321,
+      "median_human_score": 1.0,
+      "median_human_score_percent": 100.0,
+      "strict_bypass_count": 59,
+      "strict_bypass_rate_percent": 59.0
+    },
+    {
+      "humanizer": "Ryne",
+      "detector": "Originality.ai",
+      "model_used": "turbo",
+      "evaluated_outputs": 100,
+      "mean_human_score": 0.595148,
+      "mean_human_score_percent": 59.5148,
+      "median_human_score": 0.5674,
+      "median_human_score_percent": 56.74,
+      "strict_bypass_count": 56,
+      "strict_bypass_rate_percent": 56.0
+    }
+  ]
+}

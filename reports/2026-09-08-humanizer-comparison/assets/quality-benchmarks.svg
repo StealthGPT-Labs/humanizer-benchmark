@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="620" viewBox="0 0 920 620" role="img">
+<title>Quality benchmark pass rates</title>
+<desc>Share of 100 delivered outputs with no issue in each quality dimension</desc>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.title{font-size:22px;font-weight:700;fill:#111827}.sub{font-size:13px;fill:#6b7280}.axis{font-size:12px;fill:#6b7280}.label{font-size:13px;font-weight:600;fill:#111827}.legend{font-size:12px;fill:#111827}.value-stealth,.value-undetectable,.value-aihumanize,.value-ryne{font-size:12px;font-weight:700}.grid{stroke:#e5e7eb;stroke-width:1}.track{fill:#eff6ff}.bar-stealth{fill:#2563eb}.bar-undetectable{fill:#0f766e}.bar-aihumanize{fill:#6d28d9}.bar-ryne{fill:#9f1239}.value-stealth{fill:#1d4ed8}.value-undetectable{fill:#0f766e}.value-aihumanize{fill:#6d28d9}.value-ryne{fill:#9f1239}@media(prefers-color-scheme:dark){.title,.label,.legend{fill:#f3f4f6}.sub,.axis{fill:#9ca3af}.grid{stroke:#374151}.track{fill:#1f2937}.bar-stealth{fill:#60a5fa}.bar-undetectable{fill:#2dd4bf}.bar-aihumanize{fill:#c4b5fd}.bar-ryne{fill:#fb7185}.value-stealth{fill:#93c5fd}.value-undetectable{fill:#5eead4}.value-aihumanize{fill:#ddd6fe}.value-ryne{fill:#fda4af}}</style>
+<text x="24" y="32" class="title">Quality benchmark pass rates</text>
+<text x="24" y="55" class="sub">Delivered outputs with no issue in each quality dimension</text>
+<rect x="24" y="70" width="12" height="12" rx="2" class="bar-stealth"/>
+<text x="42" y="80" class="legend">StealthGPT Super</text>
+<rect x="179.2" y="70" width="12" height="12" rx="2" class="bar-undetectable"/>
+<text x="197.2" y="80" class="legend">Undetectable.ai</text>
+<rect x="327.2" y="70" width="12" height="12" rx="2" class="bar-aihumanize"/>
+<text x="345.2" y="80" class="legend">AIHumanize</text>
+<rect x="439.2" y="70" width="12" height="12" rx="2" class="bar-ryne"/>
+<text x="457.2" y="80" class="legend">Ryne</text>
+<line x1="210.0" y1="104" x2="210.0" y2="520" class="grid"/>
+<text x="210.0" y="542" text-anchor="middle" class="axis">0%</text>
+<line x1="343.6" y1="104" x2="343.6" y2="520" class="grid"/>
+<text x="343.6" y="542" text-anchor="middle" class="axis">20%</text>
+<line x1="477.2" y1="104" x2="477.2" y2="520" class="grid"/>
+<text x="477.2" y="542" text-anchor="middle" class="axis">40%</text>
+<line x1="610.8" y1="104" x2="610.8" y2="520" class="grid"/>
+<text x="610.8" y="542" text-anchor="middle" class="axis">60%</text>
+<line x1="744.4" y1="104" x2="744.4" y2="520" class="grid"/>
+<text x="744.4" y="542" text-anchor="middle" class="axis">80%</text>
+<line x1="878.0" y1="104" x2="878.0" y2="520" class="grid"/>
+<text x="878.0" y="542" text-anchor="middle" class="axis">100%</text>
+<text x="196" y="148.0" text-anchor="end" class="label">Factual consistency</text>
+<rect x="210" y="112" width="668" height="13" rx="3" class="track"/>
+<rect x="210" y="112" width="581.2" height="13" rx="3" class="bar-stealth"/>
+<text x="785.2" y="123.0" text-anchor="end" class="value-stealth">87%</text>
+<rect x="210" y="129" width="668" height="13" rx="3" class="track"/>
+<rect x="210" y="129" width="434.2" height="13" rx="3" class="bar-undetectable"/>
+<text x="638.2" y="140.0" text-anchor="end" class="value-undetectable">65%</text>
+<rect x="210" y="146" width="668" height="13" rx="3" class="track"/>
+<rect x="210" y="146" width="494.3" height="13" rx="3" class="bar-aihumanize"/>
+<text x="698.3" y="157.0" text-anchor="end" class="value-aihumanize">74%</text>
+<rect x="210" y="163" width="668" height="13" rx="3" class="track"/>
+<rect x="210" y="163" width="334.0" height="13" rx="3" class="bar-ryne"/>
+<text x="538.0" y="174.0" text-anchor="end" class="value-ryne">50%</text>
+<text x="196" y="232.0" text-anchor="end" class="label">Completeness</text>
+<rect x="210" y="196" width="668" height="13" rx="3" class="track"/>
+<rect x="210" y="196" width="594.5" height="13" rx="3" class="bar-stealth"/>
+<text x="798.5" y="207.0" text-anchor="end" class="value-stealth">89%</text>
+<rect x="210" y="213" width="668" height="13" rx="3" class="track"/>
+<rect x="210" y="213" width="527.7" height="13" rx="3" class="bar-undetectable"/>
+<text x="731.7" y="224.0" text-anchor="end" class="value-undetectable">79%</text>
+<rect x="210" y="230" width="668" height="13" rx="3" class="track"/>
+<rect x="210" y="230" width="427.5" height="13" rx="3" class="bar-aihumanize"/>
+<text x="631.5" y="241.0" text-anchor="end" class="value-aihumanize">64%</text>
+<rect x="210" y="247" width="668" height="13" rx="3" class="track"/>
+<rect x="210" y="247" width="634.6" height="13" rx="3" class="bar-ryne"/>
+<text x="838.6" y="258.0" text-anchor="end" class="value-ryne">95%</text>
+<text x="196" y="316.0" text-anchor="end" class="label">Naturalness</text>
+<rect x="210" y="280" width="668" height="13" rx="3" class="track"/>
+<rect x="210" y="280" width="627.9" height="13" rx="3" class="bar-stealth"/>
+<text x="831.9" y="291.0" text-anchor="end" class="value-stealth">94%</text>
+<rect x="210" y="297" width="668" height="13" rx="3" class="track"/>
+<rect x="210" y="297" width="380.8" height="13" rx="3" class="bar-undetectable"/>
+<text x="584.8" y="308.0" text-anchor="end" class="value-undetectable">57%</text>
+<rect x="210" y="314" width="668" height="13" rx="3" class="track"/>
+<rect x="210" y="314" width="374.1" height="13" rx="3" class="bar-aihumanize"/>
+<text x="578.1" y="325.0" text-anchor="end" class="value-aihumanize">56%</text>
+<rect x="210" y="331" width="668" height="13" rx="3" class="track"/>
+<rect x="210" y="331" width="187.0" height="13" rx="3" class="bar-ryne"/>
+<text x="391.0" y="342.0" text-anchor="end" class="value-ryne">28%</text>
+<text x="196" y="400.0" text-anchor="end" class="label">Syntax integrity</text>
+<rect x="210" y="364" width="668" height="13" rx="3" class="track"/>
+<rect x="210" y="364" width="668.0" height="13" rx="3" class="bar-stealth"/>
+<text x="872.0" y="375.0" text-anchor="end" class="value-stealth">100%</text>
+<rect x="210" y="381" width="668" height="13" rx="3" class="track"/>
+<rect x="210" y="381" width="641.3" height="13" rx="3" class="bar-undetectable"/>
+<text x="845.3" y="392.0" text-anchor="end" class="value-undetectable">96%</text>
+<rect x="210" y="398" width="668" height="13" rx="3" class="track"/>
+<rect x="210" y="398" width="661.3" height="13" rx="3" class="bar-aihumanize"/>
+<text x="865.3" y="409.0" text-anchor="end" class="value-aihumanize">99%</text>
+<rect x="210" y="415" width="668" height="13" rx="3" class="track"/>
+<rect x="210" y="415" width="661.3" height="13" rx="3" class="bar-ryne"/>
+<text x="865.3" y="426.0" text-anchor="end" class="value-ryne">99%</text>
+<text x="196" y="484.0" text-anchor="end" class="label">Stance preservation</text>
+<rect x="210" y="448" width="668" height="13" rx="3" class="track"/>
+<rect x="210" y="448" width="654.6" height="13" rx="3" class="bar-stealth"/>
+<text x="858.6" y="459.0" text-anchor="end" class="value-stealth">98%</text>
+<rect x="210" y="465" width="668" height="13" rx="3" class="track"/>
+<rect x="210" y="465" width="634.6" height="13" rx="3" class="bar-undetectable"/>
+<text x="838.6" y="476.0" text-anchor="end" class="value-undetectable">95%</text>
+<rect x="210" y="482" width="668" height="13" rx="3" class="track"/>
+<rect x="210" y="482" width="627.9" height="13" rx="3" class="bar-aihumanize"/>
+<text x="831.9" y="493.0" text-anchor="end" class="value-aihumanize">94%</text>
+<rect x="210" y="499" width="668" height="13" rx="3" class="track"/>
+<rect x="210" y="499" width="614.6" height="13" rx="3" class="bar-ryne"/>
+<text x="818.6" y="510.0" text-anchor="end" class="value-ryne">92%</text>
+<text x="544.0" y="596" text-anchor="middle" class="axis">Pass rate</text>
+</svg>

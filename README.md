@@ -45,6 +45,7 @@ A quality pass means no issue remained in that dimension after automated inspect
 
 ## Reports
 
+- [September 8, 2026 — Humanizer comparison](reports/2026-09-08-humanizer-comparison/)
 - [September 7, 2026 — StealthGPT Super](reports/2026-09-07-stealthgpt-super/)
 
 ## Published data

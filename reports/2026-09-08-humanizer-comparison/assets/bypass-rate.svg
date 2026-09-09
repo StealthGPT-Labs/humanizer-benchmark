@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="430" viewBox="0 0 920 430" role="img">
+<title>Strict bypass rate by detector</title>
+<desc>Share of 100 outputs with a human score above 50 percent</desc>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.title{font-size:22px;font-weight:700;fill:#111827}.sub{font-size:13px;fill:#6b7280}.axis{font-size:12px;fill:#6b7280}.label{font-size:13px;font-weight:600;fill:#111827}.legend{font-size:12px;fill:#111827}.value-stealth,.value-undetectable,.value-aihumanize,.value-ryne{font-size:14px;font-weight:700}.grid{stroke:#e5e7eb;stroke-width:1}.bar-stealth{fill:#2563eb}.bar-undetectable{fill:#0f766e}.bar-aihumanize{fill:#6d28d9}.bar-ryne{fill:#9f1239}.value-stealth{fill:#1d4ed8}.value-undetectable{fill:#0f766e}.value-aihumanize{fill:#6d28d9}.value-ryne{fill:#9f1239}@media(prefers-color-scheme:dark){.title,.label,.legend{fill:#f3f4f6}.sub,.axis{fill:#9ca3af}.grid{stroke:#374151}.bar-stealth{fill:#60a5fa}.bar-undetectable{fill:#2dd4bf}.bar-aihumanize{fill:#c4b5fd}.bar-ryne{fill:#fb7185}.value-stealth{fill:#93c5fd}.value-undetectable{fill:#5eead4}.value-aihumanize{fill:#ddd6fe}.value-ryne{fill:#fda4af}}</style>
+<text x="78" y="32" class="title">Strict bypass rate by detector</text>
+<text x="78" y="55" class="sub">Outputs with a human score above 50 percent</text>
+<rect x="78" y="70" width="12" height="12" rx="2" class="bar-stealth"/>
+<text x="96" y="80" class="legend">StealthGPT Super</text>
+<rect x="233.2" y="70" width="12" height="12" rx="2" class="bar-undetectable"/>
+<text x="251.2" y="80" class="legend">Undetectable.ai</text>
+<rect x="381.2" y="70" width="12" height="12" rx="2" class="bar-aihumanize"/>
+<text x="399.2" y="80" class="legend">AIHumanize</text>
+<rect x="493.2" y="70" width="12" height="12" rx="2" class="bar-ryne"/>
+<text x="511.2" y="80" class="legend">Ryne</text>
+<line x1="78" y1="338.0" x2="892" y2="338.0" class="grid"/>
+<text x="68" y="342.0" text-anchor="end" class="axis">0%</text>
+<line x1="78" y1="292.0" x2="892" y2="292.0" class="grid"/>
+<text x="68" y="296.0" text-anchor="end" class="axis">20%</text>
+<line x1="78" y1="246.0" x2="892" y2="246.0" class="grid"/>
+<text x="68" y="250.0" text-anchor="end" class="axis">40%</text>
+<line x1="78" y1="200.0" x2="892" y2="200.0" class="grid"/>
+<text x="68" y="204.0" text-anchor="end" class="axis">60%</text>
+<line x1="78" y1="154.0" x2="892" y2="154.0" class="grid"/>
+<text x="68" y="158.0" text-anchor="end" class="axis">80%</text>
+<line x1="78" y1="108.0" x2="892" y2="108.0" class="grid"/>
+<text x="68" y="112.0" text-anchor="end" class="axis">100%</text>
+<rect x="140.7" y="149.4" width="32" height="188.6" rx="4" class="bar-stealth"/>
+<text x="156.7" y="141.4" text-anchor="middle" class="value-stealth">82%</text>
+<rect x="178.7" y="264.4" width="32" height="73.6" rx="4" class="bar-undetectable"/>
+<text x="194.7" y="256.4" text-anchor="middle" class="value-undetectable">32%</text>
+<rect x="216.7" y="317.3" width="32" height="20.7" rx="4" class="bar-aihumanize"/>
+<text x="232.7" y="309.3" text-anchor="middle" class="value-aihumanize">9%</text>
+<rect x="254.7" y="328.8" width="32" height="9.2" rx="4" class="bar-ryne"/>
+<text x="270.7" y="320.8" text-anchor="middle" class="value-ryne">4%</text>
+<text x="213.7" y="367" text-anchor="middle" class="label">Pangram</text>
+<rect x="412.0" y="110.3" width="32" height="227.7" rx="4" class="bar-stealth"/>
+<text x="428.0" y="102.3" text-anchor="middle" class="value-stealth">99%</text>
+<rect x="450.0" y="121.8" width="32" height="216.2" rx="4" class="bar-undetectable"/>
+<text x="466.0" y="113.8" text-anchor="middle" class="value-undetectable">94%</text>
+<rect x="488.0" y="133.3" width="32" height="204.7" rx="4" class="bar-aihumanize"/>
+<text x="504.0" y="125.3" text-anchor="middle" class="value-aihumanize">89%</text>
+<rect x="526.0" y="202.3" width="32" height="135.7" rx="4" class="bar-ryne"/>
+<text x="542.0" y="194.3" text-anchor="middle" class="value-ryne">59%</text>
+<text x="485.0" y="367" text-anchor="middle" class="label">GPTZero</text>
+<rect x="683.3" y="124.1" width="32" height="213.9" rx="4" class="bar-stealth"/>
+<text x="699.3" y="116.1" text-anchor="middle" class="value-stealth">93%</text>
+<rect x="721.3" y="124.1" width="32" height="213.9" rx="4" class="bar-undetectable"/>
+<text x="737.3" y="116.1" text-anchor="middle" class="value-undetectable">93%</text>
+<rect x="759.3" y="149.4" width="32" height="188.6" rx="4" class="bar-aihumanize"/>
+<text x="775.3" y="141.4" text-anchor="middle" class="value-aihumanize">82%</text>
+<rect x="797.3" y="209.2" width="32" height="128.8" rx="4" class="bar-ryne"/>
+<text x="813.3" y="201.2" text-anchor="middle" class="value-ryne">56%</text>
+<text x="756.3" y="367" text-anchor="middle" class="label">Originality.ai</text>
+<text x="485.0" y="399" text-anchor="middle" class="axis">Detector</text>
+</svg>
