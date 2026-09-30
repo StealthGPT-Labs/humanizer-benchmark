@@ -10,6 +10,7 @@ Every output is evaluated through the APIs of:
 - [GPTZero](https://gptzero.me/)
 - [Winston AI](https://gowinston.ai/)
 - [Originality.ai](https://originality.ai/)
+- [ZeroGPT](https://www.zerogpt.com/)
 
 Each report records the API model setting used, such as `v4`, `latest`, or `turbo`. When a provider returns the version behind `latest`, that version is also recorded.
 
@@ -45,6 +46,7 @@ A quality pass means no issue remained in that dimension after automated inspect
 
 ## Reports
 
+- [September 30, 2026 — Humanizer comparison](reports/2026-09-30-humanizer-comparison/)
 - [September 8, 2026 — Humanizer comparison](reports/2026-09-08-humanizer-comparison/)
 - [September 7, 2026 — StealthGPT Super](reports/2026-09-07-stealthgpt-super/)
 

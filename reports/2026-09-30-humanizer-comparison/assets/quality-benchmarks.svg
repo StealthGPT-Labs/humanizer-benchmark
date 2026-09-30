@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="798" viewBox="0 0 920 798" role="img">
+<title>Quality benchmark pass rates</title>
+<desc>Delivered outputs with no issue in each quality dimension</desc>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.title{font-size:22px;font-weight:700;fill:#111827}.sub{font-size:13px;fill:#6b7280}.axis{font-size:12px;fill:#6b7280}.label{font-size:13px;font-weight:600;fill:#111827}.legend{font-size:12px;fill:#111827}.value{font-size:11px;font-weight:700}.grid{stroke:#e5e7eb;stroke-width:1}.track{fill:#f3f4f6}.bar-stealth{fill:#2563eb}.value-stealth{fill:#2563eb}.bar-rephrasy{fill:#0891b2}.value-rephrasy{fill:#0891b2}.bar-undetectableai{fill:#0f766e}.value-undetectableai{fill:#0f766e}.bar-ryne{fill:#9f1239}.value-ryne{fill:#9f1239}.bar-hix{fill:#a16207}.value-hix{fill:#a16207}.bar-humbot{fill:#4d7c0f}.value-humbot{fill:#4d7c0f}.bar-bypassgpt{fill:#c2410c}.value-bypassgpt{fill:#c2410c}.bar-writehuman{fill:#6d28d9}.value-writehuman{fill:#6d28d9}.bar-grubby{fill:#a21caf}.value-grubby{fill:#a21caf}.bar-rewriteai{fill:#475569}.value-rewriteai{fill:#475569}@media(prefers-color-scheme:dark){.title,.label,.legend{fill:#f3f4f6}.sub,.axis{fill:#9ca3af}.grid{stroke:#374151}.track{fill:#1f2937}.bar-stealth{fill:#60a5fa}.value-stealth{fill:#60a5fa}.bar-rephrasy{fill:#22d3ee}.value-rephrasy{fill:#22d3ee}.bar-undetectableai{fill:#2dd4bf}.value-undetectableai{fill:#2dd4bf}.bar-ryne{fill:#fb7185}.value-ryne{fill:#fb7185}.bar-hix{fill:#fde047}.value-hix{fill:#fde047}.bar-humbot{fill:#a3e635}.value-humbot{fill:#a3e635}.bar-bypassgpt{fill:#fdba74}.value-bypassgpt{fill:#fdba74}.bar-writehuman{fill:#c4b5fd}.value-writehuman{fill:#c4b5fd}.bar-grubby{fill:#f0abfc}.value-grubby{fill:#f0abfc}.bar-rewriteai{fill:#cbd5e1}.value-rewriteai{fill:#cbd5e1}}</style>
+<text x="24" y="32" class="title">Quality benchmark pass rates</text>
+<text x="24" y="55" class="sub">Delivered outputs with no issue in each quality dimension</text>
+<rect x="24" y="72" width="12" height="12" rx="2" class="bar-stealth"/>
+<text x="42" y="82" class="legend">StealthGPT Super</text>
+<rect x="200" y="72" width="12" height="12" rx="2" class="bar-rephrasy"/>
+<text x="218" y="82" class="legend">Rephrasy</text>
+<rect x="376" y="72" width="12" height="12" rx="2" class="bar-undetectableai"/>
+<text x="394" y="82" class="legend">Undetectable.ai</text>
+<rect x="552" y="72" width="12" height="12" rx="2" class="bar-ryne"/>
+<text x="570" y="82" class="legend">Ryne</text>
+<rect x="728" y="72" width="12" height="12" rx="2" class="bar-hix"/>
+<text x="746" y="82" class="legend">HIX Bypass</text>
+<rect x="24" y="94" width="12" height="12" rx="2" class="bar-humbot"/>
+<text x="42" y="104" class="legend">Humbot</text>
+<rect x="200" y="94" width="12" height="12" rx="2" class="bar-bypassgpt"/>
+<text x="218" y="104" class="legend">BypassGPT</text>
+<rect x="376" y="94" width="12" height="12" rx="2" class="bar-writehuman"/>
+<text x="394" y="104" class="legend">WriteHuman</text>
+<rect x="552" y="94" width="12" height="12" rx="2" class="bar-grubby"/>
+<text x="570" y="104" class="legend">Grubby</text>
+<rect x="728" y="94" width="12" height="12" rx="2" class="bar-rewriteai"/>
+<text x="746" y="104" class="legend">RewriteAI</text>
+<line x1="210.0" y1="122" x2="210.0" y2="736" class="grid"/>
+<text x="210.0" y="756" text-anchor="middle" class="axis">0%</text>
+<line x1="338.0" y1="122" x2="338.0" y2="736" class="grid"/>
+<text x="338.0" y="756" text-anchor="middle" class="axis">20%</text>
+<line x1="466.0" y1="122" x2="466.0" y2="736" class="grid"/>
+<text x="466.0" y="756" text-anchor="middle" class="axis">40%</text>
+<line x1="594.0" y1="122" x2="594.0" y2="736" class="grid"/>
+<text x="594.0" y="756" text-anchor="middle" class="axis">60%</text>
+<line x1="722.0" y1="122" x2="722.0" y2="736" class="grid"/>
+<text x="722.0" y="756" text-anchor="middle" class="axis">80%</text>
+<line x1="850.0" y1="122" x2="850.0" y2="736" class="grid"/>
+<text x="850.0" y="756" text-anchor="middle" class="axis">100%</text>
+<text x="196" y="197.5" text-anchor="end" class="label">Factual consistency</text>
+<rect x="210" y="130" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="130" width="435.2" height="10" rx="2" class="bar-stealth"/>
+<text x="651.2" y="139" class="value value-stealth">68%</text>
+<rect x="210" y="143" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="143" width="230.4" height="10" rx="2" class="bar-rephrasy"/>
+<text x="446.4" y="152" class="value value-rephrasy">36%</text>
+<rect x="210" y="156" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="156" width="166.4" height="10" rx="2" class="bar-undetectableai"/>
+<text x="382.4" y="165" class="value value-undetectableai">26%</text>
+<rect x="210" y="169" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="169" width="281.6" height="10" rx="2" class="bar-ryne"/>
+<text x="497.6" y="178" class="value value-ryne">44%</text>
+<rect x="210" y="182" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="182" width="115.2" height="10" rx="2" class="bar-hix"/>
+<text x="331.2" y="191" class="value value-hix">18%</text>
+<rect x="210" y="195" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="195" width="140.8" height="10" rx="2" class="bar-humbot"/>
+<text x="356.8" y="204" class="value value-humbot">22%</text>
+<rect x="210" y="208" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="208" width="140.8" height="10" rx="2" class="bar-bypassgpt"/>
+<text x="356.8" y="217" class="value value-bypassgpt">22%</text>
+<rect x="210" y="221" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="221" width="143.7" height="10" rx="2" class="bar-writehuman"/>
+<text x="359.7" y="230" class="value value-writehuman">22%</text>
+<rect x="210" y="234" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="234" width="460.8" height="10" rx="2" class="bar-grubby"/>
+<text x="676.8" y="243" class="value value-grubby">72%</text>
+<rect x="210" y="247" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="247" width="345.6" height="10" rx="2" class="bar-rewriteai"/>
+<text x="561.6" y="256" class="value value-rewriteai">54%</text>
+<text x="196" y="354.5" text-anchor="end" class="label">Naturalness</text>
+<rect x="210" y="287" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="287" width="460.8" height="10" rx="2" class="bar-stealth"/>
+<text x="676.8" y="296" class="value value-stealth">72%</text>
+<rect x="210" y="300" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="300" width="192.0" height="10" rx="2" class="bar-rephrasy"/>
+<text x="408.0" y="309" class="value value-rephrasy">30%</text>
+<rect x="210" y="313" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="313" width="179.2" height="10" rx="2" class="bar-undetectableai"/>
+<text x="395.2" y="322" class="value value-undetectableai">28%</text>
+<rect x="210" y="326" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="326" width="512.0" height="10" rx="2" class="bar-ryne"/>
+<text x="728.0" y="335" class="value value-ryne">80%</text>
+<rect x="210" y="339" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="339" width="38.4" height="10" rx="2" class="bar-hix"/>
+<text x="254.4" y="348" class="value value-hix">6%</text>
+<rect x="210" y="352" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="352" width="0.0" height="10" rx="2" class="bar-humbot"/>
+<text x="216.0" y="361" class="value value-humbot">0%</text>
+<rect x="210" y="365" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="365" width="12.8" height="10" rx="2" class="bar-bypassgpt"/>
+<text x="228.8" y="374" class="value value-bypassgpt">2%</text>
+<rect x="210" y="378" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="378" width="313.5" height="10" rx="2" class="bar-writehuman"/>
+<text x="529.5" y="387" class="value value-writehuman">49%</text>
+<rect x="210" y="391" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="391" width="294.4" height="10" rx="2" class="bar-grubby"/>
+<text x="510.4" y="400" class="value value-grubby">46%</text>
+<rect x="210" y="404" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="404" width="256.0" height="10" rx="2" class="bar-rewriteai"/>
+<text x="472.0" y="413" class="value value-rewriteai">40%</text>
+<text x="196" y="511.5" text-anchor="end" class="label">Syntax integrity</text>
+<rect x="210" y="444" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="444" width="627.2" height="10" rx="2" class="bar-stealth"/>
+<text x="843.2" y="453" class="value value-stealth">98%</text>
+<rect x="210" y="457" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="457" width="588.8" height="10" rx="2" class="bar-rephrasy"/>
+<text x="804.8" y="466" class="value value-rephrasy">92%</text>
+<rect x="210" y="470" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="470" width="601.6" height="10" rx="2" class="bar-undetectableai"/>
+<text x="817.6" y="479" class="value value-undetectableai">94%</text>
+<rect x="210" y="483" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="483" width="627.2" height="10" rx="2" class="bar-ryne"/>
+<text x="843.2" y="492" class="value value-ryne">98%</text>
+<rect x="210" y="496" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="496" width="614.4" height="10" rx="2" class="bar-hix"/>
+<text x="830.4" y="505" class="value value-hix">96%</text>
+<rect x="210" y="509" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="509" width="627.2" height="10" rx="2" class="bar-humbot"/>
+<text x="843.2" y="518" class="value value-humbot">98%</text>
+<rect x="210" y="522" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="522" width="601.6" height="10" rx="2" class="bar-bypassgpt"/>
+<text x="817.6" y="531" class="value value-bypassgpt">94%</text>
+<rect x="210" y="535" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="535" width="626.9" height="10" rx="2" class="bar-writehuman"/>
+<text x="842.9" y="544" class="value value-writehuman">98%</text>
+<rect x="210" y="548" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="548" width="627.2" height="10" rx="2" class="bar-grubby"/>
+<text x="843.2" y="557" class="value value-grubby">98%</text>
+<rect x="210" y="561" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="561" width="640.0" height="10" rx="2" class="bar-rewriteai"/>
+<text x="856.0" y="570" class="value value-rewriteai">100%</text>
+<text x="196" y="668.5" text-anchor="end" class="label">Stance preservation</text>
+<rect x="210" y="601" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="601" width="614.4" height="10" rx="2" class="bar-stealth"/>
+<text x="830.4" y="610" class="value value-stealth">96%</text>
+<rect x="210" y="614" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="614" width="384.0" height="10" rx="2" class="bar-rephrasy"/>
+<text x="600.0" y="623" class="value value-rephrasy">60%</text>
+<rect x="210" y="627" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="627" width="499.2" height="10" rx="2" class="bar-undetectableai"/>
+<text x="715.2" y="636" class="value value-undetectableai">78%</text>
+<rect x="210" y="640" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="640" width="601.6" height="10" rx="2" class="bar-ryne"/>
+<text x="817.6" y="649" class="value value-ryne">94%</text>
+<rect x="210" y="653" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="653" width="422.4" height="10" rx="2" class="bar-hix"/>
+<text x="638.4" y="662" class="value value-hix">66%</text>
+<rect x="210" y="666" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="666" width="448.0" height="10" rx="2" class="bar-humbot"/>
+<text x="664.0" y="675" class="value value-humbot">70%</text>
+<rect x="210" y="679" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="679" width="499.2" height="10" rx="2" class="bar-bypassgpt"/>
+<text x="715.2" y="688" class="value value-bypassgpt">78%</text>
+<rect x="210" y="692" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="692" width="418.0" height="10" rx="2" class="bar-writehuman"/>
+<text x="634.0" y="701" class="value value-writehuman">65%</text>
+<rect x="210" y="705" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="705" width="601.6" height="10" rx="2" class="bar-grubby"/>
+<text x="817.6" y="714" class="value value-grubby">94%</text>
+<rect x="210" y="718" width="640" height="10" rx="2" class="track"/>
+<rect x="210" y="718" width="601.6" height="10" rx="2" class="bar-rewriteai"/>
+<text x="817.6" y="727" class="value value-rewriteai">94%</text>
+<text x="530" y="784" text-anchor="middle" class="axis">Pass rate</text>
+</svg>
