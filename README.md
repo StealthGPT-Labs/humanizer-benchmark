@@ -12,7 +12,7 @@ Every output is evaluated through the APIs of:
 - [Originality.ai](https://originality.ai/)
 - [ZeroGPT](https://www.zerogpt.com/)
 
-Each report records the API model setting used, such as `v4`, `latest`, or `turbo`. When a provider returns the version behind `latest`, that version is also recorded.
+Each report records the API model setting used, such as `v4`, `latest`, `turbo`, or `model-5.0`. When a provider returns the version behind `latest`, that version is also recorded.
 
 ## Detector metrics
 
@@ -46,12 +46,13 @@ A quality pass means no issue remained in that dimension after automated inspect
 
 ## Reports
 
+- [October 22, 2026 — Humanizer comparison](reports/2026-10-22-humanizer-comparison/)
 - [September 30, 2026 — Humanizer comparison](reports/2026-09-30-humanizer-comparison/)
 - [September 8, 2026 — Humanizer comparison](reports/2026-09-08-humanizer-comparison/)
 - [September 7, 2026 — StealthGPT Super](reports/2026-09-07-stealthgpt-super/)
 
 ## Published data
 
-Each report includes anonymized detector scores, aggregates, model versions, and quality benchmark results.
+Each report includes anonymized detector scores, aggregates, model versions, and quality benchmark results. Starting with the October 22, 2026 report, the synthetic source texts are also published, along with the prompt and model that produced each one, so anyone can rerun the inputs independently.
 
-Source text, output text, internal IDs, raw API responses, and internal quality-test logic are withheld. Text-score pairs are excluded to prevent adversarial reuse.
+Humanized output text, internal IDs, raw API responses, and internal quality-test logic are withheld. Output text and score pairs are excluded to prevent adversarial reuse.

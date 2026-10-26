@@ -1,0 +1,1585 @@
+{
+  "schema_version": "1.3",
+  "report_id": "2026-10-22-humanizer-comparison",
+  "benchmark_date": "2026-10-22",
+  "timezone": "America/New_York",
+  "sample": {
+    "size": 50,
+    "language": "English",
+    "source": "Synthetic texts written by AI models for this benchmark",
+    "source_models": [
+      "GPT-6.1 Sol (10)",
+      "Claude Sonnet 5.5 (10)",
+      "Gemini 4 Argon (10)",
+      "Grok 4.7 (10)",
+      "DeepSeek V4.1 Flash (10)"
+    ],
+    "selection": "Same source texts for every humanizer",
+    "humanizers": [
+      {
+        "id": "stealth",
+        "name": "StealthGPT",
+        "humanizer_version": "Super, quality mode, API"
+      },
+      {
+        "id": "phrasly",
+        "name": "Phrasly",
+        "humanizer_version": "Standard model, API default (Phrasly Ultra not enabled on the account)"
+      },
+      {
+        "id": "rephrasy",
+        "name": "Rephrasy",
+        "humanizer_version": "v4"
+      },
+      {
+        "id": "undetectableai",
+        "name": "Undetectable.ai",
+        "humanizer_version": "University / General Writing / More Human, v11sr"
+      },
+      {
+        "id": "ryne",
+        "name": "Ryne",
+        "humanizer_version": "Aggressive, beast mode"
+      },
+      {
+        "id": "hix",
+        "name": "HIX Bypass",
+        "humanizer_version": "Latest"
+      },
+      {
+        "id": "humbot",
+        "name": "Humbot",
+        "humanizer_version": "Advanced"
+      },
+      {
+        "id": "bypassgpt",
+        "name": "BypassGPT",
+        "humanizer_version": "Enhanced"
+      },
+      {
+        "id": "writehuman",
+        "name": "WriteHuman",
+        "humanizer_version": "API default"
+      },
+      {
+        "id": "grubby",
+        "name": "Grubby",
+        "humanizer_version": "Academic"
+      },
+      {
+        "id": "rewriteai",
+        "name": "RewriteAI",
+        "humanizer_version": "API default, passages of up to 280 words (300-word API limit)"
+      }
+    ],
+    "text_disclosure": "Source texts are published in data/source-texts.csv; humanized outputs are not"
+  },
+  "human_score_scale": "0 to 1; 0 is AI and 1 is human",
+  "strict_bypass_definition": "Human score above 50 percent",
+  "quality_benchmarks": {
+    "pass_definition": "No issue found in the dimension on delivered output",
+    "results": [
+      {
+        "humanizer": "StealthGPT",
+        "benchmarks": [
+          {
+            "benchmark": "Factual consistency",
+            "definition": "Key claims, numbers, citations, and named entities remain accurate and correctly attributed",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 68.0
+          },
+          {
+            "benchmark": "Naturalness",
+            "definition": "Wording is fluent and free of awkward or clunky phrasing",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 82.0
+          },
+          {
+            "benchmark": "Syntax integrity",
+            "definition": "Sentences are grammatically complete and free of disruptive run-ons or punctuation errors",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 98.0
+          },
+          {
+            "benchmark": "Stance preservation",
+            "definition": "The source's position, tone, and intent are not reversed or distorted",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 86.0
+          }
+        ]
+      },
+      {
+        "humanizer": "Phrasly",
+        "benchmarks": [
+          {
+            "benchmark": "Factual consistency",
+            "definition": "Key claims, numbers, citations, and named entities remain accurate and correctly attributed",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 50.0
+          },
+          {
+            "benchmark": "Naturalness",
+            "definition": "Wording is fluent and free of awkward or clunky phrasing",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 70.0
+          },
+          {
+            "benchmark": "Syntax integrity",
+            "definition": "Sentences are grammatically complete and free of disruptive run-ons or punctuation errors",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 98.0
+          },
+          {
+            "benchmark": "Stance preservation",
+            "definition": "The source's position, tone, and intent are not reversed or distorted",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 84.0
+          }
+        ]
+      },
+      {
+        "humanizer": "Rephrasy",
+        "benchmarks": [
+          {
+            "benchmark": "Factual consistency",
+            "definition": "Key claims, numbers, citations, and named entities remain accurate and correctly attributed",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 32.0
+          },
+          {
+            "benchmark": "Naturalness",
+            "definition": "Wording is fluent and free of awkward or clunky phrasing",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 44.0
+          },
+          {
+            "benchmark": "Syntax integrity",
+            "definition": "Sentences are grammatically complete and free of disruptive run-ons or punctuation errors",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 98.0
+          },
+          {
+            "benchmark": "Stance preservation",
+            "definition": "The source's position, tone, and intent are not reversed or distorted",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 62.0
+          }
+        ]
+      },
+      {
+        "humanizer": "Undetectable.ai",
+        "benchmarks": [
+          {
+            "benchmark": "Factual consistency",
+            "definition": "Key claims, numbers, citations, and named entities remain accurate and correctly attributed",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 32.0
+          },
+          {
+            "benchmark": "Naturalness",
+            "definition": "Wording is fluent and free of awkward or clunky phrasing",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 28.0
+          },
+          {
+            "benchmark": "Syntax integrity",
+            "definition": "Sentences are grammatically complete and free of disruptive run-ons or punctuation errors",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 90.0
+          },
+          {
+            "benchmark": "Stance preservation",
+            "definition": "The source's position, tone, and intent are not reversed or distorted",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 60.0
+          }
+        ]
+      },
+      {
+        "humanizer": "Ryne",
+        "benchmarks": [
+          {
+            "benchmark": "Factual consistency",
+            "definition": "Key claims, numbers, citations, and named entities remain accurate and correctly attributed",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 64.0
+          },
+          {
+            "benchmark": "Naturalness",
+            "definition": "Wording is fluent and free of awkward or clunky phrasing",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 92.0
+          },
+          {
+            "benchmark": "Syntax integrity",
+            "definition": "Sentences are grammatically complete and free of disruptive run-ons or punctuation errors",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 100.0
+          },
+          {
+            "benchmark": "Stance preservation",
+            "definition": "The source's position, tone, and intent are not reversed or distorted",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 94.0
+          }
+        ]
+      },
+      {
+        "humanizer": "HIX Bypass",
+        "benchmarks": [
+          {
+            "benchmark": "Factual consistency",
+            "definition": "Key claims, numbers, citations, and named entities remain accurate and correctly attributed",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 22.0
+          },
+          {
+            "benchmark": "Naturalness",
+            "definition": "Wording is fluent and free of awkward or clunky phrasing",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 6.0
+          },
+          {
+            "benchmark": "Syntax integrity",
+            "definition": "Sentences are grammatically complete and free of disruptive run-ons or punctuation errors",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 98.0
+          },
+          {
+            "benchmark": "Stance preservation",
+            "definition": "The source's position, tone, and intent are not reversed or distorted",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 66.0
+          }
+        ]
+      },
+      {
+        "humanizer": "Humbot",
+        "benchmarks": [
+          {
+            "benchmark": "Factual consistency",
+            "definition": "Key claims, numbers, citations, and named entities remain accurate and correctly attributed",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 30.0
+          },
+          {
+            "benchmark": "Naturalness",
+            "definition": "Wording is fluent and free of awkward or clunky phrasing",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 6.0
+          },
+          {
+            "benchmark": "Syntax integrity",
+            "definition": "Sentences are grammatically complete and free of disruptive run-ons or punctuation errors",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 100.0
+          },
+          {
+            "benchmark": "Stance preservation",
+            "definition": "The source's position, tone, and intent are not reversed or distorted",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 72.0
+          }
+        ]
+      },
+      {
+        "humanizer": "BypassGPT",
+        "benchmarks": [
+          {
+            "benchmark": "Factual consistency",
+            "definition": "Key claims, numbers, citations, and named entities remain accurate and correctly attributed",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 24.0
+          },
+          {
+            "benchmark": "Naturalness",
+            "definition": "Wording is fluent and free of awkward or clunky phrasing",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 0.0
+          },
+          {
+            "benchmark": "Syntax integrity",
+            "definition": "Sentences are grammatically complete and free of disruptive run-ons or punctuation errors",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 100.0
+          },
+          {
+            "benchmark": "Stance preservation",
+            "definition": "The source's position, tone, and intent are not reversed or distorted",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 66.0
+          }
+        ]
+      },
+      {
+        "humanizer": "WriteHuman",
+        "benchmarks": [
+          {
+            "benchmark": "Factual consistency",
+            "definition": "Key claims, numbers, citations, and named entities remain accurate and correctly attributed",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 38.0
+          },
+          {
+            "benchmark": "Naturalness",
+            "definition": "Wording is fluent and free of awkward or clunky phrasing",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 50.0
+          },
+          {
+            "benchmark": "Syntax integrity",
+            "definition": "Sentences are grammatically complete and free of disruptive run-ons or punctuation errors",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 98.0
+          },
+          {
+            "benchmark": "Stance preservation",
+            "definition": "The source's position, tone, and intent are not reversed or distorted",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 50.0
+          }
+        ]
+      },
+      {
+        "humanizer": "Grubby",
+        "benchmarks": [
+          {
+            "benchmark": "Factual consistency",
+            "definition": "Key claims, numbers, citations, and named entities remain accurate and correctly attributed",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 76.0
+          },
+          {
+            "benchmark": "Naturalness",
+            "definition": "Wording is fluent and free of awkward or clunky phrasing",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 64.0
+          },
+          {
+            "benchmark": "Syntax integrity",
+            "definition": "Sentences are grammatically complete and free of disruptive run-ons or punctuation errors",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 100.0
+          },
+          {
+            "benchmark": "Stance preservation",
+            "definition": "The source's position, tone, and intent are not reversed or distorted",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 78.0
+          }
+        ]
+      },
+      {
+        "humanizer": "RewriteAI",
+        "benchmarks": [
+          {
+            "benchmark": "Factual consistency",
+            "definition": "Key claims, numbers, citations, and named entities remain accurate and correctly attributed",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 40.0
+          },
+          {
+            "benchmark": "Naturalness",
+            "definition": "Wording is fluent and free of awkward or clunky phrasing",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 52.0
+          },
+          {
+            "benchmark": "Syntax integrity",
+            "definition": "Sentences are grammatically complete and free of disruptive run-ons or punctuation errors",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 100.0
+          },
+          {
+            "benchmark": "Stance preservation",
+            "definition": "The source's position, tone, and intent are not reversed or distorted",
+            "evaluated_outputs": 50,
+            "pass_rate_percent": 78.0
+          }
+        ]
+      }
+    ]
+  },
+  "results": [
+    {
+      "humanizer": "StealthGPT",
+      "detector": "Pangram",
+      "model_used": "v4",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.890478,
+      "mean_human_score_percent": 89.0478,
+      "median_human_score": 1.0,
+      "median_human_score_percent": 100.0,
+      "strict_bypass_count": 44,
+      "strict_bypass_rate_percent": 88.0,
+      "resolved_version": "4.1"
+    },
+    {
+      "humanizer": "StealthGPT",
+      "detector": "GPTZero",
+      "model_used": "latest",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.929566,
+      "mean_human_score_percent": 92.9566,
+      "median_human_score": 1.0,
+      "median_human_score_percent": 100.0,
+      "strict_bypass_count": 46,
+      "strict_bypass_rate_percent": 92.0,
+      "resolved_version": "2026-10-07-base"
+    },
+    {
+      "humanizer": "StealthGPT",
+      "detector": "Originality.ai Turbo",
+      "model_used": "turbo",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.892736,
+      "mean_human_score_percent": 89.2736,
+      "median_human_score": 0.99945,
+      "median_human_score_percent": 99.945,
+      "strict_bypass_count": 46,
+      "strict_bypass_rate_percent": 92.0,
+      "resolved_version": "turbo"
+    },
+    {
+      "humanizer": "StealthGPT",
+      "detector": "Originality.ai 5.0",
+      "model_used": "model-5.0",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.3866,
+      "mean_human_score_percent": 38.66,
+      "median_human_score": 0.12,
+      "median_human_score_percent": 12.0,
+      "strict_bypass_count": 17,
+      "strict_bypass_rate_percent": 34.0,
+      "resolved_version": "model-5.0"
+    },
+    {
+      "humanizer": "StealthGPT",
+      "detector": "ZeroGPT",
+      "model_used": "default",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.70748,
+      "mean_human_score_percent": 70.748,
+      "median_human_score": 0.7565,
+      "median_human_score_percent": 75.65,
+      "strict_bypass_count": 42,
+      "strict_bypass_rate_percent": 84.0
+    },
+    {
+      "humanizer": "StealthGPT",
+      "detector": "Winston AI",
+      "model_used": "latest",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.903616,
+      "mean_human_score_percent": 90.3616,
+      "median_human_score": 0.9973,
+      "median_human_score_percent": 99.73,
+      "strict_bypass_count": 46,
+      "strict_bypass_rate_percent": 92.0,
+      "resolved_version": "5.0"
+    },
+    {
+      "humanizer": "Phrasly",
+      "detector": "Pangram",
+      "model_used": "v4",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.055142,
+      "mean_human_score_percent": 5.5142,
+      "median_human_score": 0.0,
+      "median_human_score_percent": 0.0,
+      "strict_bypass_count": 2,
+      "strict_bypass_rate_percent": 4.0,
+      "resolved_version": "4.1"
+    },
+    {
+      "humanizer": "Phrasly",
+      "detector": "GPTZero",
+      "model_used": "latest",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.452158,
+      "mean_human_score_percent": 45.2158,
+      "median_human_score": 0.4474,
+      "median_human_score_percent": 44.74,
+      "strict_bypass_count": 22,
+      "strict_bypass_rate_percent": 44.0,
+      "resolved_version": "2026-10-07-base"
+    },
+    {
+      "humanizer": "Phrasly",
+      "detector": "Originality.ai Turbo",
+      "model_used": "turbo",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.668262,
+      "mean_human_score_percent": 66.8262,
+      "median_human_score": 0.7098,
+      "median_human_score_percent": 70.98,
+      "strict_bypass_count": 36,
+      "strict_bypass_rate_percent": 72.0,
+      "resolved_version": "turbo"
+    },
+    {
+      "humanizer": "Phrasly",
+      "detector": "Originality.ai 5.0",
+      "model_used": "model-5.0",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.0936,
+      "mean_human_score_percent": 9.36,
+      "median_human_score": 0.08,
+      "median_human_score_percent": 8.0,
+      "strict_bypass_count": 0,
+      "strict_bypass_rate_percent": 0.0,
+      "resolved_version": "model-5.0"
+    },
+    {
+      "humanizer": "Phrasly",
+      "detector": "ZeroGPT",
+      "model_used": "default",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.6964,
+      "mean_human_score_percent": 69.64,
+      "median_human_score": 0.764,
+      "median_human_score_percent": 76.4,
+      "strict_bypass_count": 41,
+      "strict_bypass_rate_percent": 82.0
+    },
+    {
+      "humanizer": "Phrasly",
+      "detector": "Winston AI",
+      "model_used": "latest",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.87709,
+      "mean_human_score_percent": 87.709,
+      "median_human_score": 0.99535,
+      "median_human_score_percent": 99.535,
+      "strict_bypass_count": 45,
+      "strict_bypass_rate_percent": 90.0,
+      "resolved_version": "5.0"
+    },
+    {
+      "humanizer": "Rephrasy",
+      "detector": "Pangram",
+      "model_used": "v4",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.276996,
+      "mean_human_score_percent": 27.6996,
+      "median_human_score": 0.0092,
+      "median_human_score_percent": 0.92,
+      "strict_bypass_count": 13,
+      "strict_bypass_rate_percent": 26.0,
+      "resolved_version": "4.1"
+    },
+    {
+      "humanizer": "Rephrasy",
+      "detector": "GPTZero",
+      "model_used": "latest",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.731834,
+      "mean_human_score_percent": 73.1834,
+      "median_human_score": 1.0,
+      "median_human_score_percent": 100.0,
+      "strict_bypass_count": 35,
+      "strict_bypass_rate_percent": 70.0,
+      "resolved_version": "2026-10-07-base"
+    },
+    {
+      "humanizer": "Rephrasy",
+      "detector": "Originality.ai Turbo",
+      "model_used": "turbo",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.769132,
+      "mean_human_score_percent": 76.9132,
+      "median_human_score": 0.83665,
+      "median_human_score_percent": 83.665,
+      "strict_bypass_count": 43,
+      "strict_bypass_rate_percent": 86.0,
+      "resolved_version": "turbo"
+    },
+    {
+      "humanizer": "Rephrasy",
+      "detector": "Originality.ai 5.0",
+      "model_used": "model-5.0",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.194,
+      "mean_human_score_percent": 19.4,
+      "median_human_score": 0.135,
+      "median_human_score_percent": 13.5,
+      "strict_bypass_count": 0,
+      "strict_bypass_rate_percent": 0.0,
+      "resolved_version": "model-5.0"
+    },
+    {
+      "humanizer": "Rephrasy",
+      "detector": "ZeroGPT",
+      "model_used": "default",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.83718,
+      "mean_human_score_percent": 83.718,
+      "median_human_score": 0.8965,
+      "median_human_score_percent": 89.65,
+      "strict_bypass_count": 46,
+      "strict_bypass_rate_percent": 92.0
+    },
+    {
+      "humanizer": "Rephrasy",
+      "detector": "Winston AI",
+      "model_used": "latest",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.984338,
+      "mean_human_score_percent": 98.4338,
+      "median_human_score": 0.9971,
+      "median_human_score_percent": 99.71,
+      "strict_bypass_count": 50,
+      "strict_bypass_rate_percent": 100.0,
+      "resolved_version": "5.0"
+    },
+    {
+      "humanizer": "Undetectable.ai",
+      "detector": "Pangram",
+      "model_used": "v4",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.3811,
+      "mean_human_score_percent": 38.11,
+      "median_human_score": 0.34275,
+      "median_human_score_percent": 34.275,
+      "strict_bypass_count": 20,
+      "strict_bypass_rate_percent": 40.0,
+      "resolved_version": "4.1"
+    },
+    {
+      "humanizer": "Undetectable.ai",
+      "detector": "GPTZero",
+      "model_used": "latest",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.848464,
+      "mean_human_score_percent": 84.8464,
+      "median_human_score": 1.0,
+      "median_human_score_percent": 100.0,
+      "strict_bypass_count": 43,
+      "strict_bypass_rate_percent": 86.0,
+      "resolved_version": "2026-10-07-base"
+    },
+    {
+      "humanizer": "Undetectable.ai",
+      "detector": "Originality.ai Turbo",
+      "model_used": "turbo",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.954942,
+      "mean_human_score_percent": 95.4942,
+      "median_human_score": 0.9999,
+      "median_human_score_percent": 99.99,
+      "strict_bypass_count": 49,
+      "strict_bypass_rate_percent": 98.0,
+      "resolved_version": "turbo"
+    },
+    {
+      "humanizer": "Undetectable.ai",
+      "detector": "Originality.ai 5.0",
+      "model_used": "model-5.0",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.1722,
+      "mean_human_score_percent": 17.22,
+      "median_human_score": 0.1,
+      "median_human_score_percent": 10.0,
+      "strict_bypass_count": 2,
+      "strict_bypass_rate_percent": 4.0,
+      "resolved_version": "model-5.0"
+    },
+    {
+      "humanizer": "Undetectable.ai",
+      "detector": "ZeroGPT",
+      "model_used": "default",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.90166,
+      "mean_human_score_percent": 90.166,
+      "median_human_score": 0.9415,
+      "median_human_score_percent": 94.15,
+      "strict_bypass_count": 50,
+      "strict_bypass_rate_percent": 100.0
+    },
+    {
+      "humanizer": "Undetectable.ai",
+      "detector": "Winston AI",
+      "model_used": "latest",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.985414,
+      "mean_human_score_percent": 98.5414,
+      "median_human_score": 0.9987,
+      "median_human_score_percent": 99.87,
+      "strict_bypass_count": 50,
+      "strict_bypass_rate_percent": 100.0,
+      "resolved_version": "5.0"
+    },
+    {
+      "humanizer": "Ryne",
+      "detector": "Pangram",
+      "model_used": "v4",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.012332,
+      "mean_human_score_percent": 1.2332,
+      "median_human_score": 0.0,
+      "median_human_score_percent": 0.0,
+      "strict_bypass_count": 0,
+      "strict_bypass_rate_percent": 0.0,
+      "resolved_version": "4.1"
+    },
+    {
+      "humanizer": "Ryne",
+      "detector": "GPTZero",
+      "model_used": "latest",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.0,
+      "mean_human_score_percent": 0.0,
+      "median_human_score": 0.0,
+      "median_human_score_percent": 0.0,
+      "strict_bypass_count": 0,
+      "strict_bypass_rate_percent": 0.0,
+      "resolved_version": "2026-10-07-base"
+    },
+    {
+      "humanizer": "Ryne",
+      "detector": "Originality.ai Turbo",
+      "model_used": "turbo",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.002834,
+      "mean_human_score_percent": 0.2834,
+      "median_human_score": 0.0003,
+      "median_human_score_percent": 0.03,
+      "strict_bypass_count": 0,
+      "strict_bypass_rate_percent": 0.0,
+      "resolved_version": "turbo"
+    },
+    {
+      "humanizer": "Ryne",
+      "detector": "Originality.ai 5.0",
+      "model_used": "model-5.0",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.0416,
+      "mean_human_score_percent": 4.16,
+      "median_human_score": 0.04,
+      "median_human_score_percent": 4.0,
+      "strict_bypass_count": 0,
+      "strict_bypass_rate_percent": 0.0,
+      "resolved_version": "model-5.0"
+    },
+    {
+      "humanizer": "Ryne",
+      "detector": "ZeroGPT",
+      "model_used": "default",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.16368,
+      "mean_human_score_percent": 16.368,
+      "median_human_score": 0.101,
+      "median_human_score_percent": 10.1,
+      "strict_bypass_count": 2,
+      "strict_bypass_rate_percent": 4.0
+    },
+    {
+      "humanizer": "Ryne",
+      "detector": "Winston AI",
+      "model_used": "latest",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.002888,
+      "mean_human_score_percent": 0.2888,
+      "median_human_score": 0.0,
+      "median_human_score_percent": 0.0,
+      "strict_bypass_count": 0,
+      "strict_bypass_rate_percent": 0.0,
+      "resolved_version": "5.0"
+    },
+    {
+      "humanizer": "HIX Bypass",
+      "detector": "Pangram",
+      "model_used": "v4",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.000762,
+      "mean_human_score_percent": 0.0762,
+      "median_human_score": 0.0,
+      "median_human_score_percent": 0.0,
+      "strict_bypass_count": 0,
+      "strict_bypass_rate_percent": 0.0,
+      "resolved_version": "4.1"
+    },
+    {
+      "humanizer": "HIX Bypass",
+      "detector": "GPTZero",
+      "model_used": "latest",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.07081,
+      "mean_human_score_percent": 7.081,
+      "median_human_score": 0.0,
+      "median_human_score_percent": 0.0,
+      "strict_bypass_count": 3,
+      "strict_bypass_rate_percent": 6.0,
+      "resolved_version": "2026-10-07-base"
+    },
+    {
+      "humanizer": "HIX Bypass",
+      "detector": "Originality.ai Turbo",
+      "model_used": "turbo",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.598022,
+      "mean_human_score_percent": 59.8022,
+      "median_human_score": 0.5962,
+      "median_human_score_percent": 59.62,
+      "strict_bypass_count": 33,
+      "strict_bypass_rate_percent": 66.0,
+      "resolved_version": "turbo"
+    },
+    {
+      "humanizer": "HIX Bypass",
+      "detector": "Originality.ai 5.0",
+      "model_used": "model-5.0",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.0678,
+      "mean_human_score_percent": 6.78,
+      "median_human_score": 0.06,
+      "median_human_score_percent": 6.0,
+      "strict_bypass_count": 0,
+      "strict_bypass_rate_percent": 0.0,
+      "resolved_version": "model-5.0"
+    },
+    {
+      "humanizer": "HIX Bypass",
+      "detector": "ZeroGPT",
+      "model_used": "default",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.77674,
+      "mean_human_score_percent": 77.674,
+      "median_human_score": 0.806,
+      "median_human_score_percent": 80.6,
+      "strict_bypass_count": 46,
+      "strict_bypass_rate_percent": 92.0
+    },
+    {
+      "humanizer": "HIX Bypass",
+      "detector": "Winston AI",
+      "model_used": "latest",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.978956,
+      "mean_human_score_percent": 97.8956,
+      "median_human_score": 0.9968,
+      "median_human_score_percent": 99.68,
+      "strict_bypass_count": 50,
+      "strict_bypass_rate_percent": 100.0,
+      "resolved_version": "5.0"
+    },
+    {
+      "humanizer": "Humbot",
+      "detector": "Pangram",
+      "model_used": "v4",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.000784,
+      "mean_human_score_percent": 0.0784,
+      "median_human_score": 0.0,
+      "median_human_score_percent": 0.0,
+      "strict_bypass_count": 0,
+      "strict_bypass_rate_percent": 0.0,
+      "resolved_version": "4.1"
+    },
+    {
+      "humanizer": "Humbot",
+      "detector": "GPTZero",
+      "model_used": "latest",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.041652,
+      "mean_human_score_percent": 4.1652,
+      "median_human_score": 0.0,
+      "median_human_score_percent": 0.0,
+      "strict_bypass_count": 0,
+      "strict_bypass_rate_percent": 0.0,
+      "resolved_version": "2026-10-07-base"
+    },
+    {
+      "humanizer": "Humbot",
+      "detector": "Originality.ai Turbo",
+      "model_used": "turbo",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.651984,
+      "mean_human_score_percent": 65.1984,
+      "median_human_score": 0.62595,
+      "median_human_score_percent": 62.595,
+      "strict_bypass_count": 38,
+      "strict_bypass_rate_percent": 76.0,
+      "resolved_version": "turbo"
+    },
+    {
+      "humanizer": "Humbot",
+      "detector": "Originality.ai 5.0",
+      "model_used": "model-5.0",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.0686,
+      "mean_human_score_percent": 6.86,
+      "median_human_score": 0.06,
+      "median_human_score_percent": 6.0,
+      "strict_bypass_count": 0,
+      "strict_bypass_rate_percent": 0.0,
+      "resolved_version": "model-5.0"
+    },
+    {
+      "humanizer": "Humbot",
+      "detector": "ZeroGPT",
+      "model_used": "default",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.79834,
+      "mean_human_score_percent": 79.834,
+      "median_human_score": 0.8425,
+      "median_human_score_percent": 84.25,
+      "strict_bypass_count": 44,
+      "strict_bypass_rate_percent": 88.0
+    },
+    {
+      "humanizer": "Humbot",
+      "detector": "Winston AI",
+      "model_used": "latest",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.984512,
+      "mean_human_score_percent": 98.4512,
+      "median_human_score": 0.99615,
+      "median_human_score_percent": 99.615,
+      "strict_bypass_count": 50,
+      "strict_bypass_rate_percent": 100.0,
+      "resolved_version": "5.0"
+    },
+    {
+      "humanizer": "BypassGPT",
+      "detector": "Pangram",
+      "model_used": "v4",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.008326,
+      "mean_human_score_percent": 0.8326,
+      "median_human_score": 0.0,
+      "median_human_score_percent": 0.0,
+      "strict_bypass_count": 0,
+      "strict_bypass_rate_percent": 0.0,
+      "resolved_version": "4.1"
+    },
+    {
+      "humanizer": "BypassGPT",
+      "detector": "GPTZero",
+      "model_used": "latest",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.056046,
+      "mean_human_score_percent": 5.6046,
+      "median_human_score": 0.0,
+      "median_human_score_percent": 0.0,
+      "strict_bypass_count": 2,
+      "strict_bypass_rate_percent": 4.0,
+      "resolved_version": "2026-10-07-base"
+    },
+    {
+      "humanizer": "BypassGPT",
+      "detector": "Originality.ai Turbo",
+      "model_used": "turbo",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.595828,
+      "mean_human_score_percent": 59.5828,
+      "median_human_score": 0.571,
+      "median_human_score_percent": 57.1,
+      "strict_bypass_count": 28,
+      "strict_bypass_rate_percent": 56.0,
+      "resolved_version": "turbo"
+    },
+    {
+      "humanizer": "BypassGPT",
+      "detector": "Originality.ai 5.0",
+      "model_used": "model-5.0",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.0684,
+      "mean_human_score_percent": 6.84,
+      "median_human_score": 0.06,
+      "median_human_score_percent": 6.0,
+      "strict_bypass_count": 0,
+      "strict_bypass_rate_percent": 0.0,
+      "resolved_version": "model-5.0"
+    },
+    {
+      "humanizer": "BypassGPT",
+      "detector": "ZeroGPT",
+      "model_used": "default",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.77916,
+      "mean_human_score_percent": 77.916,
+      "median_human_score": 0.8365,
+      "median_human_score_percent": 83.65,
+      "strict_bypass_count": 44,
+      "strict_bypass_rate_percent": 88.0
+    },
+    {
+      "humanizer": "BypassGPT",
+      "detector": "Winston AI",
+      "model_used": "latest",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.965362,
+      "mean_human_score_percent": 96.5362,
+      "median_human_score": 0.99505,
+      "median_human_score_percent": 99.505,
+      "strict_bypass_count": 50,
+      "strict_bypass_rate_percent": 100.0,
+      "resolved_version": "5.0"
+    },
+    {
+      "humanizer": "WriteHuman",
+      "detector": "Pangram",
+      "model_used": "v4",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.2624,
+      "mean_human_score_percent": 26.24,
+      "median_human_score": 0.0001,
+      "median_human_score_percent": 0.01,
+      "strict_bypass_count": 13,
+      "strict_bypass_rate_percent": 26.0,
+      "resolved_version": "4.1"
+    },
+    {
+      "humanizer": "WriteHuman",
+      "detector": "GPTZero",
+      "model_used": "latest",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.849458,
+      "mean_human_score_percent": 84.9458,
+      "median_human_score": 1.0,
+      "median_human_score_percent": 100.0,
+      "strict_bypass_count": 45,
+      "strict_bypass_rate_percent": 90.0,
+      "resolved_version": "2026-10-07-base"
+    },
+    {
+      "humanizer": "WriteHuman",
+      "detector": "Originality.ai Turbo",
+      "model_used": "turbo",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.939784,
+      "mean_human_score_percent": 93.9784,
+      "median_human_score": 0.9988,
+      "median_human_score_percent": 99.88,
+      "strict_bypass_count": 50,
+      "strict_bypass_rate_percent": 100.0,
+      "resolved_version": "turbo"
+    },
+    {
+      "humanizer": "WriteHuman",
+      "detector": "Originality.ai 5.0",
+      "model_used": "model-5.0",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.1694,
+      "mean_human_score_percent": 16.94,
+      "median_human_score": 0.12,
+      "median_human_score_percent": 12.0,
+      "strict_bypass_count": 3,
+      "strict_bypass_rate_percent": 6.0,
+      "resolved_version": "model-5.0"
+    },
+    {
+      "humanizer": "WriteHuman",
+      "detector": "ZeroGPT",
+      "model_used": "default",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.83226,
+      "mean_human_score_percent": 83.226,
+      "median_human_score": 0.8775,
+      "median_human_score_percent": 87.75,
+      "strict_bypass_count": 48,
+      "strict_bypass_rate_percent": 96.0
+    },
+    {
+      "humanizer": "WriteHuman",
+      "detector": "Winston AI",
+      "model_used": "latest",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.99637,
+      "mean_human_score_percent": 99.637,
+      "median_human_score": 0.9987,
+      "median_human_score_percent": 99.87,
+      "strict_bypass_count": 50,
+      "strict_bypass_rate_percent": 100.0,
+      "resolved_version": "5.0"
+    },
+    {
+      "humanizer": "Grubby",
+      "detector": "Pangram",
+      "model_used": "v4",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.078188,
+      "mean_human_score_percent": 7.8188,
+      "median_human_score": 0.0,
+      "median_human_score_percent": 0.0,
+      "strict_bypass_count": 5,
+      "strict_bypass_rate_percent": 10.0,
+      "resolved_version": "4.1"
+    },
+    {
+      "humanizer": "Grubby",
+      "detector": "GPTZero",
+      "model_used": "latest",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.670988,
+      "mean_human_score_percent": 67.0988,
+      "median_human_score": 0.94215,
+      "median_human_score_percent": 94.215,
+      "strict_bypass_count": 34,
+      "strict_bypass_rate_percent": 68.0,
+      "resolved_version": "2026-10-07-base"
+    },
+    {
+      "humanizer": "Grubby",
+      "detector": "Originality.ai Turbo",
+      "model_used": "turbo",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.990564,
+      "mean_human_score_percent": 99.0564,
+      "median_human_score": 0.9999,
+      "median_human_score_percent": 99.99,
+      "strict_bypass_count": 50,
+      "strict_bypass_rate_percent": 100.0,
+      "resolved_version": "turbo"
+    },
+    {
+      "humanizer": "Grubby",
+      "detector": "Originality.ai 5.0",
+      "model_used": "model-5.0",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.0976,
+      "mean_human_score_percent": 9.76,
+      "median_human_score": 0.08,
+      "median_human_score_percent": 8.0,
+      "strict_bypass_count": 0,
+      "strict_bypass_rate_percent": 0.0,
+      "resolved_version": "model-5.0"
+    },
+    {
+      "humanizer": "Grubby",
+      "detector": "ZeroGPT",
+      "model_used": "default",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.86626,
+      "mean_human_score_percent": 86.626,
+      "median_human_score": 0.9215,
+      "median_human_score_percent": 92.15,
+      "strict_bypass_count": 48,
+      "strict_bypass_rate_percent": 96.0
+    },
+    {
+      "humanizer": "Grubby",
+      "detector": "Winston AI",
+      "model_used": "latest",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.99714,
+      "mean_human_score_percent": 99.714,
+      "median_human_score": 0.9989,
+      "median_human_score_percent": 99.89,
+      "strict_bypass_count": 50,
+      "strict_bypass_rate_percent": 100.0,
+      "resolved_version": "5.0"
+    },
+    {
+      "humanizer": "RewriteAI",
+      "detector": "Pangram",
+      "model_used": "v4",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.040904,
+      "mean_human_score_percent": 4.0904,
+      "median_human_score": 0.0,
+      "median_human_score_percent": 0.0,
+      "strict_bypass_count": 1,
+      "strict_bypass_rate_percent": 2.0,
+      "resolved_version": "4.1"
+    },
+    {
+      "humanizer": "RewriteAI",
+      "detector": "GPTZero",
+      "model_used": "latest",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.513004,
+      "mean_human_score_percent": 51.3004,
+      "median_human_score": 0.542,
+      "median_human_score_percent": 54.2,
+      "strict_bypass_count": 27,
+      "strict_bypass_rate_percent": 54.0,
+      "resolved_version": "2026-10-07-base"
+    },
+    {
+      "humanizer": "RewriteAI",
+      "detector": "Originality.ai Turbo",
+      "model_used": "turbo",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.965558,
+      "mean_human_score_percent": 96.5558,
+      "median_human_score": 0.9999,
+      "median_human_score_percent": 99.99,
+      "strict_bypass_count": 49,
+      "strict_bypass_rate_percent": 98.0,
+      "resolved_version": "turbo"
+    },
+    {
+      "humanizer": "RewriteAI",
+      "detector": "Originality.ai 5.0",
+      "model_used": "model-5.0",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.049,
+      "mean_human_score_percent": 4.9,
+      "median_human_score": 0.05,
+      "median_human_score_percent": 5.0,
+      "strict_bypass_count": 0,
+      "strict_bypass_rate_percent": 0.0,
+      "resolved_version": "model-5.0"
+    },
+    {
+      "humanizer": "RewriteAI",
+      "detector": "ZeroGPT",
+      "model_used": "default",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.75904,
+      "mean_human_score_percent": 75.904,
+      "median_human_score": 0.806,
+      "median_human_score_percent": 80.6,
+      "strict_bypass_count": 45,
+      "strict_bypass_rate_percent": 90.0
+    },
+    {
+      "humanizer": "RewriteAI",
+      "detector": "Winston AI",
+      "model_used": "latest",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.932808,
+      "mean_human_score_percent": 93.2808,
+      "median_human_score": 0.99815,
+      "median_human_score_percent": 99.815,
+      "strict_bypass_count": 47,
+      "strict_bypass_rate_percent": 94.0,
+      "resolved_version": "5.0"
+    }
+  ],
+  "baseline_results": [
+    {
+      "humanizer": "No humanizer (source text)",
+      "detector": "Pangram",
+      "model_used": "v4",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.0,
+      "mean_human_score_percent": 0.0,
+      "median_human_score": 0.0,
+      "median_human_score_percent": 0.0,
+      "strict_bypass_count": 0,
+      "strict_bypass_rate_percent": 0.0,
+      "resolved_version": "4.1"
+    },
+    {
+      "humanizer": "No humanizer (source text)",
+      "detector": "GPTZero",
+      "model_used": "latest",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.0,
+      "mean_human_score_percent": 0.0,
+      "median_human_score": 0.0,
+      "median_human_score_percent": 0.0,
+      "strict_bypass_count": 0,
+      "strict_bypass_rate_percent": 0.0,
+      "resolved_version": "2026-10-07-base"
+    },
+    {
+      "humanizer": "No humanizer (source text)",
+      "detector": "Originality.ai Turbo",
+      "model_used": "turbo",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.005132,
+      "mean_human_score_percent": 0.5132,
+      "median_human_score": 0.0002,
+      "median_human_score_percent": 0.02,
+      "strict_bypass_count": 0,
+      "strict_bypass_rate_percent": 0.0,
+      "resolved_version": "turbo"
+    },
+    {
+      "humanizer": "No humanizer (source text)",
+      "detector": "Originality.ai 5.0",
+      "model_used": "model-5.0",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.0312,
+      "mean_human_score_percent": 3.12,
+      "median_human_score": 0.03,
+      "median_human_score_percent": 3.0,
+      "strict_bypass_count": 0,
+      "strict_bypass_rate_percent": 0.0,
+      "resolved_version": "model-5.0"
+    },
+    {
+      "humanizer": "No humanizer (source text)",
+      "detector": "ZeroGPT",
+      "model_used": "default",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.12988,
+      "mean_human_score_percent": 12.988,
+      "median_human_score": 0.0955,
+      "median_human_score_percent": 9.55,
+      "strict_bypass_count": 1,
+      "strict_bypass_rate_percent": 2.0
+    },
+    {
+      "humanizer": "No humanizer (source text)",
+      "detector": "Winston AI",
+      "model_used": "latest",
+      "evaluated_outputs": 50,
+      "mean_human_score": 0.000312,
+      "mean_human_score_percent": 0.0312,
+      "median_human_score": 0.0,
+      "median_human_score_percent": 0.0,
+      "strict_bypass_count": 0,
+      "strict_bypass_rate_percent": 0.0,
+      "resolved_version": "5.0"
+    }
+  ],
+  "originality_5_verdicts": [
+    {
+      "humanizer": "StealthGPT",
+      "evaluated_outputs": 50,
+      "verdicts": [
+        {
+          "label": "Likely Original",
+          "count": 15,
+          "percent": 30.0
+        },
+        {
+          "label": "Mixed",
+          "count": 6,
+          "percent": 12.0
+        },
+        {
+          "label": "Likely AI",
+          "count": 29,
+          "percent": 58.0
+        }
+      ]
+    },
+    {
+      "humanizer": "Phrasly",
+      "evaluated_outputs": 50,
+      "verdicts": [
+        {
+          "label": "Likely Original",
+          "count": 0,
+          "percent": 0.0
+        },
+        {
+          "label": "Mixed",
+          "count": 4,
+          "percent": 8.0
+        },
+        {
+          "label": "Likely AI",
+          "count": 46,
+          "percent": 92.0
+        }
+      ]
+    },
+    {
+      "humanizer": "Rephrasy",
+      "evaluated_outputs": 50,
+      "verdicts": [
+        {
+          "label": "Likely Original",
+          "count": 0,
+          "percent": 0.0
+        },
+        {
+          "label": "Mixed",
+          "count": 23,
+          "percent": 46.0
+        },
+        {
+          "label": "Likely AI",
+          "count": 27,
+          "percent": 54.0
+        }
+      ]
+    },
+    {
+      "humanizer": "Undetectable.ai",
+      "evaluated_outputs": 50,
+      "verdicts": [
+        {
+          "label": "Likely Original",
+          "count": 0,
+          "percent": 0.0
+        },
+        {
+          "label": "Mixed",
+          "count": 13,
+          "percent": 26.0
+        },
+        {
+          "label": "Likely AI",
+          "count": 37,
+          "percent": 74.0
+        }
+      ]
+    },
+    {
+      "humanizer": "Ryne",
+      "evaluated_outputs": 50,
+      "verdicts": [
+        {
+          "label": "Likely Original",
+          "count": 0,
+          "percent": 0.0
+        },
+        {
+          "label": "Mixed",
+          "count": 0,
+          "percent": 0.0
+        },
+        {
+          "label": "Likely AI",
+          "count": 50,
+          "percent": 100.0
+        }
+      ]
+    },
+    {
+      "humanizer": "HIX Bypass",
+      "evaluated_outputs": 50,
+      "verdicts": [
+        {
+          "label": "Likely Original",
+          "count": 0,
+          "percent": 0.0
+        },
+        {
+          "label": "Mixed",
+          "count": 0,
+          "percent": 0.0
+        },
+        {
+          "label": "Likely AI",
+          "count": 50,
+          "percent": 100.0
+        }
+      ]
+    },
+    {
+      "humanizer": "Humbot",
+      "evaluated_outputs": 50,
+      "verdicts": [
+        {
+          "label": "Likely Original",
+          "count": 0,
+          "percent": 0.0
+        },
+        {
+          "label": "Mixed",
+          "count": 1,
+          "percent": 2.0
+        },
+        {
+          "label": "Likely AI",
+          "count": 49,
+          "percent": 98.0
+        }
+      ]
+    },
+    {
+      "humanizer": "BypassGPT",
+      "evaluated_outputs": 50,
+      "verdicts": [
+        {
+          "label": "Likely Original",
+          "count": 0,
+          "percent": 0.0
+        },
+        {
+          "label": "Mixed",
+          "count": 1,
+          "percent": 2.0
+        },
+        {
+          "label": "Likely AI",
+          "count": 49,
+          "percent": 98.0
+        }
+      ]
+    },
+    {
+      "humanizer": "WriteHuman",
+      "evaluated_outputs": 50,
+      "verdicts": [
+        {
+          "label": "Likely Original",
+          "count": 0,
+          "percent": 0.0
+        },
+        {
+          "label": "Mixed",
+          "count": 12,
+          "percent": 24.0
+        },
+        {
+          "label": "Likely AI",
+          "count": 38,
+          "percent": 76.0
+        }
+      ]
+    },
+    {
+      "humanizer": "Grubby",
+      "evaluated_outputs": 50,
+      "verdicts": [
+        {
+          "label": "Likely Original",
+          "count": 0,
+          "percent": 0.0
+        },
+        {
+          "label": "Mixed",
+          "count": 3,
+          "percent": 6.0
+        },
+        {
+          "label": "Likely AI",
+          "count": 47,
+          "percent": 94.0
+        }
+      ]
+    },
+    {
+      "humanizer": "RewriteAI",
+      "evaluated_outputs": 50,
+      "verdicts": [
+        {
+          "label": "Likely Original",
+          "count": 0,
+          "percent": 0.0
+        },
+        {
+          "label": "Mixed",
+          "count": 0,
+          "percent": 0.0
+        },
+        {
+          "label": "Likely AI",
+          "count": 50,
+          "percent": 100.0
+        }
+      ]
+    },
+    {
+      "humanizer": "No humanizer (source text)",
+      "evaluated_outputs": 50,
+      "verdicts": [
+        {
+          "label": "Likely Original",
+          "count": 0,
+          "percent": 0.0
+        },
+        {
+          "label": "Mixed",
+          "count": 0,
+          "percent": 0.0
+        },
+        {
+          "label": "Likely AI",
+          "count": 50,
+          "percent": 100.0
+        }
+      ]
+    }
+  ]
+}
