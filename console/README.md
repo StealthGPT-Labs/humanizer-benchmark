@@ -12,12 +12,14 @@ The project uses Vercel Authentication on its Vercel-hosted deployment URLs. Eve
 
 ## Import API keys
 
-1. Fill a private copy of [.env.example](.env.example), keeping the names listed there. Leave unused source-generation services empty until routing is chosen.
+1. Fill a private copy of [.env.example](.env.example), keeping the names listed there.
 2. Open [Environment Variables](https://vercel.com/focal-dev-ai/humanizer-benchmark/settings/environment-variables) and use **Import .env**.
 3. Select **Production**, store API credentials as **Secret** values, then redeploy the console so the new values are available.
 4. The console reports only whether each key is present. It does not reveal values, test API access, spend credits, or start the benchmark.
 
 Credentials are imported into Vercel directly. The console has no upload endpoint and does not persist `.env` files. Do not overwrite `BENCHMARK_OWNER_PASSWORD` when importing provider keys.
+
+The production quality inspectors for factual consistency, naturalness, and stance preservation use OpenRouter (`OPENROUTER_API_KEY`). Syntax integrity is deterministic and needs no external credential.
 
 ## Local checks
 

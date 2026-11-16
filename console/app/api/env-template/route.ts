@@ -21,8 +21,9 @@ GPTZERO_API_KEY=
 ORIGINALITY_API_KEY=
 ZEROGPT_API_KEY=
 WINSTON_API_KEY=
-AI_GATEWAY_API_KEY=
-OPENAI_API_KEY=
+
+# Production quality judges use OpenRouter. Syntax integrity is deterministic.
+OPENROUTER_API_KEY=
 `;
 
 export function GET(request: Request) {

@@ -23,8 +23,7 @@ const DETECTORS = [
 ] as const;
 
 const SUPPORT_SERVICES = [
-  { id: 'gateway', name: 'AI Gateway', envKey: 'AI_GATEWAY_API_KEY' },
-  { id: 'openai', name: 'OpenAI', envKey: 'OPENAI_API_KEY' },
+  { id: 'openrouter', name: 'OpenRouter', envKey: 'OPENROUTER_API_KEY' },
 ] as const;
 
 export function getConsoleStatus(env: Environment = process.env) {
