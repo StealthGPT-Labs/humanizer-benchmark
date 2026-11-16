@@ -1,0 +1,700 @@
+[
+  {
+    "id": "stealth",
+    "modelLabel": "Super — flagship structural humanizer",
+    "strengthLabel": "Super with quality mode; no separate aggression slider",
+    "verificationStatus": "documented",
+    "endpoint": "https://www.stealthgpt.ai/api/stealthify/runs",
+    "method": "POST",
+    "authScheme": "api-token: <STEALTHGPT_API_KEY>; Content-Type: application/json",
+    "requestExample": {
+      "text": "<SOURCE_TEXT>",
+      "rephrase": true,
+      "model": "super",
+      "qualityMode": "quality",
+      "outputFormat": "text"
+    },
+    "polling": "Store runId/statusUrl from 202 Accepted. GET /api/stealthify/runs/<RUN_ID> with the same api-token every 5–15 seconds until completed, failed or cancelled.",
+    "versionRecording": "Pin model=super and record returned job metadata. No exact resolved build identifier is documented.",
+    "limits": [
+      "Send only source text, without humanization instructions.",
+      "Use an idempotency-key when creating a job; repeat the same key for transport retries.",
+      "Check API balance/entitlement before a live batch."
+    ],
+    "notes": [
+      "Current official docs identify Super as the newest flagship. Standard and Lite are lower-tier alternatives.",
+      "On Super, qualityMode=quality removes em dashes; it does not select a separate stronger model. On Standard it controls the quality-check path."
+    ],
+    "blockers": [],
+    "sources": [
+      {
+        "url": "https://docs.stealthgpt.ai/api-reference/models",
+        "title": "StealthGPT models"
+      },
+      {
+        "url": "https://docs.stealthgpt.ai/api-reference/endpoints/stealthify-runs",
+        "title": "Async Writer and Humanizer runs"
+      },
+      {
+        "url": "https://docs.stealthgpt.ai/api-reference/authentication",
+        "title": "API authentication"
+      }
+    ],
+    "checkedDate": "2026-11-16",
+    "accountAccess": "not_checked"
+  },
+  {
+    "id": "phrasly",
+    "modelLabel": "Phrasly Ultra (account enabled; omit model)",
+    "strengthLabel": "Max — strongest documented rewrite",
+    "verificationStatus": "needs_confirmation",
+    "endpoint": "https://business.phrasly.ai/api/v1/humanize",
+    "method": "POST",
+    "authScheme": "x-api-key: <PHRASLY_API_KEY>; Content-Type: application/json",
+    "requestExample": {
+      "text": "<SOURCE_TEXT>",
+      "mode": "max",
+      "stream": false
+    },
+    "polling": "Synchronous plain-text response with stream=false; no task polling.",
+    "versionRecording": "The response does not document a resolved model. Confirm Ultra access and retain vendor evidence; stop if only Standard is available.",
+    "limits": [
+      "20–5,000 input words; documented maximum 5 requests/second.",
+      "Ultra requires vendor enablement on the Business account."
+    ],
+    "notes": [
+      "Omit model: account-enabled Ultra is selected automatically. model=latest explicitly forces Standard.",
+      "mode=max is the strongest documented rewrite mode. No separate Ultra capability endpoint or guaranteed resolved-model field was found; confirm access before execution."
+    ],
+    "blockers": [
+      "Confirm Ultra is enabled for the supplied account before running. Standard ignores mode; no silent Standard substitution."
+    ],
+    "sources": [
+      {
+        "url": "https://business.phrasly.ai/docs/humanization-api",
+        "title": "Humanize Endpoint Reference"
+      },
+      {
+        "url": "https://business.phrasly.ai/docs/authentication",
+        "title": "Authentication and rate limits"
+      },
+      {
+        "url": "https://business.phrasly.ai/docs/mcp",
+        "title": "MCP server and free account status tool"
+      }
+    ],
+    "checkedDate": "2026-11-16",
+    "accountAccess": "not_checked"
+  },
+  {
+    "id": "rephrasy",
+    "modelLabel": "Superstealth",
+    "strengthLabel": "Highest bypass model; no separate aggression parameter documented",
+    "verificationStatus": "documented",
+    "endpoint": "https://v2-humanizer.rephrasy.ai/api/",
+    "method": "POST",
+    "authScheme": "Authorization: Bearer <REPHRASY_API_KEY>; Content-Type: application/json",
+    "requestExample": {
+      "text": "<SOURCE_TEXT>",
+      "model": "superstealth",
+      "input_format": "text",
+      "words": true,
+      "costs": true
+    },
+    "polling": "Synchronous JSON; output contains the rewritten text. Allow at least a 120-second client timeout.",
+    "versionRecording": "Pin model=superstealth. No separate resolved build identifier is documented; record the requested selector and any returned metadata.",
+    "limits": [
+      "Maximum 12,000 plain-text characters.",
+      "Typical processing 10–60 seconds; recommended timeout at least 120 seconds."
+    ],
+    "notes": [
+      "Superstealth is the newest/strongest model in the official October 20 release. v4 is a faster alternative.",
+      "input_format, words and costs request parsing/billing metadata; they are not strength controls."
+    ],
+    "blockers": [],
+    "sources": [
+      {
+        "url": "https://www.rephrasy.ai/api-solution",
+        "title": "AI Humanizer API - Developer Integration"
+      },
+      {
+        "url": "https://www.rephrasy.ai/blog/introducing-superstealth-and-retiring-v3",
+        "title": "Introducing Superstealth, and Retiring v3"
+      }
+    ],
+    "checkedDate": "2026-11-16",
+    "accountAccess": "not_checked"
+  },
+  {
+    "id": "undetectableai",
+    "modelLabel": "Undetectable — new proxy model",
+    "strengthLabel": "No separate strength control documented for this endpoint",
+    "verificationStatus": "needs_confirmation",
+    "endpoint": "https://human.undetectable.ai/humanize",
+    "method": "POST",
+    "authScheme": "API-Key: <UNDETECTABLE_API_KEY>; Content-Type: application/json",
+    "requestExample": {
+      "text": "<SOURCE_TEXT>",
+      "humanizer": "undetectable"
+    },
+    "polling": "The new proxy returns output directly as JSON; no task polling. Do not mix legacy /submit parameters into this endpoint.",
+    "versionRecording": "Record response.humanizer. No exact model build identifier or separate aggression selector is documented.",
+    "limits": [
+      "New proxy requires at least 250 characters.",
+      "Proxy-specific maximum and rate limits need confirmation."
+    ],
+    "notes": [
+      "New proxy request uses only text and humanizer. The docs do not rank its aggression against legacy v11sr.",
+      "Legacy alternative is POST https://humanize.undetectable.ai/submit with content, model=v11sr, strength=More Human, readability=University and purpose=General Writing. It is a separate contract; do not mix fields or silently fall back."
+    ],
+    "blockers": [
+      "Confirm new proxy-model access and top-end preference. Official docs call it new but do not provide an explicit aggression ranking or version identifier."
+    ],
+    "sources": [
+      {
+        "url": "https://help.undetectable.ai/en/article/humanizer-proxy-1vmpd9d/",
+        "title": "Humanizer Proxy"
+      },
+      {
+        "url": "https://undetectable.ai/develop",
+        "title": "Undetectable AI APIs"
+      },
+      {
+        "url": "https://help.undetectable.ai/en/article/humanization-api-v2-p28b2n/",
+        "title": "Humanization API v2 (legacy endpoint)"
+      },
+      {
+        "url": "https://humanize.undetectable.ai/openapi.json",
+        "title": "Legacy Humanization API OpenAPI"
+      }
+    ],
+    "checkedDate": "2026-11-16",
+    "accountAccess": "not_checked"
+  },
+  {
+    "id": "hix",
+    "modelLabel": "API v2",
+    "strengthLabel": "Aggressive — extensive rewriting on API v2",
+    "verificationStatus": "documented",
+    "endpoint": "https://hixbypass.com/api/hixbypass/v2/submit",
+    "method": "POST",
+    "authScheme": "api-key header; application/json body",
+    "requestExample": {
+      "input": "<SOURCE_TEXT>",
+      "mode": "Aggressive"
+    },
+    "polling": "GET https://hixbypass.com/api/hixbypass/v2/obtain?task_id=<TASK_ID>; inspect data.task_status and data.subtask_status. Stop on completed/failed; interval is not documented.",
+    "versionRecording": "Pin API v2 and the chosen mode. Record the retrieval mode and full job metadata; no resolved model build is documented.",
+    "limits": [
+      "50–2,000 input words.",
+      "API v2 charges 3 credits per output word; separate API allowance applies."
+    ],
+    "notes": [
+      "API v2 is the API generation; mode=Aggressive requests extensive rewriting, following the maximum-aggression instruction.",
+      "Latest is a mutually exclusive mode described as newer technology. It is an alternative, not an independent model/strength switch. Public docs do not prove which wins this benchmark."
+    ],
+    "blockers": [],
+    "sources": [
+      {
+        "url": "https://cdn.hixbypass.com/prod/public/api-docs/api-docs-v2.yaml",
+        "title": "HIX Bypass API Documentation 2.0.0 — official OpenAPI"
+      },
+      {
+        "url": "https://hixbypass.com/api-docs",
+        "title": "HIX Bypass API Documentation"
+      },
+      {
+        "url": "https://hixbypass.com/developer",
+        "title": "HIX Bypass API — API limits and account requirements"
+      }
+    ],
+    "checkedDate": "2026-11-16",
+    "accountAccess": "not_checked"
+  },
+  {
+    "id": "humbot",
+    "modelLabel": "API v2",
+    "strengthLabel": "Advanced",
+    "verificationStatus": "documented",
+    "endpoint": "https://humbot.ai/api/humbot/v2/create",
+    "method": "POST",
+    "authScheme": "api-key header; application/json body",
+    "requestExample": {
+      "input": "<SOURCE_TEXT>",
+      "model_type": "Advanced"
+    },
+    "polling": "GET https://humbot.ai/api/humbot/v2/retrieve?task_id=<TASK_ID>; inspect data.task_status and data.subtask_status. Interval is not documented.",
+    "versionRecording": "Pin API v2 and model_type=Advanced; record the mode in the completed retrieval response.",
+    "limits": [
+      "50–2,000 input words; separate API allowance applies.",
+      "Do not infer a credit multiplier from example response counts."
+    ],
+    "notes": [
+      "Exact request enum is model_type: Quick, Enhanced, Advanced; body also includes input. Retrieval reports the selected setting as mode.",
+      "Advanced is documented as the most comprehensive/sophisticated choice; v2 is the current API engine generation. No numeric strength setting documented.",
+      "OpenAPI examples and response property names differ for error fields; adapters should use the schema and preserve raw responses privately.",
+      "The schema does not explicitly state a v2 credit multiplier; do not infer it from example word counts. No provider request tested."
+    ],
+    "blockers": [],
+    "sources": [
+      {
+        "url": "https://cdn.humbot.ai/web-cdn/bypass/public/banana/api-document-v2.yaml",
+        "title": "Humbot AI Humanizer API Docs 2.0.0 — official OpenAPI"
+      },
+      {
+        "url": "https://humbot.ai/api-documentation",
+        "title": "Humbot AI Humanizer API Docs"
+      },
+      {
+        "url": "https://humbot.ai/ai-humanizer-api",
+        "title": "Humbot AI Humanizer API — limits and account requirements"
+      }
+    ],
+    "checkedDate": "2026-11-16",
+    "accountAccess": "not_checked"
+  },
+  {
+    "id": "bypassgpt",
+    "modelLabel": "API v2",
+    "strengthLabel": "Enhanced",
+    "verificationStatus": "documented",
+    "endpoint": "https://www.bypassgpt.ai/api/bypassgpt/v2/generate",
+    "method": "POST",
+    "authScheme": "api-key header; application/json body",
+    "requestExample": {
+      "input": "<SOURCE_TEXT>",
+      "model_type": "Enhanced"
+    },
+    "polling": "GET https://www.bypassgpt.ai/api/bypassgpt/v2/retrieval?task_id=<TASK_ID>; inspect data.finished and data.bypass_status (init/ok/failed/exception).",
+    "versionRecording": "Pin API v2 and model_type=Enhanced; record the completed job mode and metadata.",
+    "limits": [
+      "50–2,000 input words; separate API allowance applies.",
+      "Do not infer a credit multiplier from example response counts."
+    ],
+    "notes": [
+      "Exact request enum is model_type: Fast, Creative, Enhanced; body also includes input.",
+      "Enhanced is documented for comprehensive rewriting against advanced detectors. API generation v2 is separate from the Enhanced setting; no numeric strength setting documented.",
+      "The schema does not explicitly state a v2 credit multiplier; do not infer it from example word counts. No provider request tested."
+    ],
+    "blockers": [],
+    "sources": [
+      {
+        "url": "https://cdn.bypassgpt.ai/web-cdn/bypass/public/strawberry/api-document-v2.yaml",
+        "title": "BypassGPT API Document 2.0.0 — official OpenAPI"
+      },
+      {
+        "url": "https://www.bypassgpt.ai/api-document",
+        "title": "BypassGPT API Reference"
+      },
+      {
+        "url": "https://bypassgpt.ai/api-overview",
+        "title": "BypassGPT API — limits and account requirements"
+      }
+    ],
+    "checkedDate": "2026-11-16",
+    "accountAccess": "not_checked"
+  },
+  {
+    "id": "writehuman",
+    "modelLabel": "Enhanced (Premium required)",
+    "strengthLabel": "Enhanced model; no numeric aggression control documented",
+    "verificationStatus": "needs_confirmation",
+    "endpoint": "https://api.writehuman.ai/v1/humanize",
+    "method": "POST",
+    "authScheme": "Authorization: Bearer <WRITEHUMAN_API_KEY>; Content-Type: application/json",
+    "requestExample": {
+      "text": "<SOURCE_TEXT>",
+      "enhanced": true
+    },
+    "polling": "Synchronous JSON; use results[0], the provider-ranked first result. Verify model is enhanced.",
+    "versionRecording": "Require response.model=enhanced. Record all returned alternatives privately; select the vendor-ranked first result before detector scoring.",
+    "limits": [
+      "Premium API plan required for Enhanced.",
+      "Documented body accepts 30–100,000 characters; plan word caps also apply.",
+      "Premium plan caps vary from 4,000 to 6,000 words per request; verify the actual account."
+    ],
+    "notes": [
+      "Enhanced defaults false even on Premium: send enhanced=true. Response model must equal enhanced for the requested configuration.",
+      "Premium returns three ranked alternatives and internal human-likeness scores. Selection of provider's first result should be fixed before external detector scoring.",
+      "Optional tone is a style, not aggression; omit it. Allowed tones: professional, academic, blog, casual, creative, scientific, technical. Do not send general from marketing snippets.",
+      "No resolved model version is documented beyond standard/enhanced. Premium marketing describes detection-aware processing and priority processing."
+    ],
+    "blockers": [
+      "Confirm a Premium API plan and Enhanced availability. Reject enhanced_requires_premium or enhanced_unavailable rather than silently using Standard."
+    ],
+    "sources": [
+      {
+        "url": "https://writehuman.ai/api/docs",
+        "title": "AI Humanizer API Documentation — REST API Reference v1.3"
+      },
+      {
+        "url": "https://writehuman.ai/api",
+        "title": "AI Humanizer API plans and Enhanced features"
+      }
+    ],
+    "checkedDate": "2026-11-16",
+    "accountAccess": "not_checked"
+  },
+  {
+    "id": "grubby",
+    "modelLabel": "Grubby MCP; model/version not published",
+    "strengthLabel": "Academic candidate; maximum-aggression setting unverified",
+    "verificationStatus": "needs_confirmation",
+    "endpoint": "https://grubby.ai/api/mcp",
+    "method": "MCP",
+    "authScheme": "Public setup documents Grubby sign-in and approval; static MCP API-key header/scheme is not documented.",
+    "requestExample": {},
+    "polling": "Long jobs use get_humanize_result. Exact job argument names and terminal statuses must be obtained from the MCP schema.",
+    "versionRecording": "Obtain authenticated tools/list and confirm the exact model/mode arguments before a run. Public docs do not expose a build version.",
+    "limits": [
+      "English only in the reviewed public documentation.",
+      "Published per-request word caps vary by plan (300–2,500); verify MCP account limits."
+    ],
+    "notes": [
+      "Publicly documented tools: humanize_text, check_quota, get_humanize_result. The empty request example is intentional: exact arguments are not confirmed.",
+      "Academic is the default style; GPTZero emphasizes expressive prose and ZeroGPT is lighter. These are not a published maximum-aggression ranking."
+    ],
+    "blockers": [
+      "Confirm how the supplied GRUBBY_MCP_API_KEY authenticates; official public setup describes sign-in rather than an extra key.",
+      "Obtain the MCP tools/list schema before choosing exact argument names/enums, transport headers, and job-result identifiers.",
+      "Public docs describe target/style modes rather than a ranked aggression scale; Academic is the default, not proven strongest overall."
+    ],
+    "sources": [
+      {
+        "url": "https://grubby.ai/mcp",
+        "title": "Humanize AI text inside Claude and ChatGPT — official MCP setup and modes"
+      },
+      {
+        "url": "https://grubby.ai/reviews",
+        "title": "Grubby AI at a glance — official modes and language"
+      },
+      {
+        "url": "https://grubby.ai/blog/carterpcs-ai-humanizer",
+        "title": "Official Grubby product guide — per-request plan caps"
+      }
+    ],
+    "checkedDate": "2026-11-16",
+    "accountAccess": "not_checked"
+  },
+  {
+    "id": "rewriteai",
+    "modelLabel": "API default; Advanced/Ultra API selection not verified",
+    "strengthLabel": "Advanced Humanization Engine and Ultra-human output advertised on paid plans; selector undocumented",
+    "verificationStatus": "needs_confirmation",
+    "endpoint": "https://rewriteai.com/api/v1/humanize",
+    "method": "POST",
+    "authScheme": "Authorization: Bearer <REWRITEAI_API_KEY>; Content-Type: application/json",
+    "requestExample": {
+      "text": "<SOURCE_TEXT>"
+    },
+    "polling": "Synchronous JSON in the official example; output is results[0].text. No polling contract is published.",
+    "versionRecording": "Record all response metadata. No model/version selector or resolved model field is documented.",
+    "limits": [
+      "Published plan caps range from 300 to 3,000 words; API-specific account cap needs confirmation.",
+      "No numeric rate limit is published in the reviewed API page."
+    ],
+    "notes": [
+      "Official API example exposes only text. Paid-plan marketing mentions Advanced/Ultra, but no corresponding API selector is documented. Do not label the default as strongest."
+    ],
+    "blockers": [
+      "Official API example documents only text, not a model/mode/strength parameter. Do not invent mode:'advanced' or claim default is strongest.",
+      "Confirm account API entitlement and per-request cap. The previous benchmark's 300-word API cap is not enough evidence for current account limits.",
+      "Choose the first returned result consistently; do not select variants after looking at detector results."
+    ],
+    "sources": [
+      {
+        "url": "https://rewriteai.com/humanizer-api",
+        "title": "Humanizer API — RewriteAI"
+      },
+      {
+        "url": "https://rewriteai.com/blog/rewrite-ai-text-to-human",
+        "title": "How to Rewrite AI Text to Sound Human"
+      }
+    ],
+    "checkedDate": "2026-11-16",
+    "accountAccess": "not_checked"
+  },
+  {
+    "id": "pangram",
+    "modelLabel": "Pangram 4 series; completed response reports minor version",
+    "strengthLabel": "Current publicly documented numbered text series",
+    "verificationStatus": "documented",
+    "endpoint": "https://text.external-api.pangram.com/task",
+    "method": "POST",
+    "authScheme": "x-api-key: <PANGRAM_API_KEY>; Content-Type: application/json",
+    "requestExample": {
+      "text": "<output_text>",
+      "model": "pangram-4",
+      "public_dashboard_link": false
+    },
+    "polling": "GET https://text.external-api.pangram.com/task/<TASK_ID> using task_id; terminal stages STAGE_SUCCESS or STAGE_FAILED. Use bounded backoff as runner policy.",
+    "versionRecording": "Request pangram-4; record response.version on every completed task. A numbered series does not pin the minor version.",
+    "limits": [
+      "Check the entitlement-aware GET /models catalog before a live run.",
+      "No numeric text cap was established from the reviewed endpoint docs."
+    ],
+    "notes": [
+      "fraction_human is text share, not document confidence. Preserve prediction_short and returned version.",
+      "The default selector floats; pangram-4 explicitly selects the documented numbered series."
+    ],
+    "blockers": [
+      "Account model entitlement/availability not checked. Official GET /models catalog is entitlement aware; no API calls made.",
+      "Series selector does not pin minor version. Record every completed response.version and do not mix versions silently."
+    ],
+    "sources": [
+      {
+        "url": "https://docs.pangram.com/quickstart-rest",
+        "title": "REST API Quickstart"
+      },
+      {
+        "url": "https://docs.pangram.com/api-reference/ai-detection",
+        "title": "AI Detection"
+      },
+      {
+        "url": "https://docs.pangram.com/api-reference/models",
+        "title": "Models"
+      }
+    ],
+    "checkedDate": "2026-11-16",
+    "accountAccess": "not_checked"
+  },
+  {
+    "id": "gptzero",
+    "modelLabel": "GPTZero 5.0b — 2026-11-04-base",
+    "strengthLabel": "Latest publicly released English detector as checked",
+    "verificationStatus": "documented",
+    "endpoint": "https://api.gptzero.me/v2/predict/text",
+    "method": "POST",
+    "authScheme": "x-api-key: <GPTZERO_API_KEY>; Content-Type: application/json",
+    "requestExample": {
+      "document": "<output_text>",
+      "modelVersion": "2026-11-04-base"
+    },
+    "polling": "Synchronous text scan; no polling required.",
+    "versionRecording": "Pin modelVersion=2026-11-04-base, the released 5.0b model at this check. Record response.version and neatVersion.",
+    "limits": [
+      "Maximum 150,000 characters; oversized text is rejected.",
+      "English target; non-English input may use a different multilingual model."
+    ],
+    "notes": [
+      "5.0b was released November 4, 2026. Use current class_probabilities and predicted_class; older generated-probability fields are deprecated.",
+      "The human class score is classification probability, not a fraction of human-written words."
+    ],
+    "blockers": [
+      "Actual key availability and returned version not verified. Do not use unreleased entries merely because a catalog includes them.",
+      "A latest-at-run policy may omit modelVersion, but pinning the latest released version at the cutoff is more reproducible."
+    ],
+    "sources": [
+      {
+        "url": "https://gptzero.me/news/ai-detection-model-api-updates",
+        "title": "GPTZero Release Notes: AI Detection Model & API Updates"
+      },
+      {
+        "url": "https://docs.gptzero.me/api-reference/POST/v2/predict/text.md",
+        "title": "Detect AI in text — current endpoint schema"
+      },
+      {
+        "url": "https://docs.gptzero.me/api-reference/GET/v2/model-versions/ai-scan.md",
+        "title": "List model versions"
+      },
+      {
+        "url": "https://docs.gptzero.me/quickstart",
+        "title": "Quickstart"
+      }
+    ],
+    "checkedDate": "2026-11-16",
+    "accountAccess": "not_checked"
+  },
+  {
+    "id": "originality5max",
+    "modelLabel": "Originality.ai 5.0 Max",
+    "strengthLabel": "Vendor's highest-accuracy current detector",
+    "verificationStatus": "documented",
+    "endpoint": "https://api.originality.ai/api/v3/scan",
+    "method": "POST",
+    "authScheme": "X-OAI-API-KEY: <ORIGINALITY_API_KEY>; Content-Type: application/json",
+    "requestExample": {
+      "title": "Benchmark <sample_id>",
+      "content": "<output_text>",
+      "check_ai": true,
+      "check_plagiarism": false,
+      "check_facts": false,
+      "check_readability": false,
+      "check_grammar": false,
+      "storeScan": false,
+      "aiModelVersion": "model-5.0-max"
+    },
+    "polling": "Same synchronous V3 scan endpoint; no separate model-specific polling documented.",
+    "versionRecording": "Pin aiModelVersion=model-5.0-max; record results.ai.model, prediction_label, and ai_assisted_percent.",
+    "limits": [
+      "Minimum 50 words; documented limit 500 requests/minute.",
+      "Max uses 10 credits per 100 words and takes longer than standard 5.0."
+    ],
+    "notes": [
+      "Proposed next-run replacement for deprecated Turbo. Historical reports are unchanged. Final detector panel and weights are still pending.",
+      "5.0 and Max report AI-involvement text share, not Turbo-style document confidence; preserve native labels and separate model results."
+    ],
+    "blockers": [
+      "Proposed next-run replacement for deprecated Turbo; panel and strength weights still need finalization.",
+      "Account API entitlement/credit balance not checked; no scan made."
+    ],
+    "sources": [
+      {
+        "url": "https://docs.originality.ai/scan.md?plain=1",
+        "title": "Scan — aiModelVersion selector and response schema"
+      },
+      {
+        "url": "https://docs.originality.ai/originality-ai-api-v1.md?plain=1",
+        "title": "Current model selectors: model-5.0 and model-5.0-max"
+      },
+      {
+        "url": "https://originality.ai/blog/introducing-originality-5-0-and-max",
+        "title": "Introducing Originality.ai 5.0 and 5.0 Max"
+      }
+    ],
+    "checkedDate": "2026-11-16",
+    "accountAccess": "not_checked"
+  },
+  {
+    "id": "originality5",
+    "modelLabel": "Originality.ai 5.0",
+    "strengthLabel": "Current standard model; 5.0 Max is the highest-accuracy option",
+    "verificationStatus": "documented",
+    "endpoint": "https://api.originality.ai/api/v3/scan",
+    "method": "POST",
+    "authScheme": "X-OAI-API-KEY: <ORIGINALITY_API_KEY>; Content-Type: application/json",
+    "requestExample": {
+      "title": "Benchmark <sample_id>",
+      "content": "<output_text>",
+      "check_ai": true,
+      "check_plagiarism": false,
+      "check_facts": false,
+      "check_readability": false,
+      "check_grammar": false,
+      "storeScan": false,
+      "aiModelVersion": "model-5.0"
+    },
+    "polling": "POST scan returns results in documented200 response. GET scan results is available for stored scans; no async task loop documented for this text scan.",
+    "versionRecording": "Pin aiModelVersion=model-5.0; record results.ai.model, prediction_label, and ai_assisted_percent.",
+    "limits": [
+      "Minimum 50 words; documented limit 500 requests/minute.",
+      "Standard 5.0 uses 1 credit per 100 words."
+    ],
+    "notes": [
+      "Do not average this AI-involvement percentage as if it were a Turbo/GPTZero classification confidence.",
+      "Official category explanations: Likely Original under10%AI, Mixed10–80%, LikelyAI81–100%; record actual native prediction_label rather than reconstructing ambiguous boundary rounding.",
+      "storeScan:false is a privacy-oriented runner choice; resulting scan cannot be fetched later from vendor history."
+    ],
+    "blockers": [
+      "API documentation requires an Enterprise-level subscription. Actual key entitlements were not checked.",
+      "Keep native classification separately from the historical >50% human-score bypass threshold; they are different metrics."
+    ],
+    "sources": [
+      {
+        "url": "https://docs.originality.ai/scan",
+        "title": "Scan — V3 base URL and endpoint"
+      },
+      {
+        "url": "https://docs.originality.ai/scan.md?plain=1",
+        "title": "Scan — request and response schema"
+      },
+      {
+        "url": "https://docs.originality.ai/originality-ai-api-v1.md?plain=1",
+        "title": "Originality.ai V3 API model list, authentication and rate limits"
+      },
+      {
+        "url": "https://originality.ai/blog/introducing-originality-5-0-and-max",
+        "title": "Introducing Originality.ai 5.0 and 5.0 Max"
+      },
+      {
+        "url": "https://help.originality.ai/en/article/minimum-word-counts-for-scans-1lyfqtb",
+        "title": "Minimum Word Counts For Scans"
+      }
+    ],
+    "checkedDate": "2026-11-16",
+    "accountAccess": "not_checked"
+  },
+  {
+    "id": "zerogpt",
+    "modelLabel": "Vendor-managed default — no public model/version selector",
+    "strengthLabel": "No selectable detector strength documented",
+    "verificationStatus": "documented",
+    "endpoint": "https://api.zerogpt.com/api/detect/detectText",
+    "method": "POST",
+    "authScheme": "ApiKey: <ZEROGPT_API_KEY>; Content-Type: application/json",
+    "requestExample": {
+      "input_text": "<output_text>"
+    },
+    "polling": "Documented endpoint returns a completed detection result synchronously.",
+    "versionRecording": "No public selector or resolved model version is documented. Label vendor-managed default, never invent a version.",
+    "limits": [
+      "Verify the account IP whitelist and Vercel egress compatibility.",
+      "Text caps and rate limits need account confirmation."
+    ],
+    "notes": [
+      "The official direct-key endpoint documents ApiKey and input_text. Dashboard JWT methods are a separate contract.",
+      "data.fakePercentage is AI text share and data.feedback is the vendor assessment. Model build is undisclosed."
+    ],
+    "blockers": [
+      "Official endpoint documentation does not expose a model/version parameter or resolved model version; do not invent a newest model identifier.",
+      "Pricing setup instructions require configuring an IP whitelist; Vercel egress compatibility/account whitelist not checked."
+    ],
+    "sources": [
+      {
+        "url": "https://www.zerogpt.com/pricing",
+        "title": "ZeroGPT API Business Plans and vendor documentation links"
+      },
+      {
+        "url": "https://app.theneo.io/olive-works-llc/zerogpt-docs/detect/detect-text.md?plain=1",
+        "title": "Detect AI in your text — ZeroGPT Business API"
+      },
+      {
+        "url": "https://api.zerogpt.com/openapi.json",
+        "title": "ZeroGPT Business API OpenAPI"
+      }
+    ],
+    "checkedDate": "2026-11-16",
+    "accountAccess": "not_checked"
+  },
+  {
+    "id": "winston",
+    "modelLabel": "Winston AI 5.2",
+    "strengthLabel": "Latest and most accurate text version in current official endpoint docs",
+    "verificationStatus": "documented",
+    "endpoint": "https://api.gowinston.ai/v2/ai-content-detection",
+    "method": "POST",
+    "authScheme": "Authorization: Bearer <WINSTON_API_KEY>; Content-Type: application/json",
+    "requestExample": {
+      "text": "<output_text>",
+      "version": "5.2",
+      "sentences": true,
+      "language": "en"
+    },
+    "polling": "Synchronous POST response; no text-task polling documented.",
+    "versionRecording": "Pin version=5.2 at this documentation cutoff; record response.version rather than assuming latest stayed fixed.",
+    "limits": [
+      "300–150,000 characters; at least 600 recommended for reliable analysis.",
+      "One credit per processed word."
+    ],
+    "notes": [
+      "The current endpoint explicitly supports version 5.2. The response has a human score and version, but no documented categorical verdict.",
+      "Pinning the current release is reproducible; latest floats. A binary bypass threshold remains a benchmark decision."
+    ],
+    "blockers": [
+      "Actual returned version and account key not checked. Store response.version on every scan.",
+      "Using version:'latest' would follow future updates; for reproducibility pin5.2 as current cutoff and verify response.version."
+    ],
+    "sources": [
+      {
+        "url": "https://docs.gowinston.ai/api-reference/v2/ai-content-detection/post",
+        "title": "AI text detection — version5.2 option and response.version"
+      },
+      {
+        "url": "https://docs.gowinston.ai/api-reference/changelog",
+        "title": "Changelog —5.2.0 released October29,2026"
+      }
+    ],
+    "checkedDate": "2026-11-16",
+    "accountAccess": "not_checked"
+  }
+]

@@ -4,6 +4,8 @@ This repository publishes dated benchmarks of [StealthGPT](https://stealthgpt.ai
 
 The [private benchmark console](console/) prepares the next run on Vercel. Execution is on hold until the remaining run instructions are finalized.
 
+The [API model and strength guide](docs/api-model-settings.md) records the proposed next-run settings and official documentation sources. These profiles are separate from historical report configurations and still require live account/model-access checks before execution.
+
 ## AI detectors
 
 Every output is evaluated through the APIs of:

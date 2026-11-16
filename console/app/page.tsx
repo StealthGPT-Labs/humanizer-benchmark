@@ -15,6 +15,57 @@ function KeyStatus({ configured }: { configured: boolean }) {
   return <span className={`key-status ${configured ? 'present' : 'missing'}`}><span aria-hidden="true" />{configured ? 'Configured' : 'Not added'}</span>;
 }
 
+type ProviderConfiguration = {
+  modelLabel: string;
+  strengthLabel: string;
+  verificationStatus: 'documented' | 'partial' | 'needs_confirmation';
+  endpoint: string | null;
+  method: string | null;
+  authScheme: string | null;
+  requestExample: Record<string, unknown>;
+  polling: string;
+  versionRecording: string;
+  limits: string[];
+  notes: string[];
+  blockers: string[];
+  sources: { title: string; url: string }[];
+  checkedDate: string;
+  accountAccess: 'not_checked';
+};
+
+function ProviderProfile({ provider, compact = false }: {
+  provider: { id: string; name: string; configured: boolean; configuration: ProviderConfiguration };
+  compact?: boolean;
+}) {
+  const config = provider.configuration;
+  const documentationLabel = {
+    documented: 'Documented',
+    partial: 'Partly documented',
+    needs_confirmation: 'Needs confirmation',
+  }[config.verificationStatus];
+
+  return (
+    <details className={`provider-profile${compact ? ' compact-profile' : ''}`}>
+      <summary>
+        <span className="profile-summary-top"><span className="profile-name"><span className="profile-chevron" aria-hidden="true" />{provider.name}</span><span className={`documentation-status ${config.verificationStatus}`}>{documentationLabel}</span></span>
+        <span className="profile-summary-settings"><span><small>Model</small><span>{config.modelLabel}</span></span><span><small>Strength / mode</small><span>{config.strengthLabel}</span></span></span>
+      </summary>
+      <div className="profile-content">
+        <div className="profile-verification"><span>Account access: not checked</span><span>Key: <KeyStatus configured={provider.configured} /></span></div>
+        <div className="request-heading">Request settings</div>
+        <div className="request-endpoint"><code className="request-method">{config.method ?? 'To confirm'}</code><code>{config.endpoint ?? 'Endpoint needs confirmation'}</code></div>
+        <p className="request-auth"><span>Authentication</span><code>{config.authScheme ?? 'Authentication scheme needs confirmation'}</code></p>
+        <pre className="request-example" tabIndex={0} aria-label={`${provider.name} public request settings`}><code>{JSON.stringify(config.requestExample, null, 2)}</code></pre>
+        <dl className="profile-facts"><div><dt>Completion / polling</dt><dd>{config.polling}</dd></div><div><dt>Version recording</dt><dd>{config.versionRecording}</dd></div></dl>
+        {config.limits.length > 0 ? <div className="profile-notes"><h3>Limits</h3><ul>{config.limits.map((limit) => <li key={limit}>{limit}</li>)}</ul></div> : null}
+        {config.notes.length > 0 ? <div className="profile-notes"><h3>Notes</h3><ul>{config.notes.map((note) => <li key={note}>{note}</li>)}</ul></div> : null}
+        {config.blockers.length > 0 ? <div className="profile-blockers"><h3>Still to resolve</h3><ul>{config.blockers.map((blocker) => <li key={blocker}>{blocker}</li>)}</ul></div> : null}
+        <div className="profile-sources"><div><span>Documentation checked</span><time dateTime={config.checkedDate}>{config.checkedDate}</time></div>{config.sources.length > 0 ? <ul>{config.sources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.title}</a></li>)}</ul> : <p>Official documentation still needs confirmation.</p>}</div>
+      </div>
+    </details>
+  );
+}
+
 export default async function Page() {
   const denied = authorizeOwner(await headers());
   if (denied) {
@@ -46,6 +97,13 @@ export default async function Page() {
 
         <div className="workspace-grid">
           <div className="main-column">
+            <section className="surface model-section" aria-labelledby="models-title">
+              <div className="section-heading"><div><h2 id="models-title">Models and humanization strength</h2><p>Requested settings from provider documentation. Account access and live responses still need checking. Execution remains locked.</p></div></div>
+              <div className="model-policy"><p>{status.modelPolicy.summary}</p><p><strong>Selection rule</strong> {status.modelPolicy.rule}</p><p className="mode-decision">{status.modelPolicy.modeDecision}</p><span>{status.modelPolicy.verifiedAccountCount} live account checks completed. No silent model fallback.</span></div>
+              <div className="provider-profiles">{status.humanizers.map((provider) => <ProviderProfile key={provider.id} provider={provider} />)}</div>
+              <p className="section-footnote">Open a provider to review its request settings, limits, and source documentation. Documentation status is separate from key presence and account access.</p>
+            </section>
+
             <section className="surface" aria-labelledby="keys-title">
               <div className="section-heading"><div><h2 id="keys-title">API keys</h2><p>Import your <code>.env</code> file in Vercel, then redeploy to update this view.</p><a className="template-link" href="/api/env-template" download>Download the empty key template</a></div><a className="button primary" href={ENVIRONMENT_SETTINGS} target="_blank" rel="noreferrer">Open key settings</a></div>
               <div className="key-summary"><span>{status.environment.configuredCount} of {status.environment.totalCount} keys configured</span><span>Values stay on the server</span></div>
@@ -72,6 +130,12 @@ export default async function Page() {
                 </table>
               </div>
               <p className="section-footnote">Configured means a value is present. Credentials have not been tested with the providers. Both Originality models use the same API key.</p>
+            </section>
+
+            <section className="surface detector-profile-section" aria-labelledby="detector-models-title">
+              <div className="section-heading"><div><h2 id="detector-models-title">Detector model settings</h2><p>Review the requested model and version handling for each detector.</p></div></div>
+              <div className="provider-profiles">{status.detectors.map((provider) => <ProviderProfile key={provider.id} provider={provider} compact />)}</div>
+              <p className="section-footnote">Live model availability has not been checked. Any deprecated setting or proposed replacement remains visible for review before execution.</p>
             </section>
 
             <section className="surface quality-section" aria-labelledby="quality-title">

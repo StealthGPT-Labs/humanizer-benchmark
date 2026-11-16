@@ -1,3 +1,5 @@
+import { getProviderConfiguration, modelPolicy } from './provider-settings';
+
 type Environment = Readonly<Record<string, string | undefined>>;
 
 const HUMANIZERS = [
@@ -16,7 +18,7 @@ const HUMANIZERS = [
 const DETECTORS = [
   { id: 'pangram', name: 'Pangram', envKey: 'PANGRAM_API_KEY' },
   { id: 'gptzero', name: 'GPTZero', envKey: 'GPTZERO_API_KEY' },
-  { id: 'originality', name: 'Originality.ai Turbo', envKey: 'ORIGINALITY_API_KEY' },
+  { id: 'originality5max', name: 'Originality.ai 5.0 Max', envKey: 'ORIGINALITY_API_KEY' },
   { id: 'originality5', name: 'Originality.ai 5.0', envKey: 'ORIGINALITY_API_KEY' },
   { id: 'zerogpt', name: 'ZeroGPT', envKey: 'ZEROGPT_API_KEY' },
   { id: 'winston', name: 'Winston AI', envKey: 'WINSTON_API_KEY' },
@@ -28,8 +30,8 @@ const SUPPORT_SERVICES = [
 
 export function getConsoleStatus(env: Environment = process.env) {
   const configured = (key: string) => Boolean(env[key]?.trim());
-  const humanizers = HUMANIZERS.map((provider) => ({ ...provider, configured: configured(provider.envKey) }));
-  const detectors = DETECTORS.map((provider) => ({ ...provider, configured: configured(provider.envKey), weight: null }));
+  const humanizers = HUMANIZERS.map((provider) => ({ ...provider, configured: configured(provider.envKey), configuration: getProviderConfiguration(provider.id) }));
+  const detectors = DETECTORS.map((provider) => ({ ...provider, configured: configured(provider.envKey), weight: null, configuration: getProviderConfiguration(provider.id) }));
   const supportServices = SUPPORT_SERVICES.map((provider) => ({ ...provider, configured: configured(provider.envKey) }));
   const keys = new Set([...HUMANIZERS, ...DETECTORS, ...SUPPORT_SERVICES].map((provider) => provider.envKey));
 
@@ -40,7 +42,8 @@ export function getConsoleStatus(env: Environment = process.env) {
       message: 'Waiting for your final benchmark instructions.',
     },
     referenceReport: { id: '2026-10-22-humanizer-comparison', label: 'October 22, 2026' },
-    blockers: ['Choose the humanizer to add.', 'Define the detector-strength weights.', 'Finalize the remaining run instructions.'],
+    blockers: ['Choose the humanizer to add.', 'Define the detector-strength weights.', 'Confirm model settings and account access.', 'Finalize the remaining run instructions.'],
+    modelPolicy,
     humanizers,
     detectors,
     supportServices,

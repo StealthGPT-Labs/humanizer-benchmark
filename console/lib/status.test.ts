@@ -14,7 +14,7 @@ test('configuration status never includes credential values or unrelated environ
   assert.equal(serialized.includes('secret-originality-sentinel-9260'), false);
   assert.equal(serialized.includes('postgres://private-sentinel-2285'), false);
   assert.equal(status.humanizers.find((provider) => provider.id === 'stealth')?.configured, true);
-  assert.equal(status.detectors.find((provider) => provider.id === 'originality')?.configured, true);
+  assert.equal(status.detectors.find((provider) => provider.id === 'originality5max')?.configured, true);
   assert.equal(status.detectors.find((provider) => provider.id === 'originality5')?.configured, true);
   assert.equal(status.environment.configuredCount, 2);
 });
