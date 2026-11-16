@@ -1,0 +1,10 @@
+.git/
+.vercel/
+private/
+reports/
+**/node_modules/
+**/.next/
+**/.env
+**/.env.*
+**/*.test.ts
+**/*.tsbuildinfo

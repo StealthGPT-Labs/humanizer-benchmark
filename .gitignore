@@ -12,3 +12,12 @@
 __pycache__/
 *.py[cod]
 .DS_Store
+
+# Private console build and local access files
+node_modules/
+.next/
+.vercel/
+*.tsbuildinfo
+.vercel
+.env*
+!.env.example

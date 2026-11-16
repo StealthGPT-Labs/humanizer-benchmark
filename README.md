@@ -2,6 +2,8 @@
 
 This repository publishes dated benchmarks of [StealthGPT](https://stealthgpt.ai/) outputs. AI-detection performance and writing quality are measured separately.
 
+The [private benchmark console](console/) prepares the next run on Vercel. Execution is on hold until the remaining run instructions are finalized.
+
 ## AI detectors
 
 Every output is evaluated through the APIs of:
