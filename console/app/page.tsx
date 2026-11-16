@@ -34,7 +34,7 @@ type ProviderConfiguration = {
 };
 
 function ProviderProfile({ provider, compact = false }: {
-  provider: { id: string; name: string; configured: boolean; configuration: ProviderConfiguration };
+  provider: { id: string; name: string; configured: boolean; configuration: ProviderConfiguration; participation?: { status: 'planned' | 'on_hold'; reason: string } };
   compact?: boolean;
 }) {
   const config = provider.configuration;
@@ -47,11 +47,12 @@ function ProviderProfile({ provider, compact = false }: {
   return (
     <details className={`provider-profile${compact ? ' compact-profile' : ''}`}>
       <summary>
-        <span className="profile-summary-top"><span className="profile-name"><span className="profile-chevron" aria-hidden="true" />{provider.name}</span><span className={`documentation-status ${config.verificationStatus}`}>{documentationLabel}</span></span>
+        <span className="profile-summary-top"><span className="profile-name"><span className="profile-chevron" aria-hidden="true" />{provider.name}{provider.participation?.status === 'on_hold' ? <span className="participation-badge">On hold</span> : null}</span><span className={`documentation-status ${config.verificationStatus}`}>{documentationLabel}</span></span>
         <span className="profile-summary-settings"><span><small>Model</small><span>{config.modelLabel}</span></span><span><small>Strength / mode</small><span>{config.strengthLabel}</span></span></span>
       </summary>
       <div className="profile-content">
         <div className="profile-verification"><span>Account access: not checked</span><span>Key: <KeyStatus configured={provider.configured} /></span></div>
+        {provider.participation?.status === 'on_hold' ? <div className="participation-reason"><strong>Participation on hold</strong><p>{provider.participation.reason}</p></div> : null}
         <div className="request-heading">Request settings</div>
         <div className="request-endpoint"><code className="request-method">{config.method ?? 'To confirm'}</code><code>{config.endpoint ?? 'Endpoint needs confirmation'}</code></div>
         <p className="request-auth"><span>Authentication</span><code>{config.authScheme ?? 'Authentication scheme needs confirmation'}</code></p>
@@ -100,6 +101,7 @@ export default async function Page() {
             <section className="surface model-section" aria-labelledby="models-title">
               <div className="section-heading"><div><h2 id="models-title">Models and humanization strength</h2><p>Requested settings from provider documentation. Account access and live responses still need checking. Execution remains locked.</p></div></div>
               <div className="model-policy"><p>{status.modelPolicy.summary}</p><p><strong>Selection rule</strong> {status.modelPolicy.rule}</p><p className="mode-decision">{status.modelPolicy.modeDecision}</p><span>{status.modelPolicy.verifiedAccountCount} live account checks completed. No silent model fallback.</span></div>
+              {status.humanizers.some((provider) => provider.id === 'phrasly' && provider.participation.status === 'on_hold') ? <div className="participation-notice"><span className="participation-badge">Phrasly on hold</span><p>Phrasly will be skipped until Ultra access is enabled. Standard will not be used as a fallback.</p></div> : null}
               <div className="provider-profiles">{status.humanizers.map((provider) => <ProviderProfile key={provider.id} provider={provider} />)}</div>
               <p className="section-footnote">Open a provider to review its request settings, limits, and source documentation. Documentation status is separate from key presence and account access.</p>
             </section>
@@ -111,7 +113,7 @@ export default async function Page() {
                 <table className="provider-table">
                   <caption>Humanizers</caption>
                   <thead><tr><th scope="col">Provider</th><th scope="col">Environment key</th><th scope="col">Status</th></tr></thead>
-                  <tbody>{status.humanizers.map((provider) => <tr key={provider.id}><th scope="row">{provider.name}</th><td><code>{provider.envKey}</code></td><td><KeyStatus configured={provider.configured} /></td></tr>)}</tbody>
+                  <tbody>{status.humanizers.map((provider) => <tr key={provider.id}><th scope="row">{provider.name}{provider.participation.status === 'on_hold' ? <small className="table-participation">On hold: {provider.participation.reason}</small> : null}</th><td><code>{provider.envKey}</code></td><td><KeyStatus configured={provider.configured} /></td></tr>)}</tbody>
                 </table>
               </div>
               <div className="roster-note"><span className="note-dot" aria-hidden="true" /><p>Ryne is excluded from the new run. The additional humanizer is still to be chosen.</p></div>
@@ -149,7 +151,7 @@ export default async function Page() {
             <section className="run-sheet" aria-labelledby="run-title">
               <h2 id="run-title">Next run</h2>
               <p className="sheet-intro">Setup is open. Execution stays locked until your final instructions are complete.</p>
-              <dl className="run-details"><div><dt>Reference format</dt><dd>{status.referenceReport.label}</dd></div><div><dt>Humanizers</dt><dd>10 selected, 1 to choose</dd></div><div><dt>Detector models</dt><dd>6</dd></div><div><dt>Scoring weights</dt><dd>To be defined</dd></div></dl>
+              <dl className="run-details"><div><dt>Reference format</dt><dd>{status.referenceReport.label}</dd></div><div><dt>Humanizers</dt><dd>{status.roster.plannedHumanizers} planned, {status.roster.onHoldHumanizers} on hold<br />1 to choose</dd></div><div><dt>Detector models</dt><dd>6</dd></div><div><dt>Scoring weights</dt><dd>To be defined</dd></div></dl>
               <div className="pending-heading">Before execution</div>
               <ul className="pending-list">{status.blockers.map((blocker) => <li key={blocker}><span aria-hidden="true" />{blocker}</li>)}</ul>
               <button className="button run-button" disabled><LockIcon />Run benchmark</button>

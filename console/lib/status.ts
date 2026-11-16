@@ -30,7 +30,14 @@ const SUPPORT_SERVICES = [
 
 export function getConsoleStatus(env: Environment = process.env) {
   const configured = (key: string) => Boolean(env[key]?.trim());
-  const humanizers = HUMANIZERS.map((provider) => ({ ...provider, configured: configured(provider.envKey), configuration: getProviderConfiguration(provider.id) }));
+  const humanizers = HUMANIZERS.map((provider) => ({
+    ...provider,
+    configured: configured(provider.envKey),
+    configuration: getProviderConfiguration(provider.id),
+    participation: provider.id === 'phrasly'
+      ? { status: 'on_hold' as const, reason: 'Awaiting Phrasly Ultra access. Do not run Standard as a substitute.' }
+      : { status: 'planned' as const, reason: 'Planned for the next benchmark after settings and run instructions are finalized.' },
+  }));
   const detectors = DETECTORS.map((provider) => ({ ...provider, configured: configured(provider.envKey), weight: null, configuration: getProviderConfiguration(provider.id) }));
   const supportServices = SUPPORT_SERVICES.map((provider) => ({ ...provider, configured: configured(provider.envKey) }));
   const keys = new Set([...HUMANIZERS, ...DETECTORS, ...SUPPORT_SERVICES].map((provider) => provider.envKey));
@@ -44,6 +51,10 @@ export function getConsoleStatus(env: Environment = process.env) {
     referenceReport: { id: '2026-10-22-humanizer-comparison', label: 'October 22, 2026' },
     blockers: ['Choose the humanizer to add.', 'Define the detector-strength weights.', 'Confirm model settings and account access.', 'Finalize the remaining run instructions.'],
     modelPolicy,
+    roster: {
+      plannedHumanizers: humanizers.filter(provider => provider.participation.status === 'planned').length,
+      onHoldHumanizers: humanizers.filter(provider => provider.participation.status === 'on_hold').length,
+    },
     humanizers,
     detectors,
     supportServices,

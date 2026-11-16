@@ -8,7 +8,7 @@ This console prepares the next benchmark. Execution is deliberately held: the ru
 
 The console displays source-linked model and strength profiles for every proposed humanizer and detector. The shared configuration is in `lib/provider-settings.json`; the [API model guide](../docs/api-model-settings.md) records the same public request settings, limits, polling contracts, version handling, and unresolved questions. Documentation verification is separate from live account access, which has not been checked.
 
-The policy is to use the strongest documented model and maximum supported rewriting strength, confirm account access, and stop rather than silently downgrade. HIX uses API v2 with `mode: "Aggressive"`; `Latest` is a separate alternative. The proposed new-run detector panel replaces deprecated Originality Turbo with 5.0 Max. Final panel membership and weights remain pending. Historical reports are unchanged.
+The policy is to prefer the provider-documented best humanizing effect, otherwise use its most aggressive supported mode, confirm account access, and stop rather than silently downgrade. HIX uses API v2 with `mode: "Latest"` because the vendor describes it as the most effective humanization technology; Aggressive is a separate extensive-rewriting alternative. Phrasly is on hold until Ultra access arrives, with its credentials and Ultra/Max target retained; Standard must not be substituted. The proposed new-run detector panel replaces deprecated Originality Turbo with 5.0 Max. Final panel membership and weights remain pending. Historical reports are unchanged.
 
 ## Access
 

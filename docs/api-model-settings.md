@@ -4,8 +4,9 @@ Documentation checked: **November 16, 2026**. These are proposed next-run profil
 
 ## Selection and validation policy
 
-- Request the strongest documented humanizer model with maximum rewriting strength where that control exists. A tone or style is not an aggression level.
-- HIX uses the current v2 API with Aggressive mode. Its Latest mode is a separate alternative.
+- Prefer the provider-documented recommendation for the best humanizing effect. Otherwise use the most aggressive supported rewriting mode. A tone or style is not an aggression level.
+- HIX uses API v2 with Latest mode because the vendor describes that technology as its most effective humanization. Aggressive is a separate option for extensive changes.
+- Phrasly is on hold until Ultra access arrives. Retain its Ultra/Max target and credentials, but do not run Standard as a substitute.
 - Confirm top-tier account access before execution. Never silently fall back to Standard, a legacy model, or a weaker mode.
 - Record exact request settings, returned model/version, and vendor-native score meanings. A vendor-managed default is explicitly labeled when no version selector exists.
 - Originality 5.0 Max is proposed in place of deprecated Turbo for the new run. Final detector panel and weights are still pending; historical reports stay unchanged.
@@ -91,7 +92,7 @@ Public request template (placeholders only; not an executable benchmark client):
 
 **Still to resolve**
 
-- Confirm Ultra is enabled for the supplied account before running. Standard ignores mode; no silent Standard substitution.
+- On hold until Phrasly provides Ultra access. Do not run the Standard model or silently substitute it.
 
 **Official sources**
 
@@ -185,7 +186,7 @@ Public request template (placeholders only; not an executable benchmark client):
 ### hix
 
 **Model:** API v2
-**Strength/mode:** Aggressive — extensive rewriting on API v2
+**Strength/mode:** Latest — vendor-recommended most effective humanization
 **Documentation:** documented; **account access:** not checked.
 
 **Endpoint:** `POST https://hixbypass.com/api/hixbypass/v2/submit`
@@ -196,7 +197,7 @@ Public request template (placeholders only; not an executable benchmark client):
 ```json
 {
   "input": "<SOURCE_TEXT>",
-  "mode": "Aggressive"
+  "mode": "Latest"
 }
 ```
 
@@ -211,8 +212,8 @@ Public request template (placeholders only; not an executable benchmark client):
 
 **Notes**
 
-- API v2 is the API generation; mode=Aggressive requests extensive rewriting, following the maximum-aggression instruction.
-- Latest is a mutually exclusive mode described as newer technology. It is an alternative, not an independent model/strength switch. Public docs do not prove which wins this benchmark.
+- API v2 selects the current API generation. mode=Latest follows the vendor description of its newest, most effective humanization technology.
+- Aggressive is a mutually exclusive alternative focused on extensive changes. The documented best-effect recommendation takes priority over a literal mode name; this is vendor guidance, not a measured benchmark result.
 
 **Official sources**
 

@@ -20,11 +20,12 @@ export type ProviderConfiguration = {
 };
 
 export const modelPolicy = {
-  summary: 'Use the strongest documented humanizer model with maximum humanization strength where supported.',
-  rule: 'Confirm model access before execution. Record exact settings and returned model versions; never silently downgrade to a weaker model.',
+  summary: 'Use the provider-recommended setting for the best humanizing effect; otherwise use the most aggressive supported rewriting mode.',
+  selectionPriority: 'vendor_recommended_effectiveness' as const,
+  rule: 'Confirm the documented recommendation and model access before execution. Record exact settings and returned versions; never silently downgrade. Leave unranked choices flagged for confirmation.',
   noSilentFallback: true as const,
   verifiedAccountCount: 0 as const,
-  modeDecision: 'HIX uses the current v2 API with Aggressive mode to prioritize extensive rewriting. Its Latest mode is a separate alternative. Originality 5.0 Max is proposed in place of deprecated Turbo; the final detector panel and weights remain pending.',
+  modeDecision: 'HIX uses API v2 with Latest mode because its documentation recommends that technology for the most effective humanization. Phrasly is on hold until Ultra access arrives; Standard will not be substituted. Originality 5.0 Max remains proposed in place of deprecated Turbo, with the final panel and weights pending.',
 };
 
 export function getProviderConfiguration(id: string): ProviderConfiguration {

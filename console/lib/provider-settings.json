@@ -67,7 +67,7 @@
       "mode=max is the strongest documented rewrite mode. No separate Ultra capability endpoint or guaranteed resolved-model field was found; confirm access before execution."
     ],
     "blockers": [
-      "Confirm Ultra is enabled for the supplied account before running. Standard ignores mode; no silent Standard substitution."
+      "On hold until Phrasly provides Ultra access. Do not run the Standard model or silently substitute it."
     ],
     "sources": [
       {
@@ -174,14 +174,14 @@
   {
     "id": "hix",
     "modelLabel": "API v2",
-    "strengthLabel": "Aggressive — extensive rewriting on API v2",
+    "strengthLabel": "Latest — vendor-recommended most effective humanization",
     "verificationStatus": "documented",
     "endpoint": "https://hixbypass.com/api/hixbypass/v2/submit",
     "method": "POST",
     "authScheme": "api-key header; application/json body",
     "requestExample": {
       "input": "<SOURCE_TEXT>",
-      "mode": "Aggressive"
+      "mode": "Latest"
     },
     "polling": "GET https://hixbypass.com/api/hixbypass/v2/obtain?task_id=<TASK_ID>; inspect data.task_status and data.subtask_status. Stop on completed/failed; interval is not documented.",
     "versionRecording": "Pin API v2 and the chosen mode. Record the retrieval mode and full job metadata; no resolved model build is documented.",
@@ -190,8 +190,8 @@
       "API v2 charges 3 credits per output word; separate API allowance applies."
     ],
     "notes": [
-      "API v2 is the API generation; mode=Aggressive requests extensive rewriting, following the maximum-aggression instruction.",
-      "Latest is a mutually exclusive mode described as newer technology. It is an alternative, not an independent model/strength switch. Public docs do not prove which wins this benchmark."
+      "API v2 selects the current API generation. mode=Latest follows the vendor description of its newest, most effective humanization technology.",
+      "Aggressive is a mutually exclusive alternative focused on extensive changes. The documented best-effect recommendation takes priority over a literal mode name; this is vendor guidance, not a measured benchmark result."
     ],
     "blockers": [],
     "sources": [

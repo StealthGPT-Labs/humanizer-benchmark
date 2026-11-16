@@ -26,3 +26,23 @@ test('uncertain provider settings stay visible and cannot be mistaken for a runn
     }
   }
 });
+
+test('Phrasly stays on hold until Ultra access arrives even when its API key is configured', () => {
+  const status = getConsoleStatus({ PHRASLY_API_KEY: 'private-phrasly-sentinel-8723' });
+  const phrasly = status.humanizers.find(provider => provider.id === 'phrasly');
+  assert.ok(phrasly?.participation, 'Humanizer participation must be explicit');
+  assert.equal(phrasly.configured, true);
+  assert.equal(phrasly.participation.status, 'on_hold');
+  assert.match(phrasly.participation.reason, /Ultra/);
+  assert.equal(status.roster.plannedHumanizers, 9);
+  assert.equal(status.roster.onHoldHumanizers, 1);
+  assert.equal(JSON.stringify(status).includes('private-phrasly-sentinel-8723'), false);
+  assert.equal(status.execution.canRun, false);
+});
+
+test('the requested humanization policy follows documented effectiveness over a literal mode name', () => {
+  const status = getConsoleStatus();
+  assert.equal(status.modelPolicy.selectionPriority, 'vendor_recommended_effectiveness');
+  const hix = status.humanizers.find(provider => provider.id === 'hix');
+  assert.equal(hix?.configuration.requestExample.mode, 'Latest');
+});
