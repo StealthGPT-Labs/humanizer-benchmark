@@ -1,4 +1,5 @@
 import { getProviderConfiguration, modelPolicy } from './provider-settings';
+import { getKeyValidation } from './key-validation';
 
 type Environment = Readonly<Record<string, string | undefined>>;
 
@@ -18,7 +19,7 @@ const HUMANIZERS = [
 const DETECTORS = [
   { id: 'pangram', name: 'Pangram', envKey: 'PANGRAM_API_KEY' },
   { id: 'gptzero', name: 'GPTZero', envKey: 'GPTZERO_API_KEY' },
-  { id: 'originality5max', name: 'Originality.ai 5.0 Max', envKey: 'ORIGINALITY_API_KEY' },
+  { id: 'originality', name: 'Originality.ai Turbo', envKey: 'ORIGINALITY_API_KEY' },
   { id: 'originality5', name: 'Originality.ai 5.0', envKey: 'ORIGINALITY_API_KEY' },
   { id: 'zerogpt', name: 'ZeroGPT', envKey: 'ZEROGPT_API_KEY' },
   { id: 'winston', name: 'Winston AI', envKey: 'WINSTON_API_KEY' },
@@ -30,17 +31,29 @@ const SUPPORT_SERVICES = [
 
 export function getConsoleStatus(env: Environment = process.env) {
   const configured = (key: string) => Boolean(env[key]?.trim());
-  const humanizers = HUMANIZERS.map((provider) => ({
+  const humanizers = HUMANIZERS.map((provider) => {
+    const configuration = getProviderConfiguration(provider.id);
+    const keyValidation = getKeyValidation(provider.id, provider.envKey, env, configuration.requestExample);
+    return ({
     ...provider,
     configured: configured(provider.envKey),
-    configuration: getProviderConfiguration(provider.id),
+    configuration,
+    keyValidation,
     participation: provider.id === 'phrasly'
       ? { status: 'on_hold' as const, reason: 'Awaiting Phrasly Ultra access. Do not run Standard as a substitute.' }
-      : { status: 'planned' as const, reason: 'Planned for the next benchmark after settings and run instructions are finalized.' },
-  }));
-  const detectors = DETECTORS.map((provider) => ({ ...provider, configured: configured(provider.envKey), weight: null, configuration: getProviderConfiguration(provider.id) }));
-  const supportServices = SUPPORT_SERVICES.map((provider) => ({ ...provider, configured: configured(provider.envKey) }));
+      : keyValidation.modelAccess === 'unavailable'
+        ? { status: 'blocked' as const, reason: keyValidation.modelAccessMessage ?? 'The requested model is unavailable on the current account.' }
+        : { status: 'planned' as const, reason: 'Planned for the next benchmark after settings and run instructions are finalized.' },
+    });
+  });
+  const detectors = DETECTORS.map((provider) => {
+    const configuration = getProviderConfiguration(provider.id);
+    return { ...provider, configured: configured(provider.envKey), weight: null, configuration, keyValidation: getKeyValidation(provider.id, provider.envKey, env, configuration.requestExample) };
+  });
+  const supportServices = SUPPORT_SERVICES.map((provider) => ({ ...provider, configured: configured(provider.envKey), keyValidation: getKeyValidation(provider.id, provider.envKey, env) }));
   const keys = new Set([...HUMANIZERS, ...DETECTORS, ...SUPPORT_SERVICES].map((provider) => provider.envKey));
+  const providers = [...humanizers, ...detectors, ...supportServices];
+  const verifiedKeys = new Set(providers.filter(provider => provider.keyValidation.status === 'verified').map(provider => provider.envKey));
 
   return {
     execution: {
@@ -50,10 +63,11 @@ export function getConsoleStatus(env: Environment = process.env) {
     },
     referenceReport: { id: '2026-10-22-humanizer-comparison', label: 'October 22, 2026' },
     blockers: ['Choose the humanizer to add.', 'Define the detector-strength weights.', 'Confirm model settings and account access.', 'Finalize the remaining run instructions.'],
-    modelPolicy,
+    modelPolicy: { ...modelPolicy, verifiedAccountCount: providers.filter(provider => provider.keyValidation.modelAccess === 'confirmed').length },
     roster: {
       plannedHumanizers: humanizers.filter(provider => provider.participation.status === 'planned').length,
       onHoldHumanizers: humanizers.filter(provider => provider.participation.status === 'on_hold').length,
+      blockedHumanizers: humanizers.filter(provider => provider.participation.status === 'blocked').length,
     },
     humanizers,
     detectors,
@@ -64,6 +78,6 @@ export function getConsoleStatus(env: Environment = process.env) {
       { name: 'Syntax integrity', inspector: 'runon', description: 'Check for disruptive run-ons and clause chains.' },
       { name: 'Stance preservation', inspector: 'polarity', description: 'Preserve the source’s position and level of certainty.' },
     ],
-    environment: { configuredCount: [...keys].filter(configured).length, totalCount: keys.size },
+    environment: { configuredCount: [...keys].filter(configured).length, totalCount: keys.size, verifiedCount: verifiedKeys.size },
   };
 }

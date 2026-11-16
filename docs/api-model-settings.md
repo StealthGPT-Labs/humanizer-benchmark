@@ -1,6 +1,6 @@
 # API model and strength settings
 
-Documentation checked: **November 16, 2026**. These are proposed next-run profiles. The console and its run endpoint remain locked. No humanization or detection requests were made to verify account entitlements.
+Documentation checked: **November 16, 2026**. These are proposed next-run profiles. The console and its run endpoint remain locked. Minimal credential checks are now recorded separately in the console; no full benchmark was started.
 
 ## Selection and validation policy
 
@@ -9,7 +9,7 @@ Documentation checked: **November 16, 2026**. These are proposed next-run profil
 - Phrasly is on hold until Ultra access arrives. Retain its Ultra/Max target and credentials, but do not run Standard as a substitute.
 - Confirm top-tier account access before execution. Never silently fall back to Standard, a legacy model, or a weaker mode.
 - Record exact request settings, returned model/version, and vendor-native score meanings. A vendor-managed default is explicitly labeled when no version selector exists.
-- Originality 5.0 Max is proposed in place of deprecated Turbo for the new run. Final detector panel and weights are still pending; historical reports stay unchanged.
+- Originality5.0 and Turbo are requested; Max is not selected. The live Turbo selector returned model-5.0, so distinct Turbo access is not verified. Final panel/weights remain pending; historical reports stay unchanged.
 - Provider-ranked first results are selected before external detector scoring. Do not reroll or choose outputs based on detector results.
 - API-key presence does not establish correct authentication, credits, model entitlement, or an implemented runner.
 
@@ -376,7 +376,7 @@ Public request template (placeholders only; not an executable benchmark client):
 **Still to resolve**
 
 - Confirm how the supplied GRUBBY_MCP_API_KEY authenticates; official public setup describes sign-in rather than an extra key.
-- Obtain the MCP tools/list schema before choosing exact argument names/enums, transport headers, and job-result identifiers.
+- Bearer authentication was verified by a matching-key check_quota call. Obtain tools/list before selecting exact humanization arguments and job-result identifiers.
 - Public docs describe target/style modes rather than a ranked aggression scale; Academic is the default, not proven strongest overall.
 
 **Official sources**
@@ -514,16 +514,14 @@ Public request template (placeholders only; not an executable benchmark client):
 - [List model versions](https://docs.gptzero.me/api-reference/GET/v2/model-versions/ai-scan.md)
 - [Quickstart](https://docs.gptzero.me/quickstart)
 
-### originality5max
+### originality
 
-**Model:** Originality.ai 5.0 Max
-**Strength/mode:** Vendor's highest-accuracy current detector
-**Documentation:** documented; **account access:** not checked.
+**Model:** Turbo selector requested; distinct backend not confirmed
+**Strength/mode:** Requested Turbo; live response identified model-5.0
+**Documentation:** needs_confirmation; key authentication and requested model are tracked separately.
 
 **Endpoint:** `POST https://api.originality.ai/api/v3/scan`
 **Authentication:** `X-OAI-API-KEY: <ORIGINALITY_API_KEY>; Content-Type: application/json`
-
-Public request template (placeholders only; not an executable benchmark client):
 
 ```json
 {
@@ -535,39 +533,21 @@ Public request template (placeholders only; not an executable benchmark client):
   "check_readability": false,
   "check_grammar": false,
   "storeScan": false,
-  "aiModelVersion": "model-5.0-max"
+  "aiModelVersion": "turbo"
 }
 ```
 
-**Completion:** Same synchronous V3 scan endpoint; no separate model-specific polling documented.
+Record results.ai.model. The minimum live request using turbo returned model-5.0. Do not claim a distinct Turbo backend or count this as a second detector until resolved.
 
-**Version record:** Pin aiModelVersion=model-5.0-max; record results.ai.model, prediction_label, and ai_assisted_percent.
+- Resolve the requested Turbo versus returned model-5.0 mismatch before benchmark execution. No automatic Max or5.0 substitution, and no double-counting.
 
-**Limits**
-
-- Minimum 50 words; documented limit 500 requests/minute.
-- Max uses 10 credits per 100 words and takes longer than standard 5.0.
-
-**Notes**
-
-- Proposed next-run replacement for deprecated Turbo. Historical reports are unchanged. Final detector panel and weights are still pending.
-- 5.0 and Max report AI-involvement text share, not Turbo-style document confidence; preserve native labels and separate model results.
-
-**Still to resolve**
-
-- Proposed next-run replacement for deprecated Turbo; panel and strength weights still need finalization.
-- Account API entitlement/credit balance not checked; no scan made.
-
-**Official sources**
-
-- [Scan — aiModelVersion selector and response schema](https://docs.originality.ai/scan.md?plain=1)
-- [Current model selectors: model-5.0 and model-5.0-max](https://docs.originality.ai/originality-ai-api-v1.md?plain=1)
-- [Introducing Originality.ai 5.0 and 5.0 Max](https://originality.ai/blog/introducing-originality-5-0-and-max)
+- [Originality API model selectors and legacy aliases](https://docs.originality.ai/originality-ai-api-v1.md?plain=1)
+- [V3 scan contract and returned model](https://docs.originality.ai/scan.md?plain=1)
 
 ### originality5
 
 **Model:** Originality.ai 5.0
-**Strength/mode:** Current standard model; 5.0 Max is the highest-accuracy option
+**Strength/mode:** Requested Originality5.0 detector
 **Documentation:** documented; **account access:** not checked.
 
 **Endpoint:** `POST https://api.originality.ai/api/v3/scan`

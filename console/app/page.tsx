@@ -11,8 +11,41 @@ function LockIcon({ size = 16 }: { size?: number }) {
   return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2" /><path d="M8 10V7a4 4 0 0 1 8 0v3" /><path d="M12 14v3" /></svg>;
 }
 
-function KeyStatus({ configured }: { configured: boolean }) {
-  return <span className={`key-status ${configured ? 'present' : 'missing'}`}><span aria-hidden="true" />{configured ? 'Configured' : 'Not added'}</span>;
+type KeyValidation = {
+  status: 'verified' | 'credential_changed' | 'not_checked' | 'not_configured';
+  checkedAt: string | null;
+  method: string | null;
+  endpoint: string | null;
+  summary: string;
+  evidence: 'reused_today' | 'live' | 'none';
+  limitations: string[];
+  modelAccess: 'not_checked' | 'confirmed' | 'unavailable' | 'on_hold' | 'model_mismatch';
+  modelAccessMessage: string | null;
+};
+
+function KeyStatus({ configured, validation }: { configured: boolean; validation?: KeyValidation }) {
+  const status = !configured ? 'missing' : validation?.status === 'verified' ? 'verified' : validation?.status === 'credential_changed' ? 'changed' : 'unchecked';
+  const label = { missing: 'Not added', verified: 'Verified', changed: 'Needs recheck', unchecked: 'Present · not checked' }[status];
+  return <span className={`key-status ${status}`}><span aria-hidden="true" />{label}</span>;
+}
+
+function KeyVerification({ validation }: { validation: KeyValidation }) {
+  const evidenceLabel = { reused_today: 'Reused same-day check', live: 'Live check', none: 'No check recorded' }[validation.evidence];
+  const checkedAt = validation.checkedAt ? new Date(validation.checkedAt) : null;
+  const checkedLabel = checkedAt && !Number.isNaN(checkedAt.getTime())
+    ? checkedAt.toLocaleString('en-US', { timeZone: 'America/Los_Angeles', month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit', timeZoneName: 'short' })
+    : null;
+
+  return <div className="key-verification-record">
+    <div className="verification-record-heading"><span>{evidenceLabel}</span>{checkedLabel ? <time dateTime={validation.checkedAt ?? undefined}>{checkedLabel}</time> : null}</div>
+    <p>{validation.summary}</p>
+    {validation.endpoint ? <p className="verification-endpoint"><code>{validation.method ?? 'Request'}</code><code>{validation.endpoint}</code></p> : null}
+    {validation.limitations.length > 0 ? <ul>{validation.limitations.map((limitation) => <li key={limitation}>{limitation}</li>)}</ul> : null}
+  </div>;
+}
+
+function KeyTableStatus({ configured, validation }: { configured: boolean; validation: KeyValidation }) {
+  return <><KeyStatus configured={configured} validation={validation} /><details className="key-check-details"><summary>Check details</summary><KeyVerification validation={validation} /></details></>;
 }
 
 type ProviderConfiguration = {
@@ -34,10 +67,12 @@ type ProviderConfiguration = {
 };
 
 function ProviderProfile({ provider, compact = false }: {
-  provider: { id: string; name: string; configured: boolean; configuration: ProviderConfiguration; participation?: { status: 'planned' | 'on_hold'; reason: string } };
+  provider: { id: string; name: string; configured: boolean; configuration: ProviderConfiguration; keyValidation: KeyValidation; participation?: { status: 'planned' | 'on_hold' | 'blocked'; reason: string } };
   compact?: boolean;
 }) {
   const config = provider.configuration;
+  const validation = provider.keyValidation;
+  const modelAccessLabel = { not_checked: 'Not checked', confirmed: 'Confirmed', unavailable: 'Unavailable', on_hold: 'On hold', model_mismatch: 'Model mismatch' }[validation.modelAccess];
   const documentationLabel = {
     documented: 'Documented',
     partial: 'Partly documented',
@@ -47,12 +82,14 @@ function ProviderProfile({ provider, compact = false }: {
   return (
     <details className={`provider-profile${compact ? ' compact-profile' : ''}`}>
       <summary>
-        <span className="profile-summary-top"><span className="profile-name"><span className="profile-chevron" aria-hidden="true" />{provider.name}{provider.participation?.status === 'on_hold' ? <span className="participation-badge">On hold</span> : null}</span><span className={`documentation-status ${config.verificationStatus}`}>{documentationLabel}</span></span>
+        <span className="profile-summary-top"><span className="profile-name"><span className="profile-chevron" aria-hidden="true" />{provider.name}{provider.participation && provider.participation.status !== 'planned' ? <span className={`participation-badge ${provider.participation.status}`}>{provider.participation.status === 'blocked' ? 'Blocked' : 'On hold'}</span> : null}</span><span className={`documentation-status ${config.verificationStatus}`}>{documentationLabel}</span></span>
         <span className="profile-summary-settings"><span><small>Model</small><span>{config.modelLabel}</span></span><span><small>Strength / mode</small><span>{config.strengthLabel}</span></span></span>
       </summary>
       <div className="profile-content">
-        <div className="profile-verification"><span>Account access: not checked</span><span>Key: <KeyStatus configured={provider.configured} /></span></div>
-        {provider.participation?.status === 'on_hold' ? <div className="participation-reason"><strong>Participation on hold</strong><p>{provider.participation.reason}</p></div> : null}
+        <div className="profile-verification"><span className={`model-access-state ${validation.modelAccess}`}>Requested model access: {modelAccessLabel}</span><span>Key: <KeyStatus configured={provider.configured} validation={validation} /></span></div>
+        {validation.modelAccessMessage ? <p className={`model-access-message ${validation.modelAccess}`}>{validation.modelAccessMessage}</p> : null}
+        <div className="profile-key-verification"><h3>Key verification</h3><KeyVerification validation={validation} /></div>
+        {provider.participation && provider.participation.status !== 'planned' ? <div className={`participation-reason ${provider.participation.status}`}><strong>{provider.participation.status === 'blocked' ? 'Participation blocked' : 'Participation on hold'}</strong><p>{provider.participation.reason}</p></div> : null}
         <div className="request-heading">Request settings</div>
         <div className="request-endpoint"><code className="request-method">{config.method ?? 'To confirm'}</code><code>{config.endpoint ?? 'Endpoint needs confirmation'}</code></div>
         <p className="request-auth"><span>Authentication</span><code>{config.authScheme ?? 'Authentication scheme needs confirmation'}</code></p>
@@ -99,21 +136,22 @@ export default async function Page() {
         <div className="workspace-grid">
           <div className="main-column">
             <section className="surface model-section" aria-labelledby="models-title">
-              <div className="section-heading"><div><h2 id="models-title">Models and humanization strength</h2><p>Requested settings from provider documentation. Account access and live responses still need checking. Execution remains locked.</p></div></div>
-              <div className="model-policy"><p>{status.modelPolicy.summary}</p><p><strong>Selection rule</strong> {status.modelPolicy.rule}</p><p className="mode-decision">{status.modelPolicy.modeDecision}</p><span>{status.modelPolicy.verifiedAccountCount} live account checks completed. No silent model fallback.</span></div>
+              <div className="section-heading"><div><h2 id="models-title">Models and humanization strength</h2><p>Requested settings from provider documentation. Key checks and requested-model access are recorded separately. Execution remains locked.</p></div></div>
+              <div className="model-policy"><p>{status.modelPolicy.summary}</p><p><strong>Selection rule</strong> {status.modelPolicy.rule}</p><p className="mode-decision">{status.modelPolicy.modeDecision}</p><span>{status.modelPolicy.verifiedAccountCount} requested model checks verified. No silent model fallback.</span></div>
               {status.humanizers.some((provider) => provider.id === 'phrasly' && provider.participation.status === 'on_hold') ? <div className="participation-notice"><span className="participation-badge">Phrasly on hold</span><p>Phrasly will be skipped until Ultra access is enabled. Standard will not be used as a fallback.</p></div> : null}
+              {status.humanizers.some((provider) => provider.id === 'writehuman' && provider.participation.status === 'blocked') ? <div className="participation-notice blocked"><span className="participation-badge blocked">WriteHuman blocked</span><p>WriteHuman Enhanced requires Premium access. It will be skipped until that access is available, with no Standard fallback.</p></div> : null}
               <div className="provider-profiles">{status.humanizers.map((provider) => <ProviderProfile key={provider.id} provider={provider} />)}</div>
-              <p className="section-footnote">Open a provider to review its request settings, limits, and source documentation. Documentation status is separate from key presence and account access.</p>
+              <p className="section-footnote">Open a provider to review its key check, requested-model access, request settings, and source documentation. A verified key does not establish access to the requested model.</p>
             </section>
 
             <section className="surface" aria-labelledby="keys-title">
               <div className="section-heading"><div><h2 id="keys-title">API keys</h2><p>Import your <code>.env</code> file in Vercel, then redeploy to update this view.</p><a className="template-link" href="/api/env-template" download>Download the empty key template</a></div><a className="button primary" href={ENVIRONMENT_SETTINGS} target="_blank" rel="noreferrer">Open key settings</a></div>
-              <div className="key-summary"><span>{status.environment.configuredCount} of {status.environment.totalCount} keys configured</span><span>Values stay on the server</span></div>
+              <div className="key-summary"><span>{status.environment.configuredCount} of {status.environment.totalCount} keys present; {status.environment.verifiedCount} verified</span><span>Values stay on the server</span></div>
               <div className="table-scroll" tabIndex={0} role="region" aria-label="Humanizer key configuration">
                 <table className="provider-table">
                   <caption>Humanizers</caption>
                   <thead><tr><th scope="col">Provider</th><th scope="col">Environment key</th><th scope="col">Status</th></tr></thead>
-                  <tbody>{status.humanizers.map((provider) => <tr key={provider.id}><th scope="row">{provider.name}{provider.participation.status === 'on_hold' ? <small className="table-participation">On hold: {provider.participation.reason}</small> : null}</th><td><code>{provider.envKey}</code></td><td><KeyStatus configured={provider.configured} /></td></tr>)}</tbody>
+                  <tbody>{status.humanizers.map((provider) => <tr key={provider.id}><th scope="row">{provider.name}{provider.participation.status !== 'planned' ? <small className={`table-participation ${provider.participation.status}`}>{provider.participation.status === 'blocked' ? 'Blocked' : 'On hold'}: {provider.participation.reason}</small> : null}</th><td><code>{provider.envKey}</code></td><td><KeyTableStatus configured={provider.configured} validation={provider.keyValidation} /></td></tr>)}</tbody>
                 </table>
               </div>
               <div className="roster-note"><span className="note-dot" aria-hidden="true" /><p>Ryne is excluded from the new run. The additional humanizer is still to be chosen.</p></div>
@@ -121,23 +159,23 @@ export default async function Page() {
                 <table className="provider-table">
                   <caption>AI detectors</caption>
                   <thead><tr><th scope="col">Provider</th><th scope="col">Environment key</th><th scope="col">Status</th></tr></thead>
-                  <tbody>{status.detectors.map((provider) => <tr key={provider.id}><th scope="row">{provider.name}</th><td><code>{provider.envKey}</code></td><td><KeyStatus configured={provider.configured} /></td></tr>)}</tbody>
+                  <tbody>{status.detectors.map((provider) => <tr key={provider.id}><th scope="row">{provider.name}</th><td><code>{provider.envKey}</code></td><td><KeyTableStatus configured={provider.configured} validation={provider.keyValidation} /></td></tr>)}</tbody>
                 </table>
               </div>
               <div className="table-scroll" tabIndex={0} role="region" aria-label="Support service key configuration">
                 <table className="provider-table support-table">
                   <caption>Evaluation services</caption>
                   <thead><tr><th scope="col">Service</th><th scope="col">Environment key</th><th scope="col">Status</th></tr></thead>
-                  <tbody>{status.supportServices.map((provider) => <tr key={provider.id}><th scope="row">{provider.name}</th><td><code>{provider.envKey}</code></td><td><KeyStatus configured={provider.configured} /></td></tr>)}</tbody>
+                  <tbody>{status.supportServices.map((provider) => <tr key={provider.id}><th scope="row">{provider.name}</th><td><code>{provider.envKey}</code></td><td><KeyTableStatus configured={provider.configured} validation={provider.keyValidation} /></td></tr>)}</tbody>
                 </table>
               </div>
-              <p className="section-footnote">Configured means a value is present. Credentials have not been tested with the providers. Both Originality models use the same API key.</p>
+              <p className="section-footnote">Present means a value is configured. Verified means the current key has a successful recorded check; open Check details for its scope and limitations. Both Originality models use the same API key.</p>
             </section>
 
             <section className="surface detector-profile-section" aria-labelledby="detector-models-title">
               <div className="section-heading"><div><h2 id="detector-models-title">Detector model settings</h2><p>Review the requested model and version handling for each detector.</p></div></div>
               <div className="provider-profiles">{status.detectors.map((provider) => <ProviderProfile key={provider.id} provider={provider} compact />)}</div>
-              <p className="section-footnote">Live model availability has not been checked. Any deprecated setting or proposed replacement remains visible for review before execution.</p>
+              <p className="section-footnote">Model access is recorded separately for each detector. The Originality panel uses 5.0 and Turbo.</p>
             </section>
 
             <section className="surface quality-section" aria-labelledby="quality-title">
@@ -151,7 +189,7 @@ export default async function Page() {
             <section className="run-sheet" aria-labelledby="run-title">
               <h2 id="run-title">Next run</h2>
               <p className="sheet-intro">Setup is open. Execution stays locked until your final instructions are complete.</p>
-              <dl className="run-details"><div><dt>Reference format</dt><dd>{status.referenceReport.label}</dd></div><div><dt>Humanizers</dt><dd>{status.roster.plannedHumanizers} planned, {status.roster.onHoldHumanizers} on hold<br />1 to choose</dd></div><div><dt>Detector models</dt><dd>6</dd></div><div><dt>Scoring weights</dt><dd>To be defined</dd></div></dl>
+              <dl className="run-details"><div><dt>Reference format</dt><dd>{status.referenceReport.label}</dd></div><div><dt>Humanizers</dt><dd>{status.roster.plannedHumanizers} planned, {status.roster.onHoldHumanizers} on hold<br />{status.roster.blockedHumanizers} blocked, 1 to choose</dd></div><div><dt>Detector models</dt><dd>6</dd></div><div><dt>Scoring weights</dt><dd>To be defined</dd></div></dl>
               <div className="pending-heading">Before execution</div>
               <ul className="pending-list">{status.blockers.map((blocker) => <li key={blocker}><span aria-hidden="true" />{blocker}</li>)}</ul>
               <button className="button run-button" disabled><LockIcon />Run benchmark</button>

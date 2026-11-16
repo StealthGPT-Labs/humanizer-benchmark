@@ -320,7 +320,7 @@
       "No resolved model version is documented beyond standard/enhanced. Premium marketing describes detection-aware processing and priority processing."
     ],
     "blockers": [
-      "Confirm a Premium API plan and Enhanced availability. Reject enhanced_requires_premium or enhanced_unavailable rather than silently using Standard."
+      "The direct Enhanced test returned HTTP403 enhanced_requires_premium on2026-11-16. Upgrade API access to Premium before running Enhanced; do not substitute Standard."
     ],
     "sources": [
       {
@@ -342,20 +342,20 @@
     "verificationStatus": "needs_confirmation",
     "endpoint": "https://grubby.ai/api/mcp",
     "method": "MCP",
-    "authScheme": "Public setup documents Grubby sign-in and approval; static MCP API-key header/scheme is not documented.",
+    "authScheme": "Authorization: Bearer <GRUBBY_API_KEY>; Content-Type: application/json; Accept: application/json, text/event-stream",
     "requestExample": {},
     "polling": "Long jobs use get_humanize_result. Exact job argument names and terminal statuses must be obtained from the MCP schema.",
     "versionRecording": "Obtain authenticated tools/list and confirm the exact model/mode arguments before a run. Public docs do not expose a build version.",
     "limits": [
-      "English only in the reviewed public documentation.",
-      "Published per-request word caps vary by plan (300–2,500); verify MCP account limits."
+      "Verified account quota:25–500 words per request, Essential monthly plan.",
+      "The earlier quota check reported10,000 words remaining; balances may change."
     ],
     "notes": [
       "Publicly documented tools: humanize_text, check_quota, get_humanize_result. The empty request example is intentional: exact arguments are not confirmed.",
-      "Academic is the default style; GPTZero emphasizes expressive prose and ZeroGPT is lighter. These are not a published maximum-aggression ranking."
+      "Academic is the default style; GPTZero emphasizes expressive prose and ZeroGPT is lighter. These are not a published maximum-aggression ranking.",
+      "A matching-key MCP check_quota call passed earlier today using Bearer authentication; it consumed zero words."
     ],
     "blockers": [
-      "Confirm how the supplied GRUBBY_MCP_API_KEY authenticates; official public setup describes sign-in rather than an extra key.",
       "Obtain the MCP tools/list schema before choosing exact argument names/enums, transport headers, and job-result identifiers.",
       "Public docs describe target/style modes rather than a ranked aggression scale; Academic is the default, not proven strongest overall."
     ],
@@ -506,10 +506,10 @@
     "accountAccess": "not_checked"
   },
   {
-    "id": "originality5max",
-    "modelLabel": "Originality.ai 5.0 Max",
-    "strengthLabel": "Vendor's highest-accuracy current detector",
-    "verificationStatus": "documented",
+    "id": "originality",
+    "modelLabel": "Turbo selector requested; distinct backend not confirmed",
+    "strengthLabel": "Requested Turbo; live response identified model-5.0",
+    "verificationStatus": "needs_confirmation",
     "endpoint": "https://api.originality.ai/api/v3/scan",
     "method": "POST",
     "authScheme": "X-OAI-API-KEY: <ORIGINALITY_API_KEY>; Content-Type: application/json",
@@ -522,34 +522,29 @@
       "check_readability": false,
       "check_grammar": false,
       "storeScan": false,
-      "aiModelVersion": "model-5.0-max"
+      "aiModelVersion": "turbo"
     },
     "polling": "Same synchronous V3 scan endpoint; no separate model-specific polling documented.",
-    "versionRecording": "Pin aiModelVersion=model-5.0-max; record results.ai.model, prediction_label, and ai_assisted_percent.",
+    "versionRecording": "Record results.ai.model. The minimum live request using turbo returned model-5.0. Do not claim a distinct Turbo backend or count this as a second detector until resolved.",
     "limits": [
-      "Minimum 50 words; documented limit 500 requests/minute.",
-      "Max uses 10 credits per 100 words and takes longer than standard 5.0."
+      "Minimum documented scan length:50 words.",
+      "Turbo alias billing and legacy model compatibility require confirmation."
     ],
     "notes": [
-      "Proposed next-run replacement for deprecated Turbo. Historical reports are unchanged. Final detector panel and weights are still pending.",
-      "5.0 and Max report AI-involvement text share, not Turbo-style document confidence; preserve native labels and separate model results."
+      "The requested panel is Originality5.0 and Turbo. Max is not selected. Both requests use the V3 scan endpoint with different aiModelVersion values.",
+      "The Turbo request returned HTTP200 but results.ai.model=model-5.0 and text-share fields. This verifies key acceptance, not a distinct Turbo model."
     ],
     "blockers": [
-      "Proposed next-run replacement for deprecated Turbo; panel and strength weights still need finalization.",
-      "Account API entitlement/credit balance not checked; no scan made."
+      "Resolve the requested Turbo versus returned model-5.0 mismatch before benchmark execution. No automatic Max or5.0 substitution, and no double-counting."
     ],
     "sources": [
       {
-        "url": "https://docs.originality.ai/scan.md?plain=1",
-        "title": "Scan — aiModelVersion selector and response schema"
-      },
-      {
         "url": "https://docs.originality.ai/originality-ai-api-v1.md?plain=1",
-        "title": "Current model selectors: model-5.0 and model-5.0-max"
+        "title": "Originality API model selectors and legacy aliases"
       },
       {
-        "url": "https://originality.ai/blog/introducing-originality-5-0-and-max",
-        "title": "Introducing Originality.ai 5.0 and 5.0 Max"
+        "url": "https://docs.originality.ai/scan.md?plain=1",
+        "title": "V3 scan contract and returned model"
       }
     ],
     "checkedDate": "2026-11-16",
@@ -558,7 +553,7 @@
   {
     "id": "originality5",
     "modelLabel": "Originality.ai 5.0",
-    "strengthLabel": "Current standard model; 5.0 Max is the highest-accuracy option",
+    "strengthLabel": "Requested Originality5.0 detector",
     "verificationStatus": "documented",
     "endpoint": "https://api.originality.ai/api/v3/scan",
     "method": "POST",
@@ -581,9 +576,8 @@
       "Standard 5.0 uses 1 credit per 100 words."
     ],
     "notes": [
-      "Do not average this AI-involvement percentage as if it were a Turbo/GPTZero classification confidence.",
-      "Official category explanations: Likely Original under10%AI, Mixed10–80%, LikelyAI81–100%; record actual native prediction_label rather than reconstructing ambiguous boundary rounding.",
-      "storeScan:false is a privacy-oriented runner choice; resulting scan cannot be fetched later from vendor history."
+      "The minimal live scan returned model-5.0 for the requested model-5.0 selector.",
+      "This model reports AI-involvement text share; preserve its native labels and returned model identifier."
     ],
     "blockers": [
       "API documentation requires an Enterprise-level subscription. Actual key entitlements were not checked.",
