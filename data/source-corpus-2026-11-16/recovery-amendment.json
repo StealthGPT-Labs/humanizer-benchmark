@@ -1,0 +1,46 @@
+{
+  "created_at": "2026-11-17T00:45:36.009340+00:00",
+  "sample_id": "sample_041",
+  "reason": "All three attempts hit the 4096-token completion cap, including internal reasoning. No complete eligible text was obtained. Operational review authorizes up to two recovery attempts with 8192 tokens.",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "prompt_sha256": "7ac097da4e7a96dcdc798656c411115676486e33e53a5ed59527b89085fa21b9",
+  "changes": {
+    "max_tokens": 8192,
+    "additional_attempts_max": 2
+  },
+  "unchanged": [
+    "topic",
+    "prompt",
+    "model",
+    "reasoning effort",
+    "500–800 word acceptance interval",
+    "seeded allocation",
+    "no detector-based selection"
+  ],
+  "original_attempts": [
+    {
+      "attempt": 1,
+      "rejections": [
+        "truncated"
+      ],
+      "response_sha256": "0ba2715b4b0caa38e6d41d3615db9f49a89d347c831d33cf97a9abfaf2c238eb"
+    },
+    {
+      "attempt": 2,
+      "rejections": [
+        "length",
+        "truncated"
+      ],
+      "response_sha256": "d6589d2a0ff872a2db03cc7c9cf6e365990f79442e739b3306dd9de374f54494"
+    },
+    {
+      "attempt": 3,
+      "rejections": [
+        "length",
+        "truncated"
+      ],
+      "response_sha256": "c5e5d236d7dac99c510874f22423451f8ad55a05e23f832b792ba09a91b38591"
+    }
+  ],
+  "generation_budget_ceiling_usd": 5
+}
