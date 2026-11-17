@@ -1,0 +1,27 @@
+{
+  "accepted_samples": 50,
+  "source_words": 34763,
+  "average_words": 695.26,
+  "min_words": 540,
+  "max_words": 795,
+  "attempts": 65,
+  "reported_cost_usd": 0.5939614,
+  "models": {
+    "openai/gpt-6.1-sol": 10,
+    "anthropic/claude-sonnet-5.5": 10,
+    "google/gemini-4-argon": 10,
+    "x-ai/grok-4.7": 10,
+    "deepseek/deepseek-v4.1-flash": 10
+  },
+  "categories": {
+    "Academic and analytical": 10,
+    "Science and technology": 10,
+    "Business and professional": 10,
+    "Editorial and practical": 10,
+    "Personal and application": 10
+  },
+  "humanizers_called": 0,
+  "detectors_called": 0,
+  "recovery_amendment": "recovery-amendment.json",
+  "csv_sha256": "983e4abb98e15cbd5f06c51e8ca987cbac817d4215a720abafdcef6155bcbe73"
+}

@@ -1,6 +1,6 @@
 # Next-run input design
 
-Status: allocation prepared; no source generation or benchmark execution authorized yet. This design replaces the earlier fixed-topic proposal for the next run only. Historical reports remain unchanged.
+Status: source generation was authorized and completed on November 16, 2026; humanizer and detector execution remain on hold. This design replaces the earlier fixed-topic proposal for the next run only. Historical reports remain unchanged.
 
 ## Fixed size and balance
 
@@ -29,7 +29,7 @@ Thus each provider writes 10 texts; each category has 10; each format has five, 
 4. Use a frozen deterministic algorithm to hash-rank topics independently within each format, select five without replacement, and deterministically assign those five to the five source providers. Use explicit domain-separated hash inputs and stable tie-breaking; publish the exact algorithm for replay. Do not select topics based on detector scores or anticipated vendor performance.
 5. After evaluation closes, release the nonce, banks, templates, resolved prompts, allocation, and selection script so anyone can check the commitment and reproduce topic selection. Preserve existing report publication restrictions unless the owner separately changes them.
 
-The selection script, banks, commitment, and generation runner are still to be built. The allocation CSV alone does not implement commit-and-reveal.
+The frozen banks, templates, settings, advance commitment and source-only runner are in `data/source-corpus-2026-11-16/` and `scripts/source_corpus.py`. The local source CSV contains all 50 accepted inputs. One DeepSeek token-limit recovery after the initial three attempts is documented in `recovery-amendment.json`; the prompt, topic, model and word-count bounds were preserved.
 
 ## Input generation and freezing
 
