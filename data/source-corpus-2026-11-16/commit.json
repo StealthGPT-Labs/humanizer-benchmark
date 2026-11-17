@@ -1,0 +1,13 @@
+{
+  "created_at": "2026-11-17T00:40:03.474765+00:00",
+  "nonce_sha256": "83aa04da7cabcec257d71fde14cf9f797709577033369503898441759f921dbc",
+  "files": {
+    "data/source-corpus-2026-11-16/banks.json": "caa5befc866d03d91beca80cbbd616b99c6ef7f3194da1653ee1272421d89da6",
+    "data/source-corpus-2026-11-16/templates.json": "893eddcfd74fd646fc172424011c6df988446c8a90c7f09981c53742451f5dbc",
+    "data/source-corpus-2026-11-16/generation-settings.json": "d0dabce06064a7303241ccf450c00bc9f6a148844a30f7768c83bf8ed5a905c2",
+    "data/source-corpus-2026-11-16/sample-allocation.csv": "d891d46197a6e5e02bf926022b495e0f22297cf73221f2c3f90fc5f43807cdbe",
+    "scripts/source_corpus.py": "e31b5f1ec214a7fbd477d68023b1800f70d6967a67eaf7c2725eeb4f5a46a395"
+  },
+  "stage": "Commit before topic selection and any paid model requests",
+  "selection": "SHA256 domain-separated topic-v1 ranks; assign-v1 separately orders providers per format; lexical tie-breaks"
+}

@@ -1,0 +1,41 @@
+{
+  "models": {
+    "OpenAI": "openai/gpt-6.1-sol",
+    "Anthropic": "anthropic/claude-sonnet-5.5",
+    "Google": "google/gemini-4-argon",
+    "xAI": "x-ai/grok-4.7",
+    "DeepSeek": "deepseek/deepseek-v4.1-flash"
+  },
+  "request": {
+    "max_tokens": 4096,
+    "reasoning": {
+      "effort": "low",
+      "exclude": true
+    },
+    "provider": {
+      "allow_fallbacks": false
+    }
+  },
+  "acceptance": {
+    "min_words": 500,
+    "max_words": 800,
+    "target_words": [
+      600,
+      700
+    ],
+    "max_attempts": 3,
+    "word_count": "len(text.split())",
+    "checks": [
+      "nonempty",
+      "length",
+      "finish_reason_stop",
+      "no_refusal",
+      "English heuristic plus manual review",
+      "SHA256 uniqueness"
+    ],
+    "canonicalization": "strip outer whitespace only"
+  },
+  "budget_ceiling_usd": 5,
+  "concurrency": 5,
+  "scope": "Source text generation only. No humanizers or detectors."
+}

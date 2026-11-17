@@ -1,0 +1,122 @@
+{
+  "Argumentative essay": [
+    "Whether city centers should prioritize buses over private cars",
+    "Whether schools should start later for teenagers",
+    "Whether public museums should offer free admission",
+    "Whether employers should adopt four-day working weeks",
+    "Whether universities should require community service",
+    "Whether governments should subsidize home insulation",
+    "Whether cities should restrict short-term vacation rentals",
+    "Whether schools should teach media literacy as a core subject",
+    "Whether national parks should limit daily visitors",
+    "Whether public transport should be fare-free"
+  ],
+  "Research explainer": [
+    "How spaced retrieval supports long-term learning",
+    "How confirmation bias influences everyday decisions",
+    "How multilingualism shapes communication in families",
+    "How social networks influence the diffusion of new ideas",
+    "How oral histories complement written historical records",
+    "How narrative perspective shapes readers’ interpretations of fiction",
+    "How collective memory shapes public monuments",
+    "How opportunity cost guides household choices",
+    "How peer feedback supports student learning",
+    "How cooperative institutions manage shared resources"
+  ],
+  "Technical explainer": [
+    "How password managers protect login credentials",
+    "How heat pumps move heat between indoor and outdoor spaces",
+    "How database indexes speed up searches",
+    "How error-correcting codes make digital communication reliable",
+    "How version control helps teams collaborate on software",
+    "How rooftop rainwater harvesting systems work",
+    "How compression reduces digital file sizes",
+    "How wastewater treatment removes contaminants",
+    "How GPS estimates a receiver’s location",
+    "How content delivery networks reduce website latency"
+  ],
+  "Science article": [
+    "Why urban tree cover can reduce local heat",
+    "How wetlands buffer coastal flooding",
+    "How soil microbes support plant growth",
+    "Why antibiotic resistance spreads through populations",
+    "How exercise supports cardiovascular health",
+    "How ocean acidification affects shell-building organisms",
+    "Why pollinator diversity matters for ecosystems",
+    "How circadian rhythms interact with light exposure",
+    "How wildfire smoke affects air quality",
+    "How scientific replication strengthens evidence"
+  ],
+  "Business case study": [
+    "A fictional regional bakery deciding whether to open a second location",
+    "A fictional software company moving from custom projects to subscriptions",
+    "A fictional bookstore considering an online storefront",
+    "A fictional bicycle manufacturer choosing between local and overseas suppliers",
+    "A fictional grocery cooperative reducing food waste",
+    "A fictional furniture company introducing repair services",
+    "A fictional neighborhood gym responding to a low-cost competitor",
+    "A fictional catering firm balancing seasonal demand and staffing",
+    "A fictional clothing retailer testing a rental service",
+    "A fictional hotel deciding whether to invest in energy efficiency"
+  ],
+  "Workplace report": [
+    "Improving asynchronous communication in a distributed team",
+    "Designing a fair onboarding process for new employees",
+    "Reducing unnecessary meetings without losing coordination",
+    "Introducing mentoring for early-career staff",
+    "Improving handoffs between customer support and engineering",
+    "Making office workspaces accessible to more employees",
+    "Setting useful performance goals for a service team",
+    "Reducing burnout during a busy seasonal period",
+    "Evaluating a pilot for flexible working hours",
+    "Creating a practical process for documenting recurring tasks"
+  ],
+  "Opinion article": [
+    "Why local newspapers matter to civic life",
+    "Why public libraries should offer more practical workshops",
+    "Why cities need quiet public spaces",
+    "Why repair culture deserves renewed attention",
+    "Why neighborhoods benefit from accessible sports facilities",
+    "Why public debates need clearer distinctions between facts and values",
+    "Why public art belongs outside museums",
+    "Why pedestrian safety should shape street design",
+    "Why intergenerational programs benefit communities",
+    "Why digital services should retain accessible offline options"
+  ],
+  "How-to guide": [
+    "Planning a realistic weekly meal-preparation routine",
+    "Building a small emergency fund on an irregular income",
+    "Starting a balcony herb garden",
+    "Evaluating the credibility of an online claim",
+    "Organizing household documents for easier retrieval",
+    "Preparing for a first professional conference",
+    "Reducing household energy waste without major renovations",
+    "Planning an affordable weekend trip by train",
+    "Setting up a manageable routine for learning a new language",
+    "Creating a neighborhood tool-sharing group"
+  ],
+  "Personal statement": [
+    "A fictional graduate applying for urban planning after volunteering with a housing charity",
+    "A fictional teaching assistant applying for teacher training after tutoring adults",
+    "A fictional laboratory technician applying for a public health master’s program",
+    "A fictional retail supervisor applying for a business management degree",
+    "A fictional community organizer applying for a social work program",
+    "A fictional engineering graduate applying for a sustainable design program",
+    "A fictional journalist applying for a digital humanities program",
+    "A fictional library assistant applying for information science training",
+    "A fictional healthcare administrator applying for a health policy program",
+    "A fictional software tester applying for a human-computer interaction program"
+  ],
+  "Reflective essay": [
+    "A fictional student learning to delegate during a group presentation",
+    "A fictional volunteer learning to listen at a community food pantry",
+    "A fictional intern responding constructively to critical feedback",
+    "A fictional student changing a study routine after a disappointing exam",
+    "A fictional team captain resolving a disagreement about practice schedules",
+    "A fictional new employee admitting and correcting a scheduling mistake",
+    "A fictional volunteer adapting a workshop for mixed experience levels",
+    "A fictional student balancing part-time work with a demanding course",
+    "A fictional organizer learning from a poorly attended community event",
+    "A fictional trainee discovering the value of asking clarifying questions"
+  ]
+}

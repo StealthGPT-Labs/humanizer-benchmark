@@ -1,0 +1,51 @@
+sample_id,source_provider,category,format,topic,input_text,state
+sample_001,OpenAI,Academic and analytical,Argumentative essay,,,planned
+sample_002,Anthropic,Academic and analytical,Argumentative essay,,,planned
+sample_003,Google,Academic and analytical,Argumentative essay,,,planned
+sample_004,xAI,Academic and analytical,Argumentative essay,,,planned
+sample_005,DeepSeek,Academic and analytical,Argumentative essay,,,planned
+sample_006,Anthropic,Science and technology,Technical explainer,,,planned
+sample_007,Google,Science and technology,Technical explainer,,,planned
+sample_008,xAI,Science and technology,Technical explainer,,,planned
+sample_009,DeepSeek,Science and technology,Technical explainer,,,planned
+sample_010,OpenAI,Science and technology,Technical explainer,,,planned
+sample_011,Google,Business and professional,Business case study,,,planned
+sample_012,xAI,Business and professional,Business case study,,,planned
+sample_013,DeepSeek,Business and professional,Business case study,,,planned
+sample_014,OpenAI,Business and professional,Business case study,,,planned
+sample_015,Anthropic,Business and professional,Business case study,,,planned
+sample_016,xAI,Editorial and practical,Opinion article,,,planned
+sample_017,DeepSeek,Editorial and practical,Opinion article,,,planned
+sample_018,OpenAI,Editorial and practical,Opinion article,,,planned
+sample_019,Anthropic,Editorial and practical,Opinion article,,,planned
+sample_020,Google,Editorial and practical,Opinion article,,,planned
+sample_021,DeepSeek,Personal and application,Personal statement,,,planned
+sample_022,OpenAI,Personal and application,Personal statement,,,planned
+sample_023,Anthropic,Personal and application,Personal statement,,,planned
+sample_024,Google,Personal and application,Personal statement,,,planned
+sample_025,xAI,Personal and application,Personal statement,,,planned
+sample_026,Anthropic,Academic and analytical,Research explainer,,,planned
+sample_027,Google,Academic and analytical,Research explainer,,,planned
+sample_028,xAI,Academic and analytical,Research explainer,,,planned
+sample_029,DeepSeek,Academic and analytical,Research explainer,,,planned
+sample_030,OpenAI,Academic and analytical,Research explainer,,,planned
+sample_031,Google,Science and technology,Science article,,,planned
+sample_032,xAI,Science and technology,Science article,,,planned
+sample_033,DeepSeek,Science and technology,Science article,,,planned
+sample_034,OpenAI,Science and technology,Science article,,,planned
+sample_035,Anthropic,Science and technology,Science article,,,planned
+sample_036,xAI,Business and professional,Workplace report,,,planned
+sample_037,DeepSeek,Business and professional,Workplace report,,,planned
+sample_038,OpenAI,Business and professional,Workplace report,,,planned
+sample_039,Anthropic,Business and professional,Workplace report,,,planned
+sample_040,Google,Business and professional,Workplace report,,,planned
+sample_041,DeepSeek,Editorial and practical,How-to guide,,,planned
+sample_042,OpenAI,Editorial and practical,How-to guide,,,planned
+sample_043,Anthropic,Editorial and practical,How-to guide,,,planned
+sample_044,Google,Editorial and practical,How-to guide,,,planned
+sample_045,xAI,Editorial and practical,How-to guide,,,planned
+sample_046,OpenAI,Personal and application,Reflective essay,,,planned
+sample_047,Anthropic,Personal and application,Reflective essay,,,planned
+sample_048,Google,Personal and application,Reflective essay,,,planned
+sample_049,xAI,Personal and application,Reflective essay,,,planned
+sample_050,DeepSeek,Personal and application,Reflective essay,,,planned
