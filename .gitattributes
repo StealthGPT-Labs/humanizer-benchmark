@@ -1,0 +1,4 @@
+# Preserve the exact CSV bytes committed by the November integrity manifest.
+reports/2026-11-17-humanizer-comparison/data/**/*.csv -text whitespace=cr-at-eol
+# Frozen synthetic source prose includes its original trailing whitespace.
+reports/2026-11-17-humanizer-comparison/data/source-texts.csv whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
