@@ -1,0 +1,1124 @@
+{
+  "schema_version": "2.0",
+  "report_id": "2026-11-17-humanizer-comparison",
+  "benchmark_date": "2026-11-17",
+  "collection_started": "2026-11-16",
+  "timezone": "America/Los_Angeles",
+  "sample": {
+    "size": 50,
+    "language": "English",
+    "selection": "Same 50 frozen synthetic inputs for every humanizer",
+    "source_models": [
+      {
+        "model": "anthropic/claude-sonnet-5.5",
+        "texts": 10
+      },
+      {
+        "model": "deepseek/deepseek-v4.1-flash",
+        "texts": 10
+      },
+      {
+        "model": "google/gemini-4-argon",
+        "texts": 10
+      },
+      {
+        "model": "openai/gpt-6.1-sol",
+        "texts": 10
+      },
+      {
+        "model": "x-ai/grok-4.7",
+        "texts": 10
+      }
+    ],
+    "input_words_per_humanizer": 34763,
+    "humanizers": [
+      {
+        "id": "phrasly",
+        "name": "Phrasly Ultra",
+        "slug": "phrasly",
+        "url": "https://phrasly.ai",
+        "settings": "Ultra; Max mode; account access verified during collection",
+        "collection_method": "API",
+        "capture_mode_labels": [
+          "{\"mode\": \"max\", \"stream\": false, \"text\": \"<SOURCE_TEXT>\"}"
+        ]
+      },
+      {
+        "id": "stealth",
+        "name": "StealthGPT Super",
+        "slug": "stealthgpt",
+        "url": "https://stealthgpt.ai",
+        "settings": "Super; rephrase=true; qualityMode=quality; outputFormat=text",
+        "collection_method": "API",
+        "capture_mode_labels": [
+          "{\"model\": \"super\", \"outputFormat\": \"text\", \"qualityMode\": \"quality\", \"rephrase\": true, \"text\": \"<SOURCE_TEXT>\"}"
+        ]
+      },
+      {
+        "id": "writehuman",
+        "name": "WriteHuman",
+        "slug": "writehuman",
+        "url": "https://writehuman.ai",
+        "settings": "Enhanced",
+        "collection_method": "API",
+        "capture_mode_labels": [
+          "{\"enhanced\": true, \"text\": \"<SOURCE_TEXT>\"}"
+        ]
+      },
+      {
+        "id": "rephrasy",
+        "name": "Rephrasy",
+        "slug": "rephrasy",
+        "url": "https://rephrasy.ai",
+        "settings": "Superstealth",
+        "collection_method": "API",
+        "capture_mode_labels": [
+          "{\"costs\": true, \"input_format\": \"text\", \"model\": \"superstealth\", \"text\": \"<SOURCE_TEXT>\", \"words\": true}"
+        ]
+      },
+      {
+        "id": "undetectableai",
+        "name": "Undetectable.ai",
+        "slug": "undetectable-ai",
+        "url": "https://undetectable.ai",
+        "settings": "v11sr; University; General Writing; More Human",
+        "collection_method": "API",
+        "capture_mode_labels": [
+          "{\"content\": \"<SOURCE_TEXT>\", \"model\": \"v11sr\", \"purpose\": \"General Writing\", \"readability\": \"University\", \"strength\": \"More Human\"}"
+        ]
+      },
+      {
+        "id": "clever",
+        "name": "Clever Humanizer",
+        "slug": "clever-humanizer",
+        "url": "https://cleverhumanizer.ai",
+        "settings": "Normal; automatic Best Pick",
+        "collection_method": "web interface",
+        "capture_mode_labels": [
+          "Normal; automatic Best Pick"
+        ]
+      },
+      {
+        "id": "zerogpt-humanizer",
+        "name": "ZeroGPT Humanizer",
+        "slug": "zerogpt-humanizer",
+        "url": "https://zerogpt.com/ai-humanizer",
+        "settings": "v11sr; University; General Writing; More Human",
+        "collection_method": "API",
+        "capture_mode_labels": [
+          "{\"humanizerModel\": \"v11sr\", \"humanizerPurpose\": \"General Writing\", \"humanizerReadability\": \"University\", \"humanizerStrength\": \"More Human\", \"skipRealtime\": 1, \"string\": \"<SOURCE_TEXT>\"}"
+        ]
+      },
+      {
+        "id": "bypassgpt",
+        "name": "BypassGPT",
+        "slug": "bypassgpt",
+        "url": "https://bypassgpt.ai",
+        "settings": "Enhanced",
+        "collection_method": "API",
+        "capture_mode_labels": [
+          "{\"input\": \"<SOURCE_TEXT>\", \"model_type\": \"Enhanced\"}"
+        ]
+      },
+      {
+        "id": "grubby",
+        "name": "Grubby",
+        "slug": "grubby",
+        "url": "https://grubby.ai",
+        "settings": "Academic",
+        "collection_method": "API",
+        "capture_mode_labels": [
+          "{\"mode\": \"academic\"}"
+        ]
+      },
+      {
+        "id": "grammarly-pro",
+        "name": "Grammarly Pro",
+        "slug": "grammarly-pro",
+        "url": "https://grammarly.com",
+        "settings": "Pro; The Naturalist; only Humanizer rewrites applied",
+        "collection_method": "web interface",
+        "capture_mode_labels": [
+          "Docs Humanizer agent; The Naturalist; all 10 suggestions accepted",
+          "Docs Humanizer agent; The Naturalist; all 11 suggestions accepted",
+          "Docs Humanizer agent; The Naturalist; all 12 suggestions accepted",
+          "Docs Humanizer agent; The Naturalist; all 13 suggestions accepted",
+          "Docs Humanizer agent; The Naturalist; all 14 suggestions accepted",
+          "Docs Humanizer agent; The Naturalist; all 6 suggestions accepted",
+          "Docs Humanizer agent; The Naturalist; all 7 suggestions accepted",
+          "Docs Humanizer agent; The Naturalist; all 8 suggestions accepted",
+          "Docs Humanizer agent; The Naturalist; all 9 suggestions accepted"
+        ]
+      },
+      {
+        "id": "humbot",
+        "name": "Humbot",
+        "slug": "humbot",
+        "url": "https://humbot.ai",
+        "settings": "Advanced",
+        "collection_method": "API",
+        "capture_mode_labels": [
+          "{\"input\": \"<SOURCE_TEXT>\", \"model_type\": \"Advanced\"}"
+        ]
+      },
+      {
+        "id": "solvely",
+        "name": "Solvely",
+        "slug": "solvely",
+        "url": "https://solvely.ai",
+        "settings": "Humanize; Original result",
+        "collection_method": "web interface",
+        "capture_mode_labels": [
+          "Humanize; result Original"
+        ]
+      },
+      {
+        "id": "rewriteai",
+        "name": "RewriteAI",
+        "slug": "rewriteai",
+        "url": "https://rewriteai.com",
+        "settings": "Single available API model",
+        "collection_method": "API",
+        "capture_mode_labels": [
+          "{\"text\": \"<SOURCE_TEXT>\"}"
+        ]
+      },
+      {
+        "id": "quillbot",
+        "name": "QuillBot",
+        "slug": "quillbot",
+        "url": "https://quillbot.com",
+        "settings": "Premium; Standard",
+        "collection_method": "web interface",
+        "capture_mode_labels": [
+          "Premium; Standard"
+        ]
+      },
+      {
+        "id": "hix",
+        "name": "HIX Bypass",
+        "slug": "hix-bypass",
+        "url": "https://hixbypass.com",
+        "settings": "Latest",
+        "collection_method": "API",
+        "capture_mode_labels": [
+          "{\"input\": \"<SOURCE_TEXT>\", \"mode\": \"Latest\"}"
+        ]
+      }
+    ],
+    "text_disclosure": "Synthetic source text and generation prompts are public. Humanized outputs, raw vendor responses and internal quality evaluation instructions are not published."
+  },
+  "outputs": 750,
+  "detector_scans": 3750,
+  "detectors": [
+    {
+      "id": "pangram",
+      "name": "Pangram",
+      "version": "4.1",
+      "weight_percent": 40,
+      "pass_rule": "pangram_prediction == Human",
+      "observed_versions": [
+        "4.1"
+      ]
+    },
+    {
+      "id": "gptzero",
+      "name": "GPTZero",
+      "version": "5.0b / 2026-11-04-base",
+      "weight_percent": 30,
+      "pass_rule": "gptzero_predicted_class == human",
+      "observed_versions": [
+        "2026-11-04-base"
+      ]
+    },
+    {
+      "id": "originality",
+      "name": "Originality.ai 5.0",
+      "version": "model-5.0",
+      "weight_percent": 20,
+      "pass_rule": "originality_prediction_label == human",
+      "observed_versions": [
+        "model-5.0"
+      ]
+    },
+    {
+      "id": "winston",
+      "name": "Winston AI",
+      "version": "5.2",
+      "weight_percent": 5,
+      "pass_rule": "winston_human_score >= 80; benchmark mapping, not a native categorical verdict",
+      "observed_versions": [
+        "5.2"
+      ]
+    },
+    {
+      "id": "zerogpt",
+      "name": "ZeroGPT",
+      "version": "vendor-managed; public version identifier unavailable",
+      "weight_percent": 5,
+      "pass_rule": "Unqualified Human Written or Most Likely Human written feedback only",
+      "observed_versions": []
+    }
+  ],
+  "scoring": {
+    "bypass_detector_weights_percent": {
+      "pangram": 40,
+      "gptzero": 30,
+      "originality": 20,
+      "winston": 5,
+      "zerogpt": 5
+    },
+    "quality_weights_percent": {
+      "meaning": 20,
+      "factual_consistency": 10,
+      "hallucination_free": 5,
+      "completeness": 10,
+      "stance_preservation": 5,
+      "readability": 25,
+      "grammar_syntax": 10,
+      "structure": 15
+    },
+    "overall_weights_percent": {
+      "humanization": 70,
+      "quality": 30
+    },
+    "overall_formula": "0.70 * weighted_bypass_score + 0.30 * provisional_quality_score",
+    "native_human_score_scale": "0 to 100; vendor semantics differ and are not averaged across vendors",
+    "policy_status": "Weights revised after results; editorial policy, not preregistered or calibrated to a common false-positive rate"
+  },
+  "quality_status": "provisional automated scores; no independent human adjudication",
+  "evidence_review_outputs": 602,
+  "verification_scope": "Public verification checks file integrity, frozen-source hashes, row coverage, output commitments and aggregate arithmetic. Output commitments alone do not establish independent provider authenticity or expose the private output text.",
+  "results": [
+    {
+      "id": "phrasly",
+      "name": "Phrasly Ultra",
+      "evaluated_outputs": 50,
+      "weighted_bypass_score": 94.8,
+      "quality_score": 70.8,
+      "overall_effectiveness_score": 87.6,
+      "median_overall_effectiveness_score": 91.3,
+      "mean_length_ratio": 0.92863516036116,
+      "input_words": 34763,
+      "output_words": 32264,
+      "quality_metrics": {
+        "meaning": 64.0,
+        "factual_consistency": 76.0,
+        "hallucination_free": 24.0,
+        "completeness": 99.2,
+        "stance_preservation": 96.4,
+        "readability": 59.2,
+        "grammar_syntax": 94.0,
+        "structure": 68.4
+      },
+      "evidence_review_outputs": 40,
+      "detectors": {
+        "pangram": {
+          "strict_bypass_count": 50,
+          "strict_bypass_rate_percent": 100,
+          "mean_native_human_score": 100.0,
+          "median_native_human_score": 100.0
+        },
+        "gptzero": {
+          "strict_bypass_count": 50,
+          "strict_bypass_rate_percent": 100,
+          "mean_native_human_score": 99.30746885522387,
+          "median_native_human_score": 99.99941095905584
+        },
+        "originality": {
+          "strict_bypass_count": 37,
+          "strict_bypass_rate_percent": 74,
+          "mean_native_human_score": 75.2,
+          "median_native_human_score": 93.0
+        },
+        "winston": {
+          "strict_bypass_count": 50,
+          "strict_bypass_rate_percent": 100,
+          "mean_native_human_score": 99.9786,
+          "median_native_human_score": 100.0
+        },
+        "zerogpt": {
+          "strict_bypass_count": 50,
+          "strict_bypass_rate_percent": 100,
+          "mean_native_human_score": 99.096,
+          "median_native_human_score": 100.0
+        }
+      }
+    },
+    {
+      "id": "stealth",
+      "name": "StealthGPT Super",
+      "evaluated_outputs": 50,
+      "weighted_bypass_score": 69.0,
+      "quality_score": 73.48,
+      "overall_effectiveness_score": 70.344,
+      "median_overall_effectiveness_score": 74.05000000000001,
+      "mean_length_ratio": 1.0849084874859685,
+      "input_words": 34763,
+      "output_words": 37667,
+      "quality_metrics": {
+        "meaning": 67.2,
+        "factual_consistency": 78.0,
+        "hallucination_free": 32.0,
+        "completeness": 94.0,
+        "stance_preservation": 94.8,
+        "readability": 68.8,
+        "grammar_syntax": 100.0,
+        "structure": 62.0
+      },
+      "evidence_review_outputs": 40,
+      "detectors": {
+        "pangram": {
+          "strict_bypass_count": 44,
+          "strict_bypass_rate_percent": 88,
+          "mean_native_human_score": 95.1862059533596,
+          "median_native_human_score": 100.0
+        },
+        "gptzero": {
+          "strict_bypass_count": 30,
+          "strict_bypass_rate_percent": 60,
+          "mean_native_human_score": 52.21425245618773,
+          "median_native_human_score": 72.72177076673961
+        },
+        "originality": {
+          "strict_bypass_count": 19,
+          "strict_bypass_rate_percent": 38,
+          "mean_native_human_score": 44.38,
+          "median_native_human_score": 13.5
+        },
+        "winston": {
+          "strict_bypass_count": 48,
+          "strict_bypass_rate_percent": 96,
+          "mean_native_human_score": 97.8474,
+          "median_native_human_score": 100.0
+        },
+        "zerogpt": {
+          "strict_bypass_count": 34,
+          "strict_bypass_rate_percent": 68,
+          "mean_native_human_score": 83.24,
+          "median_native_human_score": 100.0
+        }
+      }
+    },
+    {
+      "id": "writehuman",
+      "name": "WriteHuman",
+      "evaluated_outputs": 50,
+      "weighted_bypass_score": 60.0,
+      "quality_score": 47.38,
+      "overall_effectiveness_score": 56.214,
+      "median_overall_effectiveness_score": 68.15,
+      "mean_length_ratio": 1.0403051662031633,
+      "input_words": 34763,
+      "output_words": 36119,
+      "quality_metrics": {
+        "meaning": 41.2,
+        "factual_consistency": 16.0,
+        "hallucination_free": 2.0,
+        "completeness": 77.2,
+        "stance_preservation": 63.6,
+        "readability": 43.2,
+        "grammar_syntax": 80.0,
+        "structure": 51.6
+      },
+      "evidence_review_outputs": 49,
+      "detectors": {
+        "pangram": {
+          "strict_bypass_count": 33,
+          "strict_bypass_rate_percent": 66,
+          "mean_native_human_score": 76.92279253900105,
+          "median_native_human_score": 100.0
+        },
+        "gptzero": {
+          "strict_bypass_count": 40,
+          "strict_bypass_rate_percent": 80,
+          "mean_native_human_score": 75.51652355560549,
+          "median_native_human_score": 91.09055081418357
+        },
+        "originality": {
+          "strict_bypass_count": 0,
+          "strict_bypass_rate_percent": 0,
+          "mean_native_human_score": 13.42,
+          "median_native_human_score": 10.0
+        },
+        "winston": {
+          "strict_bypass_count": 50,
+          "strict_bypass_rate_percent": 100,
+          "mean_native_human_score": 99.93,
+          "median_native_human_score": 100.0
+        },
+        "zerogpt": {
+          "strict_bypass_count": 46,
+          "strict_bypass_rate_percent": 92,
+          "mean_native_human_score": 93.78399999999999,
+          "median_native_human_score": 100.0
+        }
+      }
+    },
+    {
+      "id": "rephrasy",
+      "name": "Rephrasy",
+      "evaluated_outputs": 50,
+      "weighted_bypass_score": 27.6,
+      "quality_score": 60.56,
+      "overall_effectiveness_score": 37.488,
+      "median_overall_effectiveness_score": 26.95,
+      "mean_length_ratio": 1.1055430287007504,
+      "input_words": 34763,
+      "output_words": 38318,
+      "quality_metrics": {
+        "meaning": 58.4,
+        "factual_consistency": 64.0,
+        "hallucination_free": 2.0,
+        "completeness": 93.6,
+        "stance_preservation": 87.6,
+        "readability": 52.4,
+        "grammar_syntax": 90.0,
+        "structure": 43.6
+      },
+      "evidence_review_outputs": 49,
+      "detectors": {
+        "pangram": {
+          "strict_bypass_count": 10,
+          "strict_bypass_rate_percent": 20,
+          "mean_native_human_score": 47.934145570096796,
+          "median_native_human_score": 53.34428250789642
+        },
+        "gptzero": {
+          "strict_bypass_count": 22,
+          "strict_bypass_rate_percent": 44,
+          "mean_native_human_score": 38.23752637625465,
+          "median_native_human_score": 0.0
+        },
+        "originality": {
+          "strict_bypass_count": 0,
+          "strict_bypass_rate_percent": 0,
+          "mean_native_human_score": 24.94,
+          "median_native_human_score": 27.5
+        },
+        "winston": {
+          "strict_bypass_count": 44,
+          "strict_bypass_rate_percent": 88,
+          "mean_native_human_score": 90.671,
+          "median_native_human_score": 99.48
+        },
+        "zerogpt": {
+          "strict_bypass_count": 20,
+          "strict_bypass_rate_percent": 40,
+          "mean_native_human_score": 66.05,
+          "median_native_human_score": 74.7
+        }
+      }
+    },
+    {
+      "id": "undetectableai",
+      "name": "Undetectable.ai",
+      "evaluated_outputs": 50,
+      "weighted_bypass_score": 23.7,
+      "quality_score": 53.76,
+      "overall_effectiveness_score": 32.718,
+      "median_overall_effectiveness_score": 24.45,
+      "mean_length_ratio": 1.2182655727857017,
+      "input_words": 34763,
+      "output_words": 42322,
+      "quality_metrics": {
+        "meaning": 50.4,
+        "factual_consistency": 26.0,
+        "hallucination_free": 0.0,
+        "completeness": 82.0,
+        "stance_preservation": 80.4,
+        "readability": 45.6,
+        "grammar_syntax": 96.0,
+        "structure": 52.4
+      },
+      "evidence_review_outputs": 50,
+      "detectors": {
+        "pangram": {
+          "strict_bypass_count": 6,
+          "strict_bypass_rate_percent": 12,
+          "mean_native_human_score": 36.354979597034614,
+          "median_native_human_score": 24.13969337940216
+        },
+        "gptzero": {
+          "strict_bypass_count": 16,
+          "strict_bypass_rate_percent": 32,
+          "mean_native_human_score": 26.496722595743528,
+          "median_native_human_score": 0.0
+        },
+        "originality": {
+          "strict_bypass_count": 1,
+          "strict_bypass_rate_percent": 2,
+          "mean_native_human_score": 14.28,
+          "median_native_human_score": 10.0
+        },
+        "winston": {
+          "strict_bypass_count": 50,
+          "strict_bypass_rate_percent": 100,
+          "mean_native_human_score": 99.4806,
+          "median_native_human_score": 100.0
+        },
+        "zerogpt": {
+          "strict_bypass_count": 39,
+          "strict_bypass_rate_percent": 78,
+          "mean_native_human_score": 90.444,
+          "median_native_human_score": 100.0
+        }
+      }
+    },
+    {
+      "id": "clever",
+      "name": "Clever Humanizer",
+      "evaluated_outputs": 50,
+      "weighted_bypass_score": 14.6,
+      "quality_score": 71.94,
+      "overall_effectiveness_score": 31.802,
+      "median_overall_effectiveness_score": 28.4,
+      "mean_length_ratio": 0.9989057015029252,
+      "input_words": 34763,
+      "output_words": 34634,
+      "quality_metrics": {
+        "meaning": 69.2,
+        "factual_consistency": 70.0,
+        "hallucination_free": 60.0,
+        "completeness": 97.2,
+        "stance_preservation": 92.8,
+        "readability": 59.6,
+        "grammar_syntax": 72.0,
+        "structure": 77.6
+      },
+      "evidence_review_outputs": 29,
+      "detectors": {
+        "pangram": {
+          "strict_bypass_count": 0,
+          "strict_bypass_rate_percent": 0,
+          "mean_native_human_score": 6.483945012092757,
+          "median_native_human_score": 5.950848363612056e-22
+        },
+        "gptzero": {
+          "strict_bypass_count": 13,
+          "strict_bypass_rate_percent": 26,
+          "mean_native_human_score": 21.85989513221223,
+          "median_native_human_score": 0.0
+        },
+        "originality": {
+          "strict_bypass_count": 0,
+          "strict_bypass_rate_percent": 0,
+          "mean_native_human_score": 19.52,
+          "median_native_human_score": 12.0
+        },
+        "winston": {
+          "strict_bypass_count": 50,
+          "strict_bypass_rate_percent": 100,
+          "mean_native_human_score": 99.838,
+          "median_native_human_score": 100.0
+        },
+        "zerogpt": {
+          "strict_bypass_count": 18,
+          "strict_bypass_rate_percent": 36,
+          "mean_native_human_score": 51.37,
+          "median_native_human_score": 52.05
+        }
+      }
+    },
+    {
+      "id": "zerogpt-humanizer",
+      "name": "ZeroGPT Humanizer",
+      "evaluated_outputs": 50,
+      "weighted_bypass_score": 20.4,
+      "quality_score": 54.94,
+      "overall_effectiveness_score": 30.761999999999997,
+      "median_overall_effectiveness_score": 24.549999999999997,
+      "mean_length_ratio": 1.2093216383947734,
+      "input_words": 34763,
+      "output_words": 42012,
+      "quality_metrics": {
+        "meaning": 51.6,
+        "factual_consistency": 26.0,
+        "hallucination_free": 2.0,
+        "completeness": 83.2,
+        "stance_preservation": 82.8,
+        "readability": 46.0,
+        "grammar_syntax": 92.0,
+        "structure": 58.4
+      },
+      "evidence_review_outputs": 49,
+      "detectors": {
+        "pangram": {
+          "strict_bypass_count": 3,
+          "strict_bypass_rate_percent": 6,
+          "mean_native_human_score": 21.100615297547716,
+          "median_native_human_score": 1.9522819125206148e-09
+        },
+        "gptzero": {
+          "strict_bypass_count": 15,
+          "strict_bypass_rate_percent": 30,
+          "mean_native_human_score": 25.447153740979214,
+          "median_native_human_score": 0.0
+        },
+        "originality": {
+          "strict_bypass_count": 0,
+          "strict_bypass_rate_percent": 0,
+          "mean_native_human_score": 13.36,
+          "median_native_human_score": 9.0
+        },
+        "winston": {
+          "strict_bypass_count": 50,
+          "strict_bypass_rate_percent": 100,
+          "mean_native_human_score": 99.9636,
+          "median_native_human_score": 100.0
+        },
+        "zerogpt": {
+          "strict_bypass_count": 40,
+          "strict_bypass_rate_percent": 80,
+          "mean_native_human_score": 90.74799999999999,
+          "median_native_human_score": 100.0
+        }
+      }
+    },
+    {
+      "id": "bypassgpt",
+      "name": "BypassGPT",
+      "evaluated_outputs": 50,
+      "weighted_bypass_score": 9.4,
+      "quality_score": 73.78,
+      "overall_effectiveness_score": 28.714000000000002,
+      "median_overall_effectiveness_score": 28.25,
+      "mean_length_ratio": 1.4184330142595478,
+      "input_words": 34763,
+      "output_words": 49205,
+      "quality_metrics": {
+        "meaning": 68.4,
+        "factual_consistency": 76.0,
+        "hallucination_free": 46.0,
+        "completeness": 98.4,
+        "stance_preservation": 90.0,
+        "readability": 58.0,
+        "grammar_syntax": 96.0,
+        "structure": 78.4
+      },
+      "evidence_review_outputs": 33,
+      "detectors": {
+        "pangram": {
+          "strict_bypass_count": 0,
+          "strict_bypass_rate_percent": 0,
+          "mean_native_human_score": 0.7276382446342297,
+          "median_native_human_score": 1.217489001299784e-34
+        },
+        "gptzero": {
+          "strict_bypass_count": 4,
+          "strict_bypass_rate_percent": 8,
+          "mean_native_human_score": 5.440378065705093,
+          "median_native_human_score": 0.0
+        },
+        "originality": {
+          "strict_bypass_count": 0,
+          "strict_bypass_rate_percent": 0,
+          "mean_native_human_score": 3.62,
+          "median_native_human_score": 3.5
+        },
+        "winston": {
+          "strict_bypass_count": 50,
+          "strict_bypass_rate_percent": 100,
+          "mean_native_human_score": 99.41120000000001,
+          "median_native_human_score": 100.0
+        },
+        "zerogpt": {
+          "strict_bypass_count": 20,
+          "strict_bypass_rate_percent": 40,
+          "mean_native_human_score": 66.882,
+          "median_native_human_score": 72.4
+        }
+      }
+    },
+    {
+      "id": "grubby",
+      "name": "Grubby",
+      "evaluated_outputs": 50,
+      "weighted_bypass_score": 10.4,
+      "quality_score": 70.28,
+      "overall_effectiveness_score": 28.364,
+      "median_overall_effectiveness_score": 26.85,
+      "mean_length_ratio": 1.1855388088630754,
+      "input_words": 34763,
+      "output_words": 41162,
+      "quality_metrics": {
+        "meaning": 67.6,
+        "factual_consistency": 52.0,
+        "hallucination_free": 52.0,
+        "completeness": 97.6,
+        "stance_preservation": 90.0,
+        "readability": 57.2,
+        "grammar_syntax": 84.0,
+        "structure": 80.0
+      },
+      "evidence_review_outputs": 37,
+      "detectors": {
+        "pangram": {
+          "strict_bypass_count": 1,
+          "strict_bypass_rate_percent": 2,
+          "mean_native_human_score": 8.681231561249025,
+          "median_native_human_score": 6.093633292170476e-25
+        },
+        "gptzero": {
+          "strict_bypass_count": 4,
+          "strict_bypass_rate_percent": 8,
+          "mean_native_human_score": 6.8734438796132835,
+          "median_native_human_score": 0.0
+        },
+        "originality": {
+          "strict_bypass_count": 0,
+          "strict_bypass_rate_percent": 0,
+          "mean_native_human_score": 7.42,
+          "median_native_human_score": 5.0
+        },
+        "winston": {
+          "strict_bypass_count": 50,
+          "strict_bypass_rate_percent": 100,
+          "mean_native_human_score": 99.7896,
+          "median_native_human_score": 100.0
+        },
+        "zerogpt": {
+          "strict_bypass_count": 22,
+          "strict_bypass_rate_percent": 44,
+          "mean_native_human_score": 70.99,
+          "median_native_human_score": 71.15
+        }
+      }
+    },
+    {
+      "id": "grammarly-pro",
+      "name": "Grammarly Pro",
+      "evaluated_outputs": 50,
+      "weighted_bypass_score": 3.7,
+      "quality_score": 83.38,
+      "overall_effectiveness_score": 27.604,
+      "median_overall_effectiveness_score": 28.099999999999998,
+      "mean_length_ratio": 1.2314827708348985,
+      "input_words": 34763,
+      "output_words": 42751,
+      "quality_metrics": {
+        "meaning": 79.6,
+        "factual_consistency": 90.0,
+        "hallucination_free": 78.0,
+        "completeness": 99.6,
+        "stance_preservation": 94.8,
+        "readability": 65.2,
+        "grammar_syntax": 100.0,
+        "structure": 90.4
+      },
+      "evidence_review_outputs": 18,
+      "detectors": {
+        "pangram": {
+          "strict_bypass_count": 0,
+          "strict_bypass_rate_percent": 0,
+          "mean_native_human_score": 0.0006043277098797307,
+          "median_native_human_score": 4.775352936161828e-30
+        },
+        "gptzero": {
+          "strict_bypass_count": 0,
+          "strict_bypass_rate_percent": 0,
+          "mean_native_human_score": 0.0,
+          "median_native_human_score": 0.0
+        },
+        "originality": {
+          "strict_bypass_count": 0,
+          "strict_bypass_rate_percent": 0,
+          "mean_native_human_score": 5.64,
+          "median_native_human_score": 6.0
+        },
+        "winston": {
+          "strict_bypass_count": 36,
+          "strict_bypass_rate_percent": 72,
+          "mean_native_human_score": 74.6538,
+          "median_native_human_score": 95.715
+        },
+        "zerogpt": {
+          "strict_bypass_count": 1,
+          "strict_bypass_rate_percent": 2,
+          "mean_native_human_score": 10.033999999999999,
+          "median_native_human_score": 0.0
+        }
+      }
+    },
+    {
+      "id": "humbot",
+      "name": "Humbot",
+      "evaluated_outputs": 50,
+      "weighted_bypass_score": 9.9,
+      "quality_score": 68.78,
+      "overall_effectiveness_score": 27.564,
+      "median_overall_effectiveness_score": 25.549999999999997,
+      "mean_length_ratio": 1.4136262908267059,
+      "input_words": 34763,
+      "output_words": 48999,
+      "quality_metrics": {
+        "meaning": 65.2,
+        "factual_consistency": 48.0,
+        "hallucination_free": 36.0,
+        "completeness": 98.4,
+        "stance_preservation": 87.2,
+        "readability": 56.8,
+        "grammar_syntax": 94.0,
+        "structure": 75.6
+      },
+      "evidence_review_outputs": 39,
+      "detectors": {
+        "pangram": {
+          "strict_bypass_count": 0,
+          "strict_bypass_rate_percent": 0,
+          "mean_native_human_score": 0.7123337389499649,
+          "median_native_human_score": 6.74452551522405e-35
+        },
+        "gptzero": {
+          "strict_bypass_count": 5,
+          "strict_bypass_rate_percent": 10,
+          "mean_native_human_score": 8.505256429524058,
+          "median_native_human_score": 0.0
+        },
+        "originality": {
+          "strict_bypass_count": 0,
+          "strict_bypass_rate_percent": 0,
+          "mean_native_human_score": 3.6,
+          "median_native_human_score": 4.0
+        },
+        "winston": {
+          "strict_bypass_count": 50,
+          "strict_bypass_rate_percent": 100,
+          "mean_native_human_score": 99.4896,
+          "median_native_human_score": 100.0
+        },
+        "zerogpt": {
+          "strict_bypass_count": 19,
+          "strict_bypass_rate_percent": 38,
+          "mean_native_human_score": 70.708,
+          "median_native_human_score": 73.35
+        }
+      }
+    },
+    {
+      "id": "solvely",
+      "name": "Solvely",
+      "evaluated_outputs": 50,
+      "weighted_bypass_score": 6.1,
+      "quality_score": 72.32,
+      "overall_effectiveness_score": 25.965999999999998,
+      "median_overall_effectiveness_score": 25.7,
+      "mean_length_ratio": 1.1455658084681337,
+      "input_words": 34763,
+      "output_words": 39754,
+      "quality_metrics": {
+        "meaning": 66.8,
+        "factual_consistency": 66.0,
+        "hallucination_free": 46.0,
+        "completeness": 87.2,
+        "stance_preservation": 88.4,
+        "readability": 64.8,
+        "grammar_syntax": 98.0,
+        "structure": 72.8
+      },
+      "evidence_review_outputs": 37,
+      "detectors": {
+        "pangram": {
+          "strict_bypass_count": 1,
+          "strict_bypass_rate_percent": 2,
+          "mean_native_human_score": 7.086862480471686,
+          "median_native_human_score": 4.409305023873325e-31
+        },
+        "gptzero": {
+          "strict_bypass_count": 0,
+          "strict_bypass_rate_percent": 0,
+          "mean_native_human_score": 0.0,
+          "median_native_human_score": 0.0
+        },
+        "originality": {
+          "strict_bypass_count": 0,
+          "strict_bypass_rate_percent": 0,
+          "mean_native_human_score": 3.98,
+          "median_native_human_score": 4.0
+        },
+        "winston": {
+          "strict_bypass_count": 44,
+          "strict_bypass_rate_percent": 88,
+          "mean_native_human_score": 86.9486,
+          "median_native_human_score": 99.69
+        },
+        "zerogpt": {
+          "strict_bypass_count": 9,
+          "strict_bypass_rate_percent": 18,
+          "mean_native_human_score": 38.09,
+          "median_native_human_score": 35.4
+        }
+      }
+    },
+    {
+      "id": "rewriteai",
+      "name": "RewriteAI",
+      "evaluated_outputs": 50,
+      "weighted_bypass_score": 5.5,
+      "quality_score": 63.78,
+      "overall_effectiveness_score": 22.984,
+      "median_overall_effectiveness_score": 22.1,
+      "mean_length_ratio": 1.218034037258284,
+      "input_words": 34763,
+      "output_words": 42232,
+      "quality_metrics": {
+        "meaning": 59.2,
+        "factual_consistency": 42.0,
+        "hallucination_free": 28.0,
+        "completeness": 86.4,
+        "stance_preservation": 78.8,
+        "readability": 54.8,
+        "grammar_syntax": 98.0,
+        "structure": 68.4
+      },
+      "evidence_review_outputs": 42,
+      "detectors": {
+        "pangram": {
+          "strict_bypass_count": 0,
+          "strict_bypass_rate_percent": 0,
+          "mean_native_human_score": 6.2973239755342805,
+          "median_native_human_score": 1.6008482012427212e-29
+        },
+        "gptzero": {
+          "strict_bypass_count": 0,
+          "strict_bypass_rate_percent": 0,
+          "mean_native_human_score": 0.0,
+          "median_native_human_score": 0.0
+        },
+        "originality": {
+          "strict_bypass_count": 0,
+          "strict_bypass_rate_percent": 0,
+          "mean_native_human_score": 3.38,
+          "median_native_human_score": 3.0
+        },
+        "winston": {
+          "strict_bypass_count": 48,
+          "strict_bypass_rate_percent": 96,
+          "mean_native_human_score": 97.4146,
+          "median_native_human_score": 100.0
+        },
+        "zerogpt": {
+          "strict_bypass_count": 7,
+          "strict_bypass_rate_percent": 14,
+          "mean_native_human_score": 34.44,
+          "median_native_human_score": 27.950000000000003
+        }
+      }
+    },
+    {
+      "id": "quillbot",
+      "name": "QuillBot",
+      "evaluated_outputs": 50,
+      "weighted_bypass_score": 1.5,
+      "quality_score": 72.46,
+      "overall_effectiveness_score": 22.787999999999997,
+      "median_overall_effectiveness_score": 23.2,
+      "mean_length_ratio": 1.042894060318539,
+      "input_words": 34763,
+      "output_words": 36244,
+      "quality_metrics": {
+        "meaning": 75.6,
+        "factual_consistency": 66.0,
+        "hallucination_free": 26.0,
+        "completeness": 98.8,
+        "stance_preservation": 91.6,
+        "readability": 63.2,
+        "grammar_syntax": 70.0,
+        "structure": 81.2
+      },
+      "evidence_review_outputs": 40,
+      "detectors": {
+        "pangram": {
+          "strict_bypass_count": 0,
+          "strict_bypass_rate_percent": 0,
+          "mean_native_human_score": 2.39426741933504e-07,
+          "median_native_human_score": 4.6848335234790175e-29
+        },
+        "gptzero": {
+          "strict_bypass_count": 0,
+          "strict_bypass_rate_percent": 0,
+          "mean_native_human_score": 0.0,
+          "median_native_human_score": 0.0
+        },
+        "originality": {
+          "strict_bypass_count": 0,
+          "strict_bypass_rate_percent": 0,
+          "mean_native_human_score": 5.12,
+          "median_native_human_score": 5.0
+        },
+        "winston": {
+          "strict_bypass_count": 15,
+          "strict_bypass_rate_percent": 30,
+          "mean_native_human_score": 42.5142,
+          "median_native_human_score": 28.515
+        },
+        "zerogpt": {
+          "strict_bypass_count": 0,
+          "strict_bypass_rate_percent": 0,
+          "mean_native_human_score": 2.946,
+          "median_native_human_score": 0.0
+        }
+      }
+    },
+    {
+      "id": "hix",
+      "name": "HIX Bypass",
+      "evaluated_outputs": 50,
+      "weighted_bypass_score": 4.6,
+      "quality_score": 44.66,
+      "overall_effectiveness_score": 16.618,
+      "median_overall_effectiveness_score": 16.4,
+      "mean_length_ratio": 1.1466955556027187,
+      "input_words": 34763,
+      "output_words": 39787,
+      "quality_metrics": {
+        "meaning": 52.8,
+        "factual_consistency": 10.0,
+        "hallucination_free": 0.0,
+        "completeness": 96.8,
+        "stance_preservation": 76.8,
+        "readability": 39.6,
+        "grammar_syntax": 8.0,
+        "structure": 59.2
+      },
+      "evidence_review_outputs": 50,
+      "detectors": {
+        "pangram": {
+          "strict_bypass_count": 0,
+          "strict_bypass_rate_percent": 0,
+          "mean_native_human_score": 2.3628578001879727e-18,
+          "median_native_human_score": 1.1729203381832936e-33
+        },
+        "gptzero": {
+          "strict_bypass_count": 0,
+          "strict_bypass_rate_percent": 0,
+          "mean_native_human_score": 0.0,
+          "median_native_human_score": 0.0
+        },
+        "originality": {
+          "strict_bypass_count": 0,
+          "strict_bypass_rate_percent": 0,
+          "mean_native_human_score": 5.1,
+          "median_native_human_score": 5.0
+        },
+        "winston": {
+          "strict_bypass_count": 46,
+          "strict_bypass_rate_percent": 92,
+          "mean_native_human_score": 95.48299999999999,
+          "median_native_human_score": 99.535
+        },
+        "zerogpt": {
+          "strict_bypass_count": 0,
+          "strict_bypass_rate_percent": 0,
+          "mean_native_human_score": 12.142000000000001,
+          "median_native_human_score": 2.700000000000003
+        }
+      }
+    }
+  ],
+  "source_files": {
+    "scores.csv": "dfd2178b7d625683e77dc305ae5a5d70ce8065bb1a85e5a11380932ab0452c9b",
+    "source-texts.csv": "983e4abb98e15cbd5f06c51e8ca987cbac817d4215a720abafdcef6155bcbe73",
+    "output-commitments.csv": "3f5ba820014ccf3d25311b415fdc846cef4337d9ff1248b90585c77f34b37f52"
+  }
+}

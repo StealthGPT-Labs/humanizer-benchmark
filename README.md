@@ -2,6 +2,10 @@
 
 This repository publishes dated benchmarks of [StealthGPT](https://stealthgpt.ai/) outputs. AI-detection performance and writing quality are measured separately.
 
+## November 2026 edition
+
+The latest report compares 15 humanizers on 50 identical frozen inputs. It publishes anonymized scores, source/output hash commitments, per-humanizer files and a standalone verifier, while withholding humanized text and internal quality logic. November combines weighted detector bypass (70%) with provisional automated quality (30%); earlier reports retain their original rules and are not directly comparable. [Results and verification](reports/2026-11-17-humanizer-comparison/).
+
 ## AI detectors
 
 Every output is evaluated through the APIs of:
@@ -35,7 +39,7 @@ Human scores are vendor-specific and are not directly comparable across detector
 | Syntax integrity | Sentences are grammatically complete and free of disruptive run-ons or punctuation errors. |
 | Stance preservation | The source’s position, tone, and intent are not reversed or distorted. |
 
-A quality pass means no issue remained in that dimension after automated inspection, correction, and re-inspection. Internal models, prompts, scoring logic, and thresholds are not disclosed.
+For the earlier pass/fail editions, a quality pass means no issue remained in that dimension after automated inspection, correction, and re-inspection. Internal models, prompts, scoring logic, and thresholds are not disclosed.
 
 ## Benchmark rules
 
@@ -45,6 +49,8 @@ A quality pass means no issue remained in that dimension after automated inspect
 - Each report states its sample size, language, selection method, Humanizer model, and date.
 
 ## Reports
+
+- [November 17, 2026 — 15-humanizer comparison](reports/2026-11-17-humanizer-comparison/)
 
 - [October 22, 2026 — Humanizer comparison](reports/2026-10-22-humanizer-comparison/)
 - [September 30, 2026 — Humanizer comparison](reports/2026-09-30-humanizer-comparison/)

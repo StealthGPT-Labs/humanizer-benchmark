@@ -1,0 +1,40 @@
+{
+  "status": "operator cross-check completed before release",
+  "source_texts_verified": 50,
+  "captured_output_pairs_verified": 750,
+  "unique_output_hashes": 750,
+  "checks": [
+    "Exact UTF-8 input/output SHA-256 values recomputed from the retained private text",
+    "Every output matches the saved humanizer collection master",
+    "All five saved detector tables match the same output text, hashes and native detector values",
+    "Every public field matches the saved scored master",
+    "Exactly 50 samples per humanizer; no pilot or public-tool Grammarly cohort substituted"
+  ],
+  "private_evidence_commitments": {
+    "humanizer_capture_master_sha256": "f4e81c3434da9cb5072b4dfb18b8a3b8207996cd9c6d94c6d3301abf8fa4e7bd",
+    "scored_master_sha256": "a0a897dfc7f20802fee13b65f6e81393797e3a3632c2099501a140b45cd1dd1d",
+    "detector_tables": {
+      "gptzero": {
+        "records_verified": 750,
+        "file_sha256": "67a42920aac5351942467934b3f44d21dc38787695ce101946e2a18d07cbbcc0"
+      },
+      "pangram": {
+        "records_verified": 750,
+        "file_sha256": "61d5d9102ddf651ad48a2cf03699097f6f739585d62d0aa17c5d904752a32bc4"
+      },
+      "originality": {
+        "records_verified": 750,
+        "file_sha256": "a197e7c92e7f6115dbf8694de65e1d19a3b177c89d9537154b4f70806b42fa51"
+      },
+      "winston": {
+        "records_verified": 750,
+        "file_sha256": "293bfbd177376fd36d16d3b9e28524aa682482fdfe1b14a3472bff0d833b7a4e"
+      },
+      "zerogpt": {
+        "records_verified": 750,
+        "file_sha256": "78e17648ac906c5dcf3ed83b0f97cc2a5e2ee52fa4d475d397c3b9ed047f316e"
+      }
+    }
+  },
+  "public_limit": "These operator-generated hashes commit to retained files; they are not vendor-signed attestations or independent third-party validation. Private output text and raw account/API records are withheld."
+}

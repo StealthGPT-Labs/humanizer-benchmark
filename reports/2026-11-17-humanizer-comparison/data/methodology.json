@@ -1,0 +1,49 @@
+{
+  "version": "overall-additive-humanization70-quality30-v1",
+  "created_at": "2026-11-17T09:07:27.006530+00:00",
+  "formula": "0.70 * weighted_bypass_score + 0.30 * provisional_quality_score",
+  "humanization_weight_percent": 70,
+  "quality_weight_percent": 30,
+  "bypass_detector_weights_percent": {
+    "pangram": 40,
+    "gptzero": 30,
+    "originality": 20,
+    "winston": 5,
+    "zerogpt": 5
+  },
+  "previous_formula": "bypass * quality /100, retained separately",
+  "policy_change": "Humanization prioritized following user request; 70/30 selected as implementation choice",
+  "quality_status": "Automated quality scores; all original review flags retained",
+  "frozen_text_and_all_previous_measurements_preserved": true,
+  "rows": 750,
+  "humanizers": 15,
+  "outputs_each": 50,
+  "new_api_calls": 0,
+  "published_file_hashes": {
+    "scores.csv": "dfd2178b7d625683e77dc305ae5a5d70ce8065bb1a85e5a11380932ab0452c9b",
+    "source-texts.csv": "983e4abb98e15cbd5f06c51e8ca987cbac817d4215a720abafdcef6155bcbe73",
+    "output-commitments.csv": "3f5ba820014ccf3d25311b415fdc846cef4337d9ff1248b90585c77f34b37f52"
+  },
+  "quality_weights_percent": {
+    "completeness": 10,
+    "factual_consistency": 10,
+    "grammar_syntax": 10,
+    "hallucination_free": 5,
+    "meaning": 20,
+    "readability": 25,
+    "stance_preservation": 5,
+    "structure": 15
+  },
+  "evidence_review_outputs": 602,
+  "policy_status": "Post-run editorial weights; not preregistered or calibrated on a held-out human corpus",
+  "metadata_version": "November 2026 methodology v2",
+  "quality_publication_scope": "Metric definitions, weights and per-output scores only; proprietary evaluation instructions and implementation details are not published.",
+  "report_id": "2026-11-17-humanizer-comparison",
+  "strict_pass_rules": {
+    "pangram": "pangram_prediction == Human",
+    "gptzero": "gptzero_predicted_class == human",
+    "originality": "originality_prediction_label == human",
+    "winston": "winston_human_score >= 80; benchmark mapping, not a native categorical verdict",
+    "zerogpt": "Unqualified Human Written or Most Likely Human written feedback only"
+  }
+}
