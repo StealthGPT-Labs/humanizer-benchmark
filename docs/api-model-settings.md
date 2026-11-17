@@ -9,7 +9,7 @@ Documentation checked: **November 16, 2026**. These are proposed next-run profil
 - Phrasly is on hold until Ultra access arrives. Retain its Ultra/Max target and credentials, but do not run Standard as a substitute.
 - Confirm top-tier account access before execution. Never silently fall back to Standard, a legacy model, or a weaker mode.
 - Record exact request settings, returned model/version, and vendor-native score meanings. A vendor-managed default is explicitly labeled when no version selector exists.
-- Originality5.0 and Turbo are requested; Max is not selected. The live Turbo selector returned model-5.0, so distinct Turbo access is not verified. Final panel/weights remain pending; historical reports stay unchanged.
+- Originality5.0 is the only selected Originality detector. Turbo was removed at the owner’s request; Max is excluded. Final panel/weights remain pending; historical reports stay unchanged.
 - Provider-ranked first results are selected before external detector scoring. Do not reroll or choose outputs based on detector results.
 - API-key presence does not establish correct authentication, credits, model entitlement, or an implemented runner.
 
@@ -513,36 +513,6 @@ Public request template (placeholders only; not an executable benchmark client):
 - [Detect AI in text — current endpoint schema](https://docs.gptzero.me/api-reference/POST/v2/predict/text.md)
 - [List model versions](https://docs.gptzero.me/api-reference/GET/v2/model-versions/ai-scan.md)
 - [Quickstart](https://docs.gptzero.me/quickstart)
-
-### originality
-
-**Model:** Turbo selector requested; distinct backend not confirmed
-**Strength/mode:** Requested Turbo; live response identified model-5.0
-**Documentation:** needs_confirmation; key authentication and requested model are tracked separately.
-
-**Endpoint:** `POST https://api.originality.ai/api/v3/scan`
-**Authentication:** `X-OAI-API-KEY: <ORIGINALITY_API_KEY>; Content-Type: application/json`
-
-```json
-{
-  "title": "Benchmark <sample_id>",
-  "content": "<output_text>",
-  "check_ai": true,
-  "check_plagiarism": false,
-  "check_facts": false,
-  "check_readability": false,
-  "check_grammar": false,
-  "storeScan": false,
-  "aiModelVersion": "turbo"
-}
-```
-
-Record results.ai.model. The minimum live request using turbo returned model-5.0. Do not claim a distinct Turbo backend or count this as a second detector until resolved.
-
-- Resolve the requested Turbo versus returned model-5.0 mismatch before benchmark execution. No automatic Max or5.0 substitution, and no double-counting.
-
-- [Originality API model selectors and legacy aliases](https://docs.originality.ai/originality-ai-api-v1.md?plain=1)
-- [V3 scan contract and returned model](https://docs.originality.ai/scan.md?plain=1)
 
 ### originality5
 

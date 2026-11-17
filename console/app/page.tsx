@@ -154,7 +154,7 @@ export default async function Page() {
                   <tbody>{status.humanizers.map((provider) => <tr key={provider.id}><th scope="row">{provider.name}{provider.participation.status !== 'planned' ? <small className={`table-participation ${provider.participation.status}`}>{provider.participation.status === 'blocked' ? 'Blocked' : 'On hold'}: {provider.participation.reason}</small> : null}</th><td><code>{provider.envKey}</code></td><td><KeyTableStatus configured={provider.configured} validation={provider.keyValidation} /></td></tr>)}</tbody>
                 </table>
               </div>
-              <div className="roster-note"><span className="note-dot" aria-hidden="true" /><p>Ryne is excluded from the new run. The additional humanizer is still to be chosen.</p></div>
+              <div className="roster-note"><span className="note-dot" aria-hidden="true" /><p>Ryne is excluded from the new run. Four additional humanizers will be run manually; their outputs will be included in evaluation.</p></div>
               <div className="table-scroll" tabIndex={0} role="region" aria-label="Detector key configuration">
                 <table className="provider-table">
                   <caption>AI detectors</caption>
@@ -169,13 +169,13 @@ export default async function Page() {
                   <tbody>{status.supportServices.map((provider) => <tr key={provider.id}><th scope="row">{provider.name}</th><td><code>{provider.envKey}</code></td><td><KeyTableStatus configured={provider.configured} validation={provider.keyValidation} /></td></tr>)}</tbody>
                 </table>
               </div>
-              <p className="section-footnote">Present means a value is configured. Verified means the current key has a successful recorded check; open Check details for its scope and limitations. Both Originality models use the same API key.</p>
+              <p className="section-footnote">Present means a value is configured. Verified means the current key has a successful recorded check; open Check details for its scope and limitations. Originality uses only the 5.0 detector.</p>
             </section>
 
             <section className="surface detector-profile-section" aria-labelledby="detector-models-title">
               <div className="section-heading"><div><h2 id="detector-models-title">Detector model settings</h2><p>Review the requested model and version handling for each detector.</p></div></div>
               <div className="provider-profiles">{status.detectors.map((provider) => <ProviderProfile key={provider.id} provider={provider} compact />)}</div>
-              <p className="section-footnote">Model access is recorded separately for each detector. The Originality panel uses 5.0 and Turbo.</p>
+              <p className="section-footnote">Model access is recorded separately for each detector. Originality uses 5.0 only.</p>
             </section>
 
             <section className="surface quality-section" aria-labelledby="quality-title">
@@ -189,7 +189,7 @@ export default async function Page() {
             <section className="run-sheet" aria-labelledby="run-title">
               <h2 id="run-title">Next run</h2>
               <p className="sheet-intro">Setup is open. Execution stays locked until your final instructions are complete.</p>
-              <dl className="run-details"><div><dt>Reference format</dt><dd>{status.referenceReport.label}</dd></div><div><dt>Humanizers</dt><dd>{status.roster.plannedHumanizers} planned, {status.roster.onHoldHumanizers} on hold<br />{status.roster.blockedHumanizers} blocked, 1 to choose</dd></div><div><dt>Detector models</dt><dd>6</dd></div><div><dt>Scoring weights</dt><dd>To be defined</dd></div></dl>
+              <dl className="run-details"><div><dt>Reference format</dt><dd>{status.referenceReport.label}</dd></div><div><dt>Humanizers</dt><dd>{status.roster.plannedHumanizers} planned, {status.roster.onHoldHumanizers} on hold<br />{status.roster.blockedHumanizers} blocked, 4 manual</dd></div><div><dt>Detector models</dt><dd>{status.detectors.length}</dd></div><div><dt>Scoring weights</dt><dd>To be defined</dd></div></dl>
               <div className="pending-heading">Before execution</div>
               <ul className="pending-list">{status.blockers.map((blocker) => <li key={blocker}><span aria-hidden="true" />{blocker}</li>)}</ul>
               <button className="button run-button" disabled><LockIcon />Run benchmark</button>

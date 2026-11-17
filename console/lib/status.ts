@@ -19,7 +19,6 @@ const HUMANIZERS = [
 const DETECTORS = [
   { id: 'pangram', name: 'Pangram', envKey: 'PANGRAM_API_KEY' },
   { id: 'gptzero', name: 'GPTZero', envKey: 'GPTZERO_API_KEY' },
-  { id: 'originality', name: 'Originality.ai Turbo', envKey: 'ORIGINALITY_API_KEY' },
   { id: 'originality5', name: 'Originality.ai 5.0', envKey: 'ORIGINALITY_API_KEY' },
   { id: 'zerogpt', name: 'ZeroGPT', envKey: 'ZEROGPT_API_KEY' },
   { id: 'winston', name: 'Winston AI', envKey: 'WINSTON_API_KEY' },
@@ -62,7 +61,7 @@ export function getConsoleStatus(env: Environment = process.env) {
       message: 'Waiting for your final benchmark instructions.',
     },
     referenceReport: { id: '2026-10-22-humanizer-comparison', label: 'October 22, 2026' },
-    blockers: ['Choose the humanizer to add.', 'Define the detector-strength weights.', 'Confirm model settings and account access.', 'Finalize the remaining run instructions.'],
+    blockers: ['Include outputs from the four manual humanizers.', 'Define the detector-strength weights.', 'Confirm model settings and account access.', 'Finalize the remaining run instructions.'],
     modelPolicy: { ...modelPolicy, verifiedAccountCount: providers.filter(provider => provider.keyValidation.modelAccess === 'confirmed').length },
     roster: {
       plannedHumanizers: humanizers.filter(provider => provider.participation.status === 'planned').length,

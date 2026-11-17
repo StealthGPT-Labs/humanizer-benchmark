@@ -506,51 +506,6 @@
     "accountAccess": "not_checked"
   },
   {
-    "id": "originality",
-    "modelLabel": "Turbo selector requested; distinct backend not confirmed",
-    "strengthLabel": "Requested Turbo; live response identified model-5.0",
-    "verificationStatus": "needs_confirmation",
-    "endpoint": "https://api.originality.ai/api/v3/scan",
-    "method": "POST",
-    "authScheme": "X-OAI-API-KEY: <ORIGINALITY_API_KEY>; Content-Type: application/json",
-    "requestExample": {
-      "title": "Benchmark <sample_id>",
-      "content": "<output_text>",
-      "check_ai": true,
-      "check_plagiarism": false,
-      "check_facts": false,
-      "check_readability": false,
-      "check_grammar": false,
-      "storeScan": false,
-      "aiModelVersion": "turbo"
-    },
-    "polling": "Same synchronous V3 scan endpoint; no separate model-specific polling documented.",
-    "versionRecording": "Record results.ai.model. The minimum live request using turbo returned model-5.0. Do not claim a distinct Turbo backend or count this as a second detector until resolved.",
-    "limits": [
-      "Minimum documented scan length:50 words.",
-      "Turbo alias billing and legacy model compatibility require confirmation."
-    ],
-    "notes": [
-      "The requested panel is Originality5.0 and Turbo. Max is not selected. Both requests use the V3 scan endpoint with different aiModelVersion values.",
-      "The Turbo request returned HTTP200 but results.ai.model=model-5.0 and text-share fields. This verifies key acceptance, not a distinct Turbo model."
-    ],
-    "blockers": [
-      "Resolve the requested Turbo versus returned model-5.0 mismatch before benchmark execution. No automatic Max or5.0 substitution, and no double-counting."
-    ],
-    "sources": [
-      {
-        "url": "https://docs.originality.ai/originality-ai-api-v1.md?plain=1",
-        "title": "Originality API model selectors and legacy aliases"
-      },
-      {
-        "url": "https://docs.originality.ai/scan.md?plain=1",
-        "title": "V3 scan contract and returned model"
-      }
-    ],
-    "checkedDate": "2026-11-16",
-    "accountAccess": "not_checked"
-  },
-  {
     "id": "originality5",
     "modelLabel": "Originality.ai 5.0",
     "strengthLabel": "Requested Originality5.0 detector",

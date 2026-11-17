@@ -16,7 +16,7 @@ Matching same-day checks from the API-plan review were reused to avoid duplicate
 
 Do not overwrite `BENCHMARK_KEY_VERIFICATIONS` when importing provider keys. Rotating the owner password requires refreshing these verification records.
 
-The policy is to prefer the provider-documented best humanizing effect, otherwise use its most aggressive supported mode, confirm account access, and stop rather than silently downgrade. HIX uses API v2 with `mode: "Latest"` because the vendor describes it as the most effective humanization technology; Aggressive is a separate extensive-rewriting alternative. Phrasly is on hold until Ultra access arrives, with its credentials and Ultra/Max target retained; Standard must not be substituted. The requested Originality models are5.0 and Turbo, with no Max substitution. A minimum live Turbo request returned model-5.0; resolve this mismatch before using it as a distinct detector. Final panel membership and weights remain pending. Historical reports are unchanged.
+The policy is to prefer the provider-documented best humanizing effect, otherwise use its most aggressive supported mode, confirm account access, and stop rather than silently downgrade. HIX uses API v2 with `mode: "Latest"` because the vendor describes it as the most effective humanization technology; Aggressive is a separate extensive-rewriting alternative. Phrasly is on hold until Ultra access arrives, with its credentials and Ultra/Max target retained; Standard must not be substituted. Originality5.0 is the only selected Originality detector. Turbo was removed at the owner’s request; Max is excluded. Final panel membership and weights remain pending. Historical reports are unchanged.
 
 ## Access
 
