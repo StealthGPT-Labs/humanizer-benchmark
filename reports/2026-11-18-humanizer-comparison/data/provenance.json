@@ -1,0 +1,50 @@
+{
+  "status": "operator cross-check completed before release",
+  "source_texts_verified": 50,
+  "captured_output_pairs_verified": 800,
+  "unique_output_hashes": 800,
+  "checks": [
+    "Exact UTF-8 input/output SHA-256 values recomputed from the retained private text",
+    "Every output matches the saved humanizer collection master",
+    "All five saved detector tables match the same output text, hashes and native detector values",
+    "Every public field matches the saved scored master",
+    "Exactly 50 samples per humanizer; no pilot or public-tool Grammarly cohort substituted"
+  ],
+  "private_evidence_commitments": {
+    "humanizer_capture_master_sha256": "671901de7a9878d36e5729b259b5daa9d834c0b89c4f4a3a569fae499f1bc3f2",
+    "scored_master_sha256": "f24bd12083501c9042c8d73137e58a67e3080abf6c9034e5969bb48a5bb60f27",
+    "detector_tables": {
+      "pangram": {
+        "records_verified": 800,
+        "file_sha256": "f4e9d044d809a2a5e0022dfe6aa8704e054ed7a9adf8c116b82dda46c4c35047"
+      },
+      "gptzero": {
+        "records_verified": 800,
+        "file_sha256": "20b6af2ffd0d6af4e453337403a82594b8b47eb443192ed6022e856963b4bd9c"
+      },
+      "originality": {
+        "records_verified": 800,
+        "file_sha256": "3d4f3ef97b1015bdd9fd9d1dcf9e570458b4411d01d73ef00210538dc7931d73"
+      },
+      "winston": {
+        "records_verified": 800,
+        "file_sha256": "d18c0965bbae38faf5bd14b7296e07d6e12ebba69a6fabe166509e1a6d092b26"
+      },
+      "zerogpt": {
+        "records_verified": 800,
+        "file_sha256": "afa36444a5318d32a022d2f309b54ad19a88fb998a9b9f38635d82aec6e4a029"
+      }
+    }
+  },
+  "public_limit": "These operator-generated hashes commit to retained files; they are not vendor-signed attestations or independent third-party validation. Private output text and raw account/API records are withheld.",
+  "continuation": {
+    "baseline_report": "2026-11-17-humanizer-comparison",
+    "baseline_scores_sha256": "dfd2178b7d625683e77dc305ae5a5d70ce8065bb1a85e5a11380932ab0452c9b",
+    "baseline_scores_prefix_bytes": 301610,
+    "prior_outputs_unchanged": 750,
+    "added_humanizer": "superhumanizer",
+    "added_outputs": 50,
+    "added_collection_date": "2026-11-18",
+    "original_scores_rerun": false
+  }
+}
