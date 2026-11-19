@@ -4,7 +4,7 @@ This repository publishes dated benchmarks of [StealthGPT](https://stealthgpt.ai
 
 ## November 2026 edition
 
-The latest report compares 15 humanizers on 50 identical frozen inputs. It publishes anonymized scores, source/output hash commitments, per-humanizer files and a standalone verifier, while withholding humanized text and internal quality logic. November combines weighted detector bypass (70%) with provisional automated quality (30%); earlier reports retain their original rules and are not directly comparable. [Results and verification](reports/2026-11-17-humanizer-comparison/).
+The latest report compares 16 humanizers on 50 identical frozen inputs. It publishes anonymized scores, source/output hash commitments, per-humanizer files and a standalone verifier, while withholding humanized text and internal quality logic. November combines weighted detector bypass (70%) with provisional automated quality (30%); earlier reports retain their original rules and are not directly comparable. [Results and verification](reports/2026-11-18-humanizer-comparison/).
 
 ## AI detectors
 
@@ -49,6 +49,8 @@ For the earlier pass/fail editions, a quality pass means no issue remained in th
 - Each report states its sample size, language, selection method, Humanizer model, and date.
 
 ## Reports
+
+- [November 18, 2026 — 16-humanizer comparison, Superhumanizer added](reports/2026-11-18-humanizer-comparison/)
 
 - [November 17, 2026 — 15-humanizer comparison](reports/2026-11-17-humanizer-comparison/)
 
