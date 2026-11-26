@@ -1,0 +1,74 @@
+{
+  "status": "operator cross-check completed before release",
+  "source_texts_verified": 50,
+  "captured_output_pairs_verified": 850,
+  "unique_output_hashes": 850,
+  "checks": [
+    "Exact UTF-8 input and output hashes recomputed from privately retained text.",
+    "All 850 score rows cross-checked against the private scored master.",
+    "All five detector tables bind to the same provider, sample and output hashes.",
+    "All 800 prior score rows and 16 provider files are byte-preserved.",
+    "Exactly 50 outputs per provider use the same frozen input set."
+  ],
+  "private_evidence_commitments": {
+    "humanizer_capture_master_sha256": "45ad517c0c87804e8a86cbfa5624236bd7b1d2cd549747e9b44769bdc2535dba",
+    "scored_master_sha256": "1dbf2be98091e8804fcfdc6454344017dd5a3c234a3cd883c8f7ad6fc2a4b2d8",
+    "detector_tables": {
+      "pangram": {
+        "records_verified": 850,
+        "file_sha256": "ae27edd0c6931b03743ad3cbc815e8e4b0f8449389b017abfaed014974449787"
+      },
+      "gptzero": {
+        "records_verified": 850,
+        "file_sha256": "03e5b23ff0722068dbaf35162d0f41c694900befa1f67d869622c9cf0438a12d"
+      },
+      "originality": {
+        "records_verified": 850,
+        "file_sha256": "3f78ece30aacbba9abc2ad222d418605533d79e0553e036b5efad85ee8c78fa4"
+      },
+      "winston": {
+        "records_verified": 850,
+        "file_sha256": "c3f2d543aa172a318b42806c03a2b741996ca33aa805acae93631f703c39adad"
+      },
+      "zerogpt": {
+        "records_verified": 850,
+        "file_sha256": "6adbcd2e69b86ac6dd7913e8b9f6f32451c38d3c3d8c3f286aa89e3a644ebc1c"
+      }
+    }
+  },
+  "public_limit": "Operator-generated hashes commit to retained files; they are not vendor-signed attestations or independent validation of private quality judgments. Private output text and raw API records are withheld.",
+  "continuation": {
+    "baseline_report": "2026-11-18-humanizer-comparison",
+    "baseline_scores_sha256": "2c097d8529edb30da5ad8ef7144d1da53a7ae63eaac445f95dd258c9d6868d0b",
+    "baseline_scores_prefix_bytes": 322085,
+    "prior_outputs_unchanged": 800,
+    "baseline_humanizer_csv_sha256": {
+      "bypassgpt": "a21ebe4dc57bbe677f473db4de5b058088f1298aae5f3c0357f6e6e9afc79b64",
+      "clever": "3cd826df00165a5f385e680f16ff22e0358f116daaf4264ae14b544e0d0ebc58",
+      "grammarly-pro": "1ab6044aa7d436bd5b878ca7f674d149a93b5c4a9837ed242f26aa87dbbfc7cd",
+      "grubby": "5d03134b2d4396d16d7ffb99fcc591ff3eee6d5ccd98737ed7f2bd59d407df69",
+      "hix": "5fbe3e1caba2d9c83c8de88f9234aa244579fef37edf6347d58d94332a86292c",
+      "humbot": "6dcfaba17797e8e5028fc43be54967c38c7b74e962cbf3aada78efdc14fff956",
+      "phrasly": "7d883796ef84776f816a8115185861f2258ba50fc3cc0f5c3841d9df26d10af1",
+      "quillbot": "c801ec44ec5c0cd4fde6408fc00cb16ea61a7680023254347289ec5eeec70d22",
+      "rephrasy": "11b723e1d9f78b55d83d0e1487f322cc83f4beebdf77b2b4509e9f976301d899",
+      "rewriteai": "8a149371af72022e5621bd9c59dedf677a582cbfc4464b8cc76d20af175e2cbc",
+      "solvely": "89441ce4ba954304e90f81564ad4bc5ddaea81b02f8fea4bea9616962e1fdab8",
+      "stealth": "86eb45e66a61df817c6412a4ebafd54f1f85071f2d730ddd607ef949dd7dcc4b",
+      "superhumanizer": "39cca1987efee38a110e284953f94a0e36ea4ba2adc77d938c13e6843830dea5",
+      "undetectableai": "2b9df17cd8185d67a827014fe2647eb1b3423ad7286e7d3e29b3e131ed4767d5",
+      "writehuman": "09107f53ab3485faffaaf3491847511b8fac9c9e996823a6df1ed3bcec0d1790",
+      "zerogpt-humanizer": "33422233583abebd6ee1d7e9d61e390eda2e90edc43ad0c8ebad26978b13f73b"
+    },
+    "original_750": {
+      "baseline_report": "2026-11-17-humanizer-comparison",
+      "scores_prefix_sha256": "dfd2178b7d625683e77dc305ae5a5d70ce8065bb1a85e5a11380932ab0452c9b",
+      "scores_prefix_bytes": 301610,
+      "outputs_unchanged": 750
+    },
+    "added_humanizer": "gpthuman",
+    "added_outputs": 50,
+    "added_collection_date": "2026-11-26",
+    "original_scores_rerun": false
+  }
+}
